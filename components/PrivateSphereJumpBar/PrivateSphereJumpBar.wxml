@@ -1,0 +1,5 @@
+<view bindtap="handleClick" class="top_jump" wx:if="{{$taroCompReady}}">
+    <view class="img_icon"></view>
+    <text class="text" decode="{{true}}">{{title}}</text>
+    <view class="right_btn">咨询</view>
+</view>

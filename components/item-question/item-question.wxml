@@ -1,0 +1,78 @@
+<view catchtap="anonymousFunc0" class="recommend_item_box join_item" data-item="{{itemDataNew}}" wx:if="{{$taroCompReady}}">
+    <image catchtap="anonymousFunc1" class="moreOperationImg" src="https://xcxresources.xybsyw.com/xcx/images/item_more_arro.png" wx:if="{{isMoreOperationShow}}"></image>
+    <view class="header_warp">
+        <view catchtap="anonymousFunc2" class="header" data-item="{{itemDataNew}}">
+            <image binderror="errImg" class="{{true}}" data-err-img="itemDataNew.personPic" src="{{itemDataNew.personPic}}" wx:if="{{itemDataNew.personPic}}"></image>
+            <image class="logo" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!itemDataNew.personPic}}"></image>
+        </view>
+        <view class="user_name">
+            <view catchtap="anonymousFunc3" class="inline_block" data-item="{{itemDataNew}}">
+                <text class="name single_text">{{itemDataNew.creatorName}}</text>
+                <image class="icon_certification" wx:if="{{itemDataNew.activated}}"></image>
+                <view class="schoolroll2" style="{{'color:'+tagInfo.fontColor+';background:'+tagInfo.backgroundColor+';'}}" wx:if="{{tagInfo}}">
+                    <text class="icon icon-pingtairenzhengtubiao" style="{{'color:'+tagInfo.fontColor+';'}}"></text>{{tagInfo.identityName}}</view>
+                <text class="identity single_text" wx:if="{{isXyq&&itemDataNew.creatorType==1&&itemDataNew.studentType==1}}">在校生</text>
+                <text class="identity single_text" wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==1&&itemDataNew.schoolName}}">{{itemDataNew.schoolName}}<text wx:if="{{itemDataNew.professionName}}">{{'·'+itemDataNew.professionName}}</text>
+                </text>
+                <text class="identity single_text" wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==2&&(itemDataNew.positionName||itemDataNew.enterpriseName)}}">{{itemDataNew.enterpriseName+itemDataNew.positionName}}</text>
+                <text class="identity single_text" wx:if="{{isXyq&&itemDataNew.creatorType==2}}">教师</text>
+            </view>
+        </view>
+    </view>
+    <view class="question_warp0">
+        <view class="question_contaner">
+            <rich-text class="question_text max_line2" nodes="{{itemDataNew.title}}"></rich-text>
+        </view>
+    </view>
+    <view class="showAll_parent">
+        <rich-text class="anster_info max_line2" id="{{'anster_info'+itemIndex}}" nodes="{{!isXyq?itemDataNew.answerContent:itemDataNew.content}}"></rich-text>
+        <view class="showAll" wx:if="{{itemDataNew.overEight}}">
+            <text class="showAll_point">...</text>
+            <text class="showAll_text">全文</text>
+        </view>
+    </view>
+    <block wx:if="{{itemDataNew.imgList&&itemDataNew.imgList.length>0}}">
+        <view class="item_img_warp one_img" wx:if="{{itemDataNew.imgList.length==1}}">
+            <image binderror="listImgError" bindload="imageLoad" catchtap="anonymousFunc4" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}" style="{{'width:'+images.width+'rpx; height:'+images.height+'rpx;border-radius: 8rpx;'}}"></image>
+        </view>
+        <view class="item_img_warp two_img width_297" wx:if="{{itemDataNew.imgList.length==2}}">
+            <image binderror="listImgError" catchtap="anonymousFunc5" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc6" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+        </view>
+        <view class="item_img_warp three_img width_194" wx:if="{{itemDataNew.imgList.length>=3}}">
+            <image binderror="listImgError" catchtap="anonymousFunc7" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc8" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc9" class="no_data_img" data-imgindex="2" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[2]}}"></image>
+            <text catchtap="anonymousFunc10" class="more_img_tip" data-imgindex="2" data-index="{{index}}" wx:if="{{itemDataNew.imgList.length>3}}">{{'+'+itemDataNew.imgList.length-3}}</text>
+        </view>
+    </block>
+    <view catchtap="anonymousFunc11" class="tagView21" data-dto="{{itemDataNew.talkTypeDTO}}" wx:if="{{!isTopic&&itemDataNew.talkTypeDTO}}">
+        <image class="newIcon" role="img" src="https://xcxresources.xybsyw.com/xcx/images/tag_icon_new.png" wx:if="{{itemDataNew.talkTypeDTO.top}}"></image>
+        <text class="tagContent">
+            <text class="icon icon-icon-test icon3"></text>{{itemDataNew.talkTypeDTO.name}}</text>
+        <view class="tag_line"></view>
+        <text catchtap="anonymousFunc12" class="tag_fllow" wx:if="{{!itemDataNew.talkFollowFlag}}">关注</text>
+        <text class="tag_fllow2" wx:if="{{itemDataNew.talkFollowFlag}}">已关注</text>
+    </view>
+    <view catchtap="anonymousFunc13" class="zan_ctrl" data-item="{{itemDataNew}}">
+        <view class="left_zan">
+            <view class="tag_comment">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_liulan.png"></image>
+                <text class="comment_text">{{itemData.totalBrowse==0?'浏览':itemData.totalBrowse}}</text>
+            </view>
+            <view class="tag_awesome">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_comment.png"></image>
+                <text class="awesome_text">{{itemDataNew.answerNum==0?'回答':itemDataNew.answerNum}}</text>
+            </view>
+            <view catchtap="anonymousFunc14" class="tag_comment" data-id="{{itemDataNew.id}}" data-status="{{itemDataNew.praise}}">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.praise}}"></image>
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.praise}}"></image>
+                <view class="tag_awesome">
+                    <image binderror="{{true}}" bindload="{{true}}" class="like_gif" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                    <text class="like_gif_bkg" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                    <text class="{{'awesome_text '+(itemDataNew.praise?'awesome_text_red':'')}}">{{itemDataNew.totalPraise==0||itemDataNew.totalPraise==null?'赞':itemDataNew.totalPraise}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

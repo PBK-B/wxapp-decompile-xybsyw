@@ -1,0 +1,16 @@
+<popup compid="{{$compid__908}}" wx:if="{{$taroCompReady}}">
+    <view catchtouchmove="anonymousFunc0" class="popup-wrap">
+        <view class="popup-title">
+            <text>选择不喜欢原因，获取精准推荐</text>
+            <van-icon __fn_onClick="{{true}}" bindclick="anonymousFunc1" customClass="close-icon" name="cross" size="36rpx"></van-icon>
+        </view>
+        <view class="popup-list">
+            <view bindtap="anonymousFunc2" class="popup-item" data-id="{{0}}" hoverClass="popup-item-active">不符合求职期望</view>
+            <view bindtap="anonymousFunc3" class="popup-item" data-id="{{1}}" hoverClass="popup-item-active">工作地点太远</view>
+            <view bindtap="anonymousFunc4" class="popup-item" data-id="{{2}}" hoverClass="popup-item-active">薪资不满意</view>
+            <view bindtap="anonymousFunc5" class="popup-item" data-id="{{3}}" hoverClass="popup-item-active">对公司不感兴趣</view>
+            <view bindtap="anonymousFunc6" class="popup-item" data-id="{{4}}" hoverClass="popup-item-active">行业不匹配</view>
+            <view bindtap="anonymousFunc7" class="popup-item" data-id="{{5}}" hoverClass="popup-item-active">其他原因</view>
+        </view>
+    </view>
+</popup>

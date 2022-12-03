@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "jobset": "./inc/jobset/jobset",
+        "at-switch": "../../../../npm/taro-ui/dist/weapp/components/switch/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "设置"
+}

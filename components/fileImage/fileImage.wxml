@@ -1,0 +1,5 @@
+<block wx:if="{{$taroCompReady}}">
+    <image src="https://xcxresources.xybsyw.com/xcx/images/ic_word112x140.png" style="{{_$anonymousState__temp}}" wx:if="{{anonymousState__temp}}"></image>
+    <image src="https://xcxresources.xybsyw.com/xcx/images/ic_pdf_img.png" style="{{_$anonymousState__temp2}}" wx:elif="{{anonymousState__temp3}}"></image>
+    <image src="https://xcxresources.xybsyw.com/xcx/images/ic_word_img_112x140.png" style="{{_$anonymousState__temp3}}" wx:elif="{{anonymousState__temp5}}"></image>
+</block>

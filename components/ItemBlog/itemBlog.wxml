@@ -1,0 +1,63 @@
+<view catchtap="anonymousFunc0" class="recommend_item_box" data-item="{{itemDataNew}}" wx:if="{{$taroCompReady}}">
+    <view class="header_warp">
+        <view catchtap="anonymousFunc1" class="header" data-item="{{itemDataNew}}">
+            <image binderror="errImg" class="{{true}}" data-err-img="itemDataNew.blogUserImgUrl" src="{{itemDataNew.blogUserImgUrl}}" wx:if="{{itemDataNew.blogUserImgUrl}}"></image>
+            <image class="logo" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!itemDataNew.blogUserImgUrl}}"></image>
+        </view>
+        <view class="user_name">
+            <view catchtap="anonymousFunc2" class="inline_block" data-item="{{itemDataNew}}">
+                <text class="name single_text">{{itemDataNew.blogUsername}}</text>
+                <image class="icon_certification" wx:if="{{itemDataNew.auth==3}}"></image>
+                <view class="schoolroll2" style="{{'color:'+tagInfo.fontColor+';background:'+tagInfo.backgroundColor+';'}}" wx:if="{{tagInfo}}">
+                    <text class="icon icon-pingtairenzhengtubiao" style="{{'color:'+tagInfo.fontColor+';'}}"></text>{{tagInfo.identityName}}</view>
+                <text class="identity single_text" wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==1&&itemDataNew.schoolName}}">{{itemDataNew.schoolName}}<text wx:if="{{itemDataNew.professionName}}">
+                        <text class="circleIcon"></text>{{itemDataNew.professionName}}</text>
+                </text>
+                <text class="identity single_text" wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==2&&(itemDataNew.positionName||itemDataNew.enterpriseName)}}">{{itemDataNew.enterpriseName+itemDataNew.positionName}}</text>
+                <text class="identity single_text" wx:if="{{itemDataNew.creatorType==2}}">教师</text>
+            </view>
+        </view>
+    </view>
+    <view class="titleItem">
+        <rich-text class="{{'question_text '+(itemDataNew.overOneLine?'maxHeightTitle single_text':'')}}" id="{{'question_text'+itemIndex}}" nodes="{{itemDataNew.blogTitle}}"></rich-text>
+        <view class="showAll showAll2" wx:if="{{itemDataNew.overOneLine}}">
+            <text class="showAll_point">...</text>
+        </view>
+    </view>
+    <view class="showAll_parent">
+        <rich-text class="{{'anster_info max_line4 '+(itemDataNew.overFourLine?'maxHeight':'')}}" id="{{'anster_info'+itemIndex}}" nodes="{{itemDataNew.blogBody}}"></rich-text>
+        <view class="{{'showAll '+(ifIphoneX?'showAll_iphonex':'')}}" wx:if="{{itemDataNew.overFourLine}}">
+            <text class="showAll_point">...</text>
+            <text class="showAll_text">全文</text>
+        </view>
+    </view>
+    <block wx:if="{{itemDataNew.blogImgs&&itemDataNew.blogImgs.length>0}}">
+        <view class="item_img_warp one_img" wx:if="{{itemDataNew.blogImgs.length==1}}">
+            <image binderror="listImgError" bindload="imageLoad" catchtap="anonymousFunc3" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[0]}}" style="{{'width:'+images.width+'rpx; height:'+images.height+'rpx;border-radius: 8rpx;'}}"></image>
+        </view>
+        <view class="item_img_warp two_img width_297" wx:if="{{itemDataNew.blogImgs.length==2}}">
+            <image binderror="listImgError" catchtap="anonymousFunc4" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[0]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc5" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[1]}}"></image>
+        </view>
+        <view class="item_img_warp three_img width_194" wx:if="{{itemDataNew.blogImgs.length>=3}}">
+            <image binderror="listImgError" catchtap="anonymousFunc6" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[0]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc7" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[1]}}"></image>
+            <image binderror="listImgError" catchtap="anonymousFunc8" class="no_data_img" data-imgindex="2" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.blogImgs[2]}}"></image>
+            <text catchtap="anonymousFunc9" class="more_img_tip" data-imgindex="2" data-index="{{index}}" wx:if="{{itemDataNew.blogImgs.length>3}}">{{'+'+itemDataNew.blogImgs.length-3}}</text>
+        </view>
+    </block>
+    <view class="zan_ctrl" data-item="{{itemDataNew}}">
+        <view class="blogTypeText" wx:if="{{itemDataNew.blogType==0}}">日志</view>
+        <view class="blogTypeText" wx:if="{{itemDataNew.blogType==1}}">周志</view>
+        <view class="blogTypeText" wx:if="{{itemDataNew.blogType==2}}">月志</view>
+        <view catchtap="anonymousFunc10" class="tag_comment" data-id="{{itemDataNew.blogId}}" data-status="{{itemDataNew.blogUserPraise}}">
+            <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.blogUserPraise}}"></image>
+            <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.blogUserPraise}}"></image>
+            <view class="tag_awesome_bind">
+                <image binderror="{{true}}" bindload="{{true}}" class="like_gif" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                <text class="like_gif_bkg" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                <text class="{{'awesome_text '+(itemDataNew.blogUserPraise?'awesome_text_red':'')}}">{{itemDataNew.blogLikeCount==0||itemDataNew.blogLikeCount==null?'点赞':itemDataNew.blogLikeCount}}</text>
+            </view>
+        </view>
+    </view>
+</view>

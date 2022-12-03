@@ -1,0 +1,42 @@
+<van-popup __fn_onClose="{{true}}" bindclose="onClose" customStyle="border-radius:28rpx 28rpx 0rpx 0rpx;" position="bottom" show="{{isShow}}" wx:if="{{$taroCompReady}}">
+    <view class="actionradio_warp">
+        <view class="title">{{title}} <view catchtap="anonymousFunc0" class="closeIcon"></view>
+        </view>
+        <view class="contentWarp">
+            <view class="optionwarp">
+                <scroll-view scrollY="{{true}}" style="max-height: 400rpx;" wx:if="{{hasAdviser}}">
+                    <block wx:if="{{teacherList}}">
+                        <view class="dataItem" wx:for="{{loopArray622}}">
+                            <view class="item_left">
+                                <image class="header_pic" src="{{item[$original].headPic?item[$original].headPic:'https://xcxresources.xybsyw.com/xcx/images/avatar_man.png'}}"></image>
+                                <text class="name">{{item[$original].name}}</text>
+                            </view>
+                            <view class="item_right">
+                                <image catchtap="makePhoneCall" class="phone" data-e-tap-a-a="{{item[$original].mobile}}" data-e-tap-so="this" src="https://xcxresources.xybsyw.com/teacherXcx/images/askoff_phone.png" wx:if="{{item[$original].mobile}}"></image>
+                                <image bindtap="anonymousFunc1" class="chat" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" src="https://xcxresources.xybsyw.com/teacherXcx/images/askoff_chat.png"></image>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+                <view class="no_adviser" style="height: 450rpx;" wx:if="{{!hasAdviser}}">
+                    <view class="tips">您当前未关联指导老师，可联系立项老师进行关联</view>
+                    <block wx:if="{{teacherList}}">
+                        <view class="dataItem1" wx:for="{{loopArray623}}">
+                            <view class="item_left">
+                                <image class="header_pic" src="{{item[$original].headPic?item[$original].headPic:'https://xcxresources.xybsyw.com/xcx/images/avatar_man.png'}}"></image>
+                                <view class="mgl24">
+                                    <view class="name">{{item[$original].name}}</view>
+                                    <view class="creat">创建人</view>
+                                </view>
+                            </view>
+                            <view class="item_right">
+                                <image catchtap="makePhoneCall" class="phone" data-e-tap-a-a="{{item[$original].mobile}}" data-e-tap-so="this" src="https://xcxresources.xybsyw.com/teacherXcx/images/askoff_phone.png" wx:if="{{item[$original].mobile}}"></image>
+                                <image bindtap="anonymousFunc2" class="chat" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" src="https://xcxresources.xybsyw.com/teacherXcx/images/askoff_chat.png"></image>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</van-popup>

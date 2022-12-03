@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "收藏的宣讲会"
+}

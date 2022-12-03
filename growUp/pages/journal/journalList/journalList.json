@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "van-icon": "../../../../vant-weapp/dist/icon/index",
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationStyle": "custom"
+}

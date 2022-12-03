@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "itemcity": "../../components/item-city/item-city"
+    },
+    "navigationBarTitleText": "选择城市",
+    "navigationBarBackgroundColor": "#fff"
+}

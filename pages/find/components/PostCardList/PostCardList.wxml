@@ -1,0 +1,84 @@
+<block wx:if="{{$taroCompReady}}">
+    <block wx:for="{{loopArray646}}">
+        <briefing-session-card compid="{{item[$compid__921]}}" wx:if="{{index===1&&briefingSessionList.length>0}}"></briefing-session-card>
+        <double-choice-session-card compid="{{item[$compid__922]}}" wx:if="{{index===2&&briefingSessionList.length===0&&doubleChoiceSession.length>0}}"></double-choice-session-card>
+        <view bindtap="funPrivateegazz" class="post_box" data-id="{{item[$original].id}}">
+            <view class="post_top">
+                <view class="post_name ">
+                    <view class="{{item[$loopState__temp2]}}">{{item[$original].name}}</view>
+                    <image class="xiangying" mode="aspectFill" src="https://xcxresources.xybsyw.com/xcx/images/index-xiangyingjiji.png" wx:if="{{item[$original].entDealRate>70}}"></image>
+                    <image class="enterprise-tag-new" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-new.png" wx:if="{{item[$original].publishNewFlag===0}}"></image>
+                    <image class="enterprise-tag-new-cn" mode="aspectFill" src="https://xcxresources.xybsyw.com/xcx/images/index-zuijingengxin_v2.png" wx:if="{{item[$original].publishNewFlag===1}}"></image>
+                </view>
+                <view class="post_money">
+                    <text class="salary" wx:if="{{item[$original].salaryType==0}}">
+                        <text wx:if="{{!item[$original].floorSalary&&!item[$original].upperSalary}}">面议</text>
+                        <text wx:if="{{item[$original].floorSalary||item[$original].upperSalary}}">{{item[$loopState__temp4]}}</text>
+                    </text>
+                    <text class="salary" wx:if="{{item[$original].salaryType==2}}">
+                        <text wx:if="{{!item[$original].upperSalary}}">面议</text>
+                        <text wx:if="{{item[$original].upperSalary}}">{{item[$loopState__temp6]}}</text>
+                    </text>
+                    <text class="salary" wx:if="{{item[$original].salaryType==1}}">
+                        <text wx:if="{{!item[$original].daySalary}}">面议</text>
+                        <text wx:if="{{item[$original].miniDaySalary===null&&item[$original].daySalary}}">{{item[$original].daySalary+'元/天'}}</text>
+                        <text wx:if="{{item[$original].miniDaySalary!==null&&item[$original].daySalary}}">{{item[$original].miniDaySalary+'-'+item[$original].daySalary+'元/天'}}</text>
+                    </text>
+                    <text class="salary" wx:if="{{item[$original].salaryType==3}}">
+                        <text wx:if="{{!item[$original].daySalary}}">面议</text>
+                        <text wx:if="{{item[$original].daySalary}}">{{item[$original].daySalary+'元/天'}}</text>
+                    </text>
+                </view>
+            </view>
+            <view class="post_center" wx:if="{{item[$original].welfareLabels&&item[$original].welfareLabels.length>0}}">
+                <view class="post_welfare_box">
+                    <view class="post_welfare max_line1" wx:if="{{idx<=4}}" wx:for="{{item[$original].welfareLabels}}" wx:for-index="idx" wx:for-item="welfare">{{welfare}}</view>
+                    <view class="post_welfare" wx:if="{{item[$original].welfareLabels.length>5}}">...</view>
+                </view>
+            </view>
+            <view class="post_bottom">
+                <view class="post_icon">
+                    <image binderror="funPrivateegbzz" data-errorimg="{{index}}" src="{{item[$original].logoUrl}}" wx:if="{{item[$original].logoUrl}}"></image>
+                    <image src="data:image/png;base64,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" wx:if="{{!item[$original].logoUrl}}"></image>
+                </view>
+                <view class="post_content">
+                    <view class="post_company">
+                        <view class="{{item[$loopState__temp8]}}">{{item[$original].enterpriseName}}</view>
+                    </view>
+                    <view class="post_text">
+                        <view class="post_text_left single_text">
+                            <view class="tag cut_text" style="max-width:5em" wx:if="{{item[$original].industry}}">{{item[$original].industry}}</view>
+                            <text class="line" wx:if="{{item[$original].industry&&item[$original].scale}}"></text>
+                            <view class="tag" wx:if="{{item[$original].scale}}">{{item[$original].scale}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view catchtap="anonymousFunc0" class="right-bottom" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this">
+                    <view class="post_text_right single_text">{{item[$original].location?item[$original].location:''}}</view>
+                    <van-icon color="#CCCCCC" name="cross" style="margin-left:40rpx;position:relative;top:4rpx"></van-icon>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="more-button" wx:if="{{showMoreButton}}">
+        <text bindtap="funPrivateegdzz">更多推荐</text>
+    </view>
+    <view class="loading" wx:if="{{hasMore}}">
+        <at-activity-indicator compid="{{$compid__923}}"></at-activity-indicator>
+    </view>
+    <view class="noDataView" wx:if="{{(!postList||postList.length==0)&&intentionStatus===0}}">
+        <image class="noDataPic" src="https://xcxresources.xybsyw.com/xcx/images/nodata_2.png"></image>
+        <view class="noDataText1">暂无相关岗位</view>
+        <view class="noDataText1">
+            <text bindtap="funPrivateegezz">修改求职意向</text>获取更多岗位</view>
+    </view>
+    <view class="noDataView" wx:if="{{(!postList||postList.length==0)&&intentionStatus===1}}">
+        <image class="noDataPic" src="https://xcxresources.xybsyw.com/xcx/images/nodata_2.png"></image>
+        <view class="noDataText1">暂无相关岗位</view>
+        <view class="noDataText1">
+            <text bindtap="funPrivateegfzz">重新选择城市</text>获取更多岗位</view>
+    </view>
+    <view class="nodata" wx:if="{{!hasMore&&!showMoreButton&&maxPage>=1&&postList&&postList.length>0}}">
+        <text>我是有底线的</text>
+    </view>
+</block>

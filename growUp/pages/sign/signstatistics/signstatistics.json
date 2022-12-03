@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "signcalendar": "../../../components/calendar/calendar"
+    },
+    "navigationBarTitleText": "签到统计"
+}

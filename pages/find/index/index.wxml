@@ -1,0 +1,268 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="likeXYB" style="{{'top:'+statusHeight-8+'px;'}}" wx:if="{{!hasLikeXYB&&!fromStudentAppFlag&&!xybOfficialAccountsPopupFlag&&!jobStatusPopupFlag&&!showlogin&&!revisionTipsFlag&&!revisionTipsFlag1&&!userAgreementFlag}}">
+        <view>添加到我的小程序，可在微信首页下拉后点击进入</view>
+        <text catchtap="anonymousFunc0" class="icon icon-guanbi"></text>
+    </view>
+    <homepage-guide wx:if="{{revisionTipsFlag1&&isLogin&&!bannerPopFlag}}"></homepage-guide>
+    <view style="{{'padding-top:'+statusHeight+'px;'}}">
+        <view class="topmain_bar fixedTop" style="{{'height:'+statusHeight+'px'}}">
+            <view bindtap="toCompleteResume" class="top-resume">
+                <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-resume.png"></image>
+                <block wx:if="{{showCanvas}}">
+                    <canvas id="lottieAnimate" type="2d" wx:if="{{!isLogin}}"></canvas>
+                    <block wx:if="{{isLogin}}">
+                        <canvas id="lottieAnimate" type="2d" wx:if="{{!resumeIsComplete}}"></canvas>
+                        <view class="resume-progress" wx:if="{{resumeIsComplete}}">{{resumeCompleteProcess}}%</view>
+                    </block>
+                </block>
+            </view>
+            <view class="search_warp_min fixedTop1">
+                <view bindtap="gotoSearch" class="search">搜索岗位/公司</view>
+            </view>
+            <view bindtap="toSaoYiSao" class="rightNavBtn" style="{{'right:'+menuW+10+'px'}}">
+                <image class="saoIcon" src="https://xcxresources.xybsyw.com/xcx/images/ic_scan_black.png"></image>
+            </view>
+        </view>
+        <view class="container">
+            <view class="{{'contentView '+(tabIndex==2?'contentView2':'')}}">
+                <view class="{{anonymousState__temp}}" id="top-bar">
+                    <view class="epidemicBox" wx:if="{{showEpidemicFlag&&closeEpidemicFlag}}">
+                        <view class="epidemicItem">
+                            <image catchtap="anonymousFunc1" class="close_img" src="https://xcxresources.xybsyw.com/xcx/images/epidemic_close.png"></image>因疫情要求，需学生完成相关信息上传，已关闭自动签到</view>
+                    </view>
+                    <view class="entranceBox">
+                        <view class="entranceItem">
+                            <view bindtap="goToDetail" class="entranceList" data-index="1">
+                                <image class="detailIcon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-sign.png"></image>
+                                <text>签到</text>
+                            </view>
+                            <view bindtap="goToDetail" class="entranceList" data-index="2">
+                                <image class="detailIcon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-log.png"></image>
+                                <text>周日志</text>
+                            </view>
+                            <view bindtap="goToDetail" class="entranceList" data-index="3">
+                                <image class="detailIcon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-city.png"></image>
+                                <text>城市</text>
+                            </view>
+                            <view bindtap="goToDetail" class="entranceList" data-index="4">
+                                <image class="detailIcon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/index-interactive.png"></image>
+                                <text>互动分享</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="banner" wx:if="{{bannerList.length>=1}}">
+                        <swiper autoplay="true" bindchange="swiperChange" circular="true" class="swiperContainer" current="{{currentSwiper}}" duration="300" indicatorActiveColor="rgba(255,255,255,0.3)" interval="3000">
+                            <swiper-item wx:for="{{bannerList}}" wx:key="index">
+                                <image bindtap="toBannerDetail" class="slide-image" data-item="{{item}}" mode="scaleToFill" src="{{item.bannerImgUrl}}"></image>
+                            </swiper-item>
+                        </swiper>
+                        <view class="dots" wx:if="{{bannerList.length>=2}}">
+                            <view class="{{'dot '+(index==currentSwiper?'active':'')}}" wx:for="{{bannerList}}" wx:key="index"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="sticky" style="{{'top:'+statusHeight+'px'}}">
+                    <view class="tabView ">
+                        <view class="top-line" wx:if="{{showDropMenu}}"></view>
+                        <image bindtap="anonymousFunc2" class="top-bar-show-button" src="https://xcxresources.xybsyw.com/xcx/images/index-drop-icon.png" wx:if="{{showDropMenu}}"></image>
+                        <view class="tabListItem">
+                            <view bindtap="changeTab" class="{{'tabItem '+(tabIndex==index?'tabItemActive':'')+' tab-item-'+index}}" data-tab="{{index}}" hidden="{{index===1&&!showPreachMeeting||index===4&&!isLogin||index===4&&!activateFlag}}" wx:for="{{tabList}}" wx:key="index">
+                                <view class="red-dot" wx:if="{{index===1&&careerSchoolNum>0}}"></view>
+                                <view class="red-dot" wx:if="{{index===2&&doubleSchoolNum>0}}"></view>{{item}}</view>
+                            <view class="line" style="{{'-webkit-transform:translateX('+tabLineLeft+'px);transform:translateX('+tabLineLeft+'px);'}}"></view>
+                        </view>
+                    </view>
+                    <view class="tabView jobObjectiveView" wx:if="{{tabIndex==0&&isLogin}}">
+                        <view class="intention-wrap" wx:if="{{jobObjectiveStr}}">
+                            <view>
+                                <view bindtap="anonymousFunc3" class="{{anonymousState__temp2}}">{{jobObjectiveStr}}</view>
+                                <view bindtap="anonymousFunc4" class="{{anonymousState__temp3}}">最新</view>
+                            </view>
+                            <view bindtap="toJobobjective" class="add-intention">
+                                <van-icon color="#4990E2" name="plus" size="26rpx" style="margin-right:5rpx;position:relative;top: 4rpx;"></van-icon>意向</view>
+                        </view>
+                        <view bindtap="toJobobjective" class="leftItem" data-type="2" wx:else>
+                            <view class="jobObjectiveText single_text">
+                                <block wx:if="{{jobObjectiveStr}}">求职意向：<text class="normal-text">{{jobObjectiveStr}}</text>
+                                </block>
+                                <block wx:else>{{'完善求职意向，获取精准岗位推荐'}}</block>
+                            </view>
+                            <text class="arrow icon icon-fanhui-copy-copy"></text>
+                            <view class="resume-progress-not" wx:if="{{jobHuntShowType===1}}">!去完善</view>
+                            <view class="resume-progress-not" wx:if="{{jobHuntShowType===2}}">!去更新</view>
+                        </view>
+                        <view bindtap="selectCityEvent" class="rightItem">
+                            <text class="cityText single_text">{{selectCityName}}</text>
+                        </view>
+                    </view>
+                    <view class="tabView jobObjectiveView" wx:if="{{tabIndex==0&&!isLogin}}">
+                        <view bindtap="toJobobjective" class="leftItem" data-type="1">
+                            <view class="jobObjectiveText single_text">完善求职意向，获取岗位精准推荐</view>
+                            <text class="arrow icon icon-fanhui-copy-copy"></text>
+                        </view>
+                        <view bindtap="selectCityEvent" class="rightItem">
+                            <text class="cityText single_text">{{selectCityName}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="relative" wx:if="{{tabIndex==0&&isLogin&&applyPostRemindTip}}">
+                    <view bindtap="toFavorites" class="favorites_tip">您近期还收藏了{{applyPostRemindCount}}个岗位，记得去投递呀~<text class="arrow"></text>
+                    </view>
+                </view>
+                <view class="deliverInvite" wx:if="{{noDealNum}}">
+                    <view bindtap="toDeliverDetails" class="deliverInvite_box">
+                        <image class="deliverInvite_left" src="https://xcxresources.xybsyw.com/xcx/images/homePageDeliverNew_v1.png"></image>
+                        <view class="deliverInvite_center">
+                            <view class="title">投递邀请</view>
+                            <view class="text">{{noDealNum}}家企业邀请你投递岗位，快来看看吧~</view>
+                        </view>
+                        <image class="deliverInvite_right" src="https://xcxresources.xybsyw.com/xcx/images/homePageDeliverArrow_v1.png"></image>
+                    </view>
+                </view>
+                <view class="dataView">
+                    <view class="dataDetailView" hidden="{{tabIndex!=0}}">
+                        <post-card-list compid="{{$compid__1134}}" wx:if="{{showChatFlag}}"></post-card-list>
+                        <view class="unready_box1" wx:if="{{!showChatFlag}}">
+                            <view class="unready_item">
+                                <view class="unready_item_top">
+                                    <view class="top_left"></view>
+                                    <view class="top_right"></view>
+                                </view>
+                                <view class="unready_item_center">
+                                    <view class="center1"></view>
+                                    <view class="center1"></view>
+                                    <view class="center2"></view>
+                                </view>
+                                <view class="unready_item_bottom">
+                                    <view class="bottom"></view>
+                                </view>
+                            </view>
+                            <view class="unready_item">
+                                <view class="unready_item_top">
+                                    <view class="top_left"></view>
+                                    <view class="top_right"></view>
+                                </view>
+                                <view class="unready_item_center">
+                                    <view class="center1"></view>
+                                    <view class="center1"></view>
+                                    <view class="center2"></view>
+                                </view>
+                                <view class="unready_item_bottom">
+                                    <view class="bottom"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="dataDetailView" wx:if="{{tabIndex===1}}">
+                        <briefing-session compid="{{$compid__1135}}" id="fedzz"></briefing-session>
+                    </view>
+                    <view class="dataDetailView" wx:if="{{tabIndex===2}}">
+                        <double-choice compid="{{$compid__1136}}" id="feezz"></double-choice>
+                    </view>
+                    <view class="dataDetailView" hidden="{{tabIndex!=3}}">
+                        <view class="filter">
+                            <view bindtap="selectCityEvent" class="rightItem">
+                                <text class="cityText single_text">{{selectCityName}}</text>
+                            </view>
+                        </view>
+                        <into-enterprise compid="{{$compid__1137}}"></into-enterprise>
+                    </view>
+                    <view class="dataDetailView" wx:if="{{tabIndex===4}}">
+                        <school-recomm id="fefzz"></school-recomm>
+                    </view>
+                    <view class="blankView"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="auto_sign_box" wx:if="{{autoSign}}">
+        <image bindtap="onClose" class="logo" src="https://ss0.xybsyw.com//upload/picture/enterprise/1852/detail/1566298333277.png"></image>
+    </view>
+    <van-popup closeOnClickOverlay="false" customClass="xyb_popup" customStyle="border-radius:14px;" overlayStyle="background-color:rgba(0,0,0,0.4)" show="{{bannerPopFlag&&!revisionTipsFlag}}">
+        <view bindtap="goPageDetails" class="bannerBox" style="{{'background:url('+bannerPopImgUrl+') 0 0 no-repeat;'}}">
+            <view class="bannerBoxTop">
+                <image catchtap="anonymousFunc10" class="close" src="https://xcxresources.xybsyw.com/xcx/images/pop_close.png"></image>
+            </view>
+        </view>
+    </van-popup>
+    <van-popup bindclose="{{true}}" overlay="{{false}}" position="top" show="{{autoPopActivate}}" style="height: 220rpx">
+        <view class="autoBox" style="{{'padding-top:'+statusHeight+5+'px;'}}">
+            <view class="autoActivate">
+                <text class="tipTxt">如需报名实习计划，请进行学籍认证</text>
+                <text bindtap="gotoActive" class="popBtn">立即前往</text>
+                <view bindtap="closePop" class="clossBtn"></view>
+            </view>
+        </view>
+    </van-popup>
+    <van-popup overlay="{{true}}" position="center" round="{{true}}" show="{{xjhSharePopup&&xjhShare.type==2}}" style="height: 100vh">
+        <view class="xjhShareBox">
+            <view class="topView">
+                <text bindtap="closeXJH" class="icon icon-guanbi icon-guanbi1"></text>
+                <image class="xjhBgImg" src="{{xjhShare.picUrl}}" wx:if="{{!shareFail}}"></image>
+                <view class="failTitle" wx:if="{{shareFail}}">{{xjhShareFailTitle}}</view>
+            </view>
+            <view class="xjhTitle" wx:if="{{!shareFail}}">{{xjhShare.name}}</view>
+            <view class="xjhTime" wx:if="{{!shareFail}}">{{xjhShare.startTime}}</view>
+            <view class="failContent" wx:if="{{shareFail}}">{{shareFailText}}</view>
+            <view bindtap="shareXjhClick" class="xjhBtn">{{xjhShareBtn}}</view>
+        </view>
+    </van-popup>
+    <van-popup overlay="{{true}}" position="center" round="{{true}}" show="{{xjhPopup&&xjhShare.type==1}}" style="height: 100vh;">
+        <view class="xjhBox">
+            <view class="topView">
+                <text bindtap="closeXJH" class="icon icon-guanbi icon-guanbi1"></text>
+                <view class="failTitle" wx:if="{{xjhLieType<5&&xjhLieType!=2}}">助力成功<text class="icon icon-ic_chenggong"></text>
+                </view>
+                <view class="failTitle" wx:if="{{xjhLieType>4||xjhLieType==2}}">助力失败<text class="icon icon-ic_shibai"></text>
+                </view>
+            </view>
+            <view class="centerView">
+                <image class="left" src="https://xcxresources.xybsyw.com/xcx/images/xjhliebian_left.png" wx:if="{{xjhLieType<5}}"></image>
+                <image class="right" src="https://xcxresources.xybsyw.com/xcx/images/xjhliebian_right.png" wx:if="{{xjhLieType<5}}"></image>
+                <view class="xjhTo" wx:if="{{xjhLieType<5&&xjhLieType!=2}}">你已帮助<text>{{xjhShare.inviter}}</text>
+                </view>
+                <view class="xjhContent" wx:if="{{xjhLieType<5&&xjhLieType!=2}}">解锁求职礼包任务</view>
+                <view class="xjhContent" wx:if="{{xjhLieType==5}}">无法为自己助力，还需邀请两位好友帮忙，才可解锁</view>
+                <view class="xjhContent" wx:if="{{xjhLieTyp==6}}">求职经验包已成功解锁</view>
+                <view class="xjhContent" wx:if="{{xjhLieType==2}}">登录后可帮助<text>{{xjhShare.inviter}}</text>完成任务</view>
+                <view class="xjhContent" wx:if="{{xjhLieType==7}}">超过每日上线，无法助力<text>{{xjhShare.inviter}}</text>
+                </view>
+                <view class="xjhContent" wx:if="{{xjhLieType==8}}">活动已结束，无法助力<text>{{xjhShare.inviter}}</text>
+                </view>
+                <view class="xjhDetail" wx:if="{{xjhLieType==3}}">学籍认证信息不在宣讲会覆盖院校，无法参与活动</view>
+                <view class="xjhDetail" wx:if="{{xjhLieType==4}}">如需领取求职经验包，请先进行学籍认证</view>
+                <view class="xjhDetail" wx:if="{{xjhLieType==7}}">今天已帮助三人助力，明天再来吧~</view>
+            </view>
+            <view bindtap="shareXjhClick" class="xjhBtn">{{xjhShareBtn}}</view>
+        </view>
+    </van-popup>
+    <fastlogin compid="{{$compid__1138}}" id="fastlogin"></fastlogin>
+    <bottom-tabbar compid="{{$compid__1139}}"></bottom-tabbar>
+    <forbiddenlogin compid="{{$compid__1140}}"></forbiddenlogin>
+    <view class="bookingSxh" wx:if="{{bookingSxhForm.bookingSxhStatus==1&&!revisionTipsFlag&&!bannerPopFlag}}">
+        <view class="bookingSxhContent">
+            <text bindtap="bookingSxhEvent" class="icon icon-guanbi"></text>
+            <view class="schoolInfo">
+                <image class="schoolLogo" src="{{bookingSxhForm.schoolLog}}" wx:if="{{bookingSxhForm.schoolLog}}"></image>
+                <image class="schoolLogo" src="https://xcxresources.xybsyw.com/xcx/images/logo_school_def.png" wx:if="{{!bookingSxhForm.schoolLog}}"></image>
+                <text>老师提醒</text>
+            </view>
+            <view class="sxhNameDiv">
+                <view class="sxhName">{{'“'+bookingSxhForm.name+'”'}}</view>
+            </view>
+            <view class="text1">即将在我校举办</view>
+            <view class="deliveryTime">{{'投递时间：'+bookingSxhForm.startDate+'-'+bookingSxhForm.endDate}}</view>
+            <text bindtap="bookingSxhEvent" class="signUpBtn" data-type="1" wx:if="{{!bookingSxhForm.hasContent}}">预约报名</text>
+            <text bindtap="bookingSxhEvent" class="signUpBtn" data-type="2" wx:if="{{bookingSxhForm.hasContent}}">查看详情</text>
+            <view class="text2">开放我的简历，让企业主动联系我</view>
+        </view>
+    </view>
+    <view class="fromStudentAppItem" style="{{'top:'+statusHeight+23+'px;'}}" wx:if="{{fromStudentAppFlag}}">欢迎使用校友邦小程序 (๑•̀ㅂ•́)و✧</view>
+    <job-status-popup compid="{{$compid__1141}}" id="JobStatusPopup"></job-status-popup>
+    <city-select compid="{{$compid__1142}}" id="citySelect"></city-select>
+    <view catchtouchmove="ture" class="revisionTips" wx:if="{{revisionTipsFlag&&isLogin}}">
+        <image bindtap="revisionTipsClickEvent" class="revisionTipsImg2" data-item="2" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/home_tips.png" style="{{'top:'+revisionTipTop2+'px;'}}"></image>
+    </view>
+    <intention-popup compid="{{$compid__1143}}"></intention-popup>
+    <user-agreement-dialog compid="{{$compid__1144}}"></user-agreement-dialog>
+</block>

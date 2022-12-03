@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "contact-teacher": "../../components/contactTeacher/contactTeacher",
+        "at-icon": "../../../npm/taro-ui/dist/weapp/components/icon/index",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "项目详情"
+}

@@ -1,0 +1,16 @@
+<block wx:if="{{$taroCompReady}}">
+    <view catchtouchmove="anonymousFunc0" class="mask" wx:if="{{show}}">
+        <view class="popup">
+            <view class="popup-title">服务协议和隐私政策</view>
+            <view class="text">
+                <view>感谢选择校友邦小程序，我们非常重视您的个人信息安全和隐私保护。依据最新法律要求，使用我们的产品前，请您细阅读并同意<text bindtap="anonymousFunc1" class="link">《用户协议》</text> 和 <text bindtap="anonymousFunc2" class="link">《隐私政策》</text>，以便我们向您提供更优质的服务！</view>
+                <view>我们承诺将尽全力保护你个人信息及合法权益，再次感谢您的信任！点击同意视为您已阅读并同意《校友邦用户协议和隐私政策》以及以上内容。</view>
+            </view>
+            <view class="operation">
+                <view bindtap="anonymousFunc3" class="cancel">拒绝</view>
+                <view bindtap="anonymousFunc4" class="confirm">同意并继续</view>
+            </view>
+        </view>
+        <van-toast id="van-toast"></van-toast>
+    </view>
+</block>

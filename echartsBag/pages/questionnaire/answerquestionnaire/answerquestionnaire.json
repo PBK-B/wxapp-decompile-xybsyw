@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-rate": "../../../../vant-weapp/dist/rate/index"
+    },
+    "navigationBarTitleText": "调查问卷"
+}

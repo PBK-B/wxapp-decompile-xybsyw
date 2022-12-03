@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "teacherradio": "../../components/teacherRadio/teacherRadio",
+        "actionradio": "../../components/actionradio/actionradio"
+    },
+    "navigationBarTitleText": "提交请假申请"
+}

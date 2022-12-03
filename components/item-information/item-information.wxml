@@ -1,0 +1,43 @@
+<view catchtap="anonymousFunc0" class="recommend_item_box news_item" data-item="{{itemDataNew}}" wx:if="{{$taroCompReady}}">
+    <view class="news_main">
+        <view class="news_text">
+            <view class="news_main_text anster_info max_line3">{{itemDataNew.title}}</view>
+            <image catchtap="anonymousFunc1" class="moreOperationImg" src="https://xcxresources.xybsyw.com/xcx/images/item_more_arro.png" wx:if="{{isMoreOperationShow}}"></image>
+        </view>
+        <view class="news_img" wx:if="{{itemDataNew.imgList&&itemDataNew.imgList.length>0}}">
+            <view class="zxOneImg" wx:if="{{itemDataNew.imgList.length==1}}">
+                <image binderror="listImgError" bindload="imageLoad" class="no_data_img" data-imgindex="0" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+            </view>
+            <view class="zxTwoImg" wx:if="{{itemDataNew.imgList.length==2}}">
+                <image binderror="listImgError" bindload="{{true}}" class="no_data_img mr12" data-imgindex="0" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+                <image binderror="listImgError" bindload="{{true}}" class="no_data_img" data-imgindex="1" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+            </view>
+            <view class="zxThreeImg" wx:if="{{itemDataNew.imgList.length>=3}}">
+                <image binderror="listImgError" bindload="{{true}}" class="no_data_img" data-imgindex="0" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+                <image binderror="listImgError" bindload="{{true}}" class="no_data_img mag8" data-imgindex="1" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+                <image binderror="listImgError" bindload="{{true}}" class="no_data_img mag8" data-imgindex="2" data-index="{{itemIndex}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[2]}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="item_footer">
+        <view class="left_zan">
+            <view class="tag_comment">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_liulan.png"></image>
+                <text class="comment_text">{{itemData.totalBrowse==null||itemData.totalBrowse==0?'浏览':itemData.totalBrowse}}</text>
+            </view>
+            <view class="tag_awesome">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_comment.png"></image>
+                <text class="awesome_text">{{!itemDataNew.commentCount||itemDataNew.commentCount==0?'评论':itemDataNew.commentCount}}</text>
+            </view>
+            <view catchtap="anonymousFunc2" class="tag_comment" data-id="{{itemDataNew.id}}" data-status="{{itemDataNew.praise}}">
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.praise}}"></image>
+                <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.praise}}"></image>
+                <view class="tag_awesome">
+                    <image binderror="{{true}}" bindload="{{true}}" class="like_gif" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                    <text class="like_gif_bkg" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                    <text class="{{'awesome_text '+(itemDataNew.praise?'awesome_text_red':'')}}">{{itemDataNew.totalPraise==0||itemDataNew.totalPraise==null?'赞':itemDataNew.totalPraise}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

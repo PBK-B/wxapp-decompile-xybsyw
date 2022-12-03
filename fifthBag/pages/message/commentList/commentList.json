@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "inputview": "../../../components/input-view/input-view",
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "评论",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+}

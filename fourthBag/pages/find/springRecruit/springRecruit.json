@@ -1,0 +1,7 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText": "春招",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

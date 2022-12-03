@@ -1,0 +1,16 @@
+{
+    "usingComponents": {
+        "report-form-item": "./inc/reportFormItem/reportFormItem",
+        "report-form-1": "./inc/reportForm1/reportForm1",
+        "report-form-3": "./inc/reportForm3/reportForm3",
+        "report-form-4": "./inc/reportForm4/reportForm4",
+        "report-form-5": "./inc/reportForm5/reportForm5",
+        "report-form-6": "./inc/reportForm6/reportForm6",
+        "report-form-7": "./inc/reportForm7/reportForm7",
+        "report-form-8": "./inc/reportForm8/reportForm8",
+        "report-form-9": "./inc/reportForm9/reportForm9",
+        "single-select": "../../components/singleSelect/SingleSelect",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "就业上报"
+}

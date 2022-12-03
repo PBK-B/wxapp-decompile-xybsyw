@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "professionselect": "../../../../../components/professionselect/professionselect",
+        "areaselect": "../../../../../components/areaselect/areaselect"
+    },
+    "navigationBarTitleText": "加入校友圈"
+}

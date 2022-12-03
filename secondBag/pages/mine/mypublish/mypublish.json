@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "itemdynamic": "../../../../components/item-dynamic/item-dynamic",
+        "itemquestion": "../../../../components/item-question/item-question",
+        "itemanswer": "../../../../components/item-answer/item-answer",
+        "complaint-popup": "../../../../components/complaint-popup/complaint-popup",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "swipe-list-scroll": "../../../../components/swipe-list-scroll/swipe-list-scroll",
+        "swipe-list-tab": "../../../../components/swipe-list-tab/swipe-list-tab"
+    },
+    "navigationBarTitleText": "我的发布",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

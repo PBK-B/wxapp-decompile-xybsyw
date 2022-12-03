@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "birthplace": "../../../components/birthplace/birthplace",
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "van-search": "../../../../vant-weapp/dist/search/index"
+    },
+    "navigationStyle": "custom"
+}

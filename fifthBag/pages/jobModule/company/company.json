@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "birthplace": "../../../components/birthplace/birthplace",
+        "conpanyselectpop": "../../../components/conpany-select-pop/conpany-select-pop"
+    },
+    "navigationBarTitleText": "名企推荐",
+    "enablePullDownRefresh": false
+}

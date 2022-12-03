@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "private-sphere-jump-bar": "../../../../components/PrivateSphereJumpBar/PrivateSphereJumpBar",
+        "official-accounts-popup": "../../../../components/OfficialAccountsPopup/OfficialAccountsPopup",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "实习报告"
+}

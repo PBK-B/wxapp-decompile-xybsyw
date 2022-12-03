@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "count-down": "./CountDown",
+        "van-icon": "../../vant-weapp/dist/icon/index"
+    }
+}

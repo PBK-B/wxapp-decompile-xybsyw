@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "input-view": "../../../components/input-view/input-view",
+        "complaintpopup": "../../../../components/complaint-popup/complaint-popup",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "addintegral": "../../../../components/addIntegral/addIntegral",
+        "forbiddensendmsg": "../../../../components/forbidden-send-msg/forbidden-send-msg",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "动态详情",
+    "navigationStyle": "custom"
+}

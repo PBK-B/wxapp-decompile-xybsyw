@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "ent-list-dialog": "../../../../components/entListDialog/entListDialog",
+        "birthplace": "../../../../components/birthplaceThree/birthplaceThree",
+        "select-industry": "../../../../components/selectIndustry/selectIndustry",
+        "single-select": "../../../../components/singleSelect/SingleSelect",
+        "van-popup": "../../../../../vant-weapp/dist/popup/index",
+        "van-datetime-picker": "../../../../../vant-weapp/dist/datetime-picker/index",
+        "van-field": "../../../../../vant-weapp/dist/field/index",
+        "van-radio-group": "../../../../../vant-weapp/dist/radio-group/index",
+        "van-radio": "../../../../../vant-weapp/dist/radio/index",
+        "van-dialog": "../../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "提交岗位"
+}

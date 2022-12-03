@@ -1,0 +1,17 @@
+{
+    "usingComponents": {
+        "itemquestion": "../../../components/item-question/item-question",
+        "itemanswer": "../../../components/item-answer/item-answer",
+        "itemdynamic": "../../../components/item-dynamic/item-dynamic",
+        "iteminformation": "../../../components/item-information/item-information",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "item-blog": "../../../components/ItemBlog/itemBlog",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "complaint-popup": "../../../components/complaint-popup/complaint-popup",
+        "forbiddenlogin": "../../../components/forbidden-login/forbidden-login",
+        "forbiddensendmsg": "../../../components/forbidden-send-msg/forbidden-send-msg",
+        "blog-popup": "../../../components/BlogPopup/blogPopup"
+    },
+    "navigationBarTitleText": "互动分享",
+    "enablePullDownRefresh": true
+}

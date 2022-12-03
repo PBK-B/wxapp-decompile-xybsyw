@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationStyle": "custom",
+    "disableSwipeBack": true
+}

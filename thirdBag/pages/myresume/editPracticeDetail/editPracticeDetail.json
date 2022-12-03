@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "添加实习经历",
+    "navigationBarTextStyle": "black"
+}

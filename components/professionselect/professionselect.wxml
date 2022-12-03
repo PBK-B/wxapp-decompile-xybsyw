@@ -1,0 +1,33 @@
+<van-popup __fn_onClose="{{true}}" bindclose="onClose" customStyle="border-radius:16rpx 16rpx 0rpx 0rpx;" position="bottom" show="{{isShow}}" wx:if="{{$taroCompReady}}">
+    <view class="actionradio_warp">
+        <view class="title">{{title}} <view catchtap="anonymousFunc0" class="closeIcon"></view>
+        </view>
+        <view class="selectWarp">
+            <view class="menuwarp">
+                <view catchtap="anonymousFunc1" class="{{menuactive==0?'menu active':'menu'}}" data-index="0">{{selectmenu1.name}}<text class="line"></text>
+                </view>
+                <view catchtap="anonymousFunc2" class="{{menuactive==1?'menu active':'menu'}}" data-index="1">{{selectmenu2.name}}<text class="line"></text>
+                </view>
+                <view catchtap="anonymousFunc3" class="{{menuactive==2?'menu active':'menu'}}" data-index="2">{{selectmenu3.name}}<text class="line"></text>
+                </view>
+            </view>
+            <view class="contentWarp">
+                <view class="optionwarp" wx:if="{{menuactive==0}}">
+                    <scroll-view scrollY="{{true}}" style="height: 752rpx;">
+                        <view catchtap="anonymousFunc4" class="{{item[$original].id==selectmenu1.id?'item current':'item'}}" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray715}}" wx:key="index">{{item[$original].name}}</view>
+                    </scroll-view>
+                </view>
+                <view class="optionwarp" wx:if="{{menuactive==1}}">
+                    <scroll-view scrollY="{{true}}" style="height: 752rpx;">
+                        <view catchtap="anonymousFunc5" class="{{item[$original].id==selectmenu2.id?'item current':'item'}}" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray716}}">{{item[$original].name}}</view>
+                    </scroll-view>
+                </view>
+                <view class="optionwarp" wx:if="{{menuactive==2}}">
+                    <scroll-view scrollY="{{true}}" style="height: 752rpx;">
+                        <view catchtap="anonymousFunc6" class="{{item[$original].id==selectmenu3.id?'item current':'item'}}" data-e-tap-a-a="{{item[_$indexKey3]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray717}}">{{item[$original].name}}</view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </view>
+</van-popup>

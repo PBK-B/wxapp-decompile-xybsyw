@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "report-detail-item": "./inc/reportDetailItem/reportDetailItem"
+    },
+    "navigationBarTitleText": "就业上报"
+}

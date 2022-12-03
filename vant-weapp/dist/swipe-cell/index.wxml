@@ -1,0 +1,11 @@
+<view bindtouchstart="startDrag" capture-bind:touchmove="onDrag" catchtap="onClick" catchtouchcancel="endDrag" catchtouchend="endDrag" catchtouchmove="{{catchMove?'noop':''}}" class="van-swipe-cell" data-key="cell">
+    <view style="{{wrapperStyle}}">
+        <view catch:tap="onClick" class="van-swipe-cell__left" data-key="left" wx:if="{{leftWidth}}">
+            <slot name="left"></slot>
+        </view>
+        <slot></slot>
+        <view catch:tap="onClick" class="van-swipe-cell__right" data-key="right" wx:if="{{rightWidth}}">
+            <slot name="right"></slot>
+        </view>
+    </view>
+</view>

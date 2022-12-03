@@ -1,0 +1,38 @@
+<movable-area>
+    <movable-view bind:change="change" bind:touchend="touchend" class="scroll" direction="vertical" disabled="{{refreshStatus>=3}}" outOfBounds="{{true}}" style="height: calc(100vh + {{refreshSize}}rpx)" y="{{move}}">
+        <scroll-view bindscroll="scroll" bindscrolltolower="more" class="scroll__view" lowerThreshold="{{0}}" scrollTop="{{scrollTop}}" scrollY="{{refreshStatus==1}}" style="padding-bottom: {{bottomSize}}rpx;padding-top: {{hasTop?refreshSize:0}}rpx;">
+            <view class="scroll__refresh {{successShow?'scroll__refresh--hidden':''}}" id="refresh" style="height: {{refreshSize}}rpx;padding: {{(refreshSize-50)/2}}rpx 0;">
+                <view class="la-square-jelly-box" style="color: {{color}}">
+                    <view></view>
+                    <view></view>
+                </view>
+            </view>
+            <view class="scroll__success {{successShow?'scroll__success--show':''}} {{successTran?'scroll__success--tran':''}}" id="success" style="top: {{refreshSize-60}}rpx;color: {{color}}">
+                <view>刷新成功</view>
+            </view>
+            <slot></slot>
+            <view class="scroll__empty" wx:if="{{listCount===0&&!requesting}}">
+                <image src="{{emptyUrl}}"></image>
+                <view>{{emptyText}}</view>
+            </view>
+            <view class="scroll__bottom" wx:if="{{listCount!==0}}">
+                <view class="scroll__loading" wx:if="{{end}}">
+                    <view class="text">已全部加载</view>
+                </view>
+                <view class="scroll__loading" wx:else>
+                    <view class="la-line-spin-fade-rotating">
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                        <view></view>
+                    </view>
+                    <view class="scroll__text">加载中...</view>
+                </view>
+            </view>
+        </scroll-view>
+    </movable-view>
+</movable-area>

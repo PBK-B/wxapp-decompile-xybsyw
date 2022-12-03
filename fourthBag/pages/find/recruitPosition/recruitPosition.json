@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

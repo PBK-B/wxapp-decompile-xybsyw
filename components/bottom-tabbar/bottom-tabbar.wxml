@@ -1,0 +1,31 @@
+<block wx:if="{{$taroCompReady}}">
+    <view catchtap="anonymousFunc0" class="{{'bottom_bar '+(ifIphoneX?'bottom_on':'')}}" wx:if="{{showBottom}}">
+        <view catchtap="anonymousFunc1" class="bar_item">
+            <image binderror="{{true}}" bindload="{{true}}" class="image1" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/menubar_school.png" wx:if="{{barFlag!=1}}"></image>
+            <image binderror="{{true}}" bindload="{{true}}" class="image1" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homePageRedesign202107_03.png" wx:if="{{barFlag==1}}"></image>
+            <view class="{{'bar_title bar_title_'+(barFlag==1?'active':'')}}">求职</view>
+        </view>
+        <view catchtap="anonymousFunc2" class="bar_item" wx:if="{{showFlag}}">
+            <image binderror="{{true}}" bindload="{{true}}" class="image2" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/menubar_growup.png" wx:if="{{barFlag!=2}}"></image>
+            <image binderror="{{true}}" bindload="{{true}}" class="image2" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homePageRedesign202107_02.png" wx:if="{{barFlag==2}}"></image>
+            <view class="message_growup" wx:if="{{showGrowUp}}"></view>
+            <view class="{{'bar_title bar_title_'+(barFlag==2?'active':'')}}">实习成长</view>
+        </view>
+        <view catchtap="anonymousFunc3" class="bar_item">
+            <image binderror="{{true}}" bindload="{{true}}" class="image4" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/menubar_message.png" wx:if="{{barFlag!=4}}"></image>
+            <image binderror="{{true}}" bindload="{{true}}" class="image4" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homePageRedesign202107_01.png" wx:if="{{barFlag==4}}"></image>
+            <view class="{{msgAccount>99?'message_account_99':'message_account'}}" hoverClass="none" hoverStopPropagation="false" wx:if="{{msgAccount>0}}">{{msgAccount>99?'99+':msgAccount}}</view>
+            <msg-dot compid="{{$compid__907}}"></msg-dot>
+            <view class="{{'bar_title bar_title_'+(barFlag==4?'active':'')}}">消息</view>
+        </view>
+        <view catchtap="anonymousFunc4" class="bar_item">
+            <image binderror="{{true}}" bindload="{{true}}" class="image5" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/menubar_mine.png" wx:if="{{barFlag!=5}}"></image>
+            <image binderror="{{true}}" bindload="{{true}}" class="image5" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homePageRedesign202107_04.png" wx:if="{{barFlag==5}}"></image>
+            <view class="{{'bar_title bar_title_'+(barFlag==5?'active':'')}}">我的</view>
+        </view>
+        <view class="tipLayout1" wx:if="{{showGrowTip}}">
+            <text class="txt1">查看实习任务</text>
+            <image class="jiantou" src="https://xcxresources.xybsyw.com/xcx/images/triangleIconRed.png"></image>
+        </view>
+    </view>
+</block>

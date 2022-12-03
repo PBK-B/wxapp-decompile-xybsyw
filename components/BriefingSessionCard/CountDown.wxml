@@ -1,0 +1,7 @@
+<view style="{{anonymousState__temp}}" wx:if="{{$taroCompReady}}">
+    <view>{{hours}}</view>
+    <text>:</text>
+    <view>{{minutes}}</view>
+    <text>:</text>
+    <view>{{seconds}}</view>
+</view>

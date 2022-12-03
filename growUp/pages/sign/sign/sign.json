@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "签到",
+    "navigationStyle": "custom"
+}

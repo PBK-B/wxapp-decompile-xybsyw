@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "我的关注"
+}

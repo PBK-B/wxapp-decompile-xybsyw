@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "file-image": "../../../../components/fileImage/fileImage",
+        "operation-popup": "./components/operationPopup/operationPopup",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "附件简历"
+}

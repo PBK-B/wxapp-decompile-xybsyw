@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "qr-code-popup": "../../components/qrCodePopup/qrCodePopup",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index"
+    },
+    "navigationBarTitleText": "",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

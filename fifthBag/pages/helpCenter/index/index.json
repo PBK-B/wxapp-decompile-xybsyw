@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "帮助中心",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+}

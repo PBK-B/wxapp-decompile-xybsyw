@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "在线宣讲会",
+    "enablePullDownRefresh": true
+}

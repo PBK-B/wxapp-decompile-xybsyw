@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "topButtonGroup": "../../../../components/top-button-group/top-button-group"
+    },
+    "navigationBarTitleText": "邀请校友"
+}

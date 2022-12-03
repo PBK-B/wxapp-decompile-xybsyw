@@ -1,0 +1,133 @@
+<block wx:if="{{$taroCompReady}}">
+    <view catchtap="anonymousFunc0" class="recommend_item_box answer_item" data-item="{{itemDataNew}}" wx:if="{{itemDataNew}}">
+        <image catchtap="anonymousFunc1" class="moreOperationImg" src="https://xcxresources.xybsyw.com/xcx/images/item_more_arro.png" wx:if="{{isMoreOperationShow}}"></image>
+        <view class="header_warp">
+            <view catchtap="anonymousFunc2" class="header" data-item="{{itemDataNew}}">
+                <image binderror="errImg" class="{{true}}" data-err-img="itemDataNew.personPic" src="{{itemDataNew.personPic}}" wx:if="{{itemDataNew.personPic}}"></image>
+                <image class="logo" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!itemDataNew.personPic}}"></image>
+            </view>
+            <view class="user_name" wx:if="{{isHelpType==0}}">
+                <view catchtap="anonymousFunc3" class="inline_block" data-item="{{itemDataNew}}">
+                    <view class="topItem">
+                        <text class="name single_text">{{itemDataNew.creatorName}}</text>
+                        <image class="icon_certification" wx:if="{{itemDataNew.activated}}"></image>
+                        <view class="schoolroll2" style="{{'color:'+tagInfo.fontColor+';background:'+tagInfo.backgroundColor+';'}}" wx:if="{{tagInfo}}">
+                            <text class="icon icon-pingtairenzhengtubiao" style="{{'color:'+tagInfo.fontColor+';'}}"></text>{{tagInfo.identityName}}</view>
+                    </view>
+                    <view class="identity single_text">
+                        <text wx:if="{{isXyq&&itemDataNew.creatorType==1&&itemDataNew.studentType==1}}">在校生</text>
+                        <text wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==1&&itemDataNew.schoolName}}">{{itemDataNew.schoolName}}<text wx:if="{{itemDataNew.professionName}}">{{'·'+itemDataNew.professionName}}</text>
+                        </text>
+                        <text wx:if="{{itemDataNew.creatorType==1&&itemDataNew.studentType==2&&(itemDataNew.positionName||itemDataNew.enterpriseName)}}">{{itemDataNew.enterpriseName+itemDataNew.positionName}}</text>
+                        <text wx:if="{{isXyq&&itemDataNew.creatorType==2}}">教师</text>
+                    </view>
+                </view>
+            </view>
+            <view class="help_user_name" wx:if="{{isHelpType==1}}">{{itemDataNew.creatorName+'邀请您回答问题'}}</view>
+            <view class="help_user_name" wx:if="{{isHelpType==2}}">{{itemDataNew.creatorName+(itemDataNew.answerType==37?'回答了您邀请回答的问题':itemDataNew.answerType==38?'回答了您关注的问题':'回答了您的问题')}}</view>
+        </view>
+        <view catchtap="anonymousFunc4" class="question_text max_line2" wx:if="{{itemDataNew.parentShowScope==0}}">{{'{'}}该问题存在违规</view>
+        <view class="question_text_bg">
+            <rich-text catchtap="anonymousFunc5" class="question_text max_line2" data-id="{{itemDataNew.questionId}}" nodes="{{itemDataNew.title}}" wx:if="{{itemDataNew.parentShowScope!=0}}"></rich-text>
+        </view>
+        <view class="showAll_parent">
+            <rich-text class="{{'anster_info '+(itemDataNew.showAll?'':'max_line8')}}" id="{{'anster_info'+itemIndex}}" nodes="{{!isXyq?itemDataNew.answerContent:itemDataNew.content}}"></rich-text>
+            <view catchtap="anonymousFunc6" class="showAll" data-index="{{index}}" wx:if="{{overEight&&!itemDataNew.showAll}}">
+                <text class="showAll_point">...</text>
+                <text class="showAll_text">展开</text>
+            </view>
+            <image binderror="{{true}}" bindload="{{true}}" class="showAll_img" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="{{anonymousState__temp}}" wx:if="{{overEight&&!itemDataNew.showAll}}"></image>
+        </view>
+        <view catchtap="anonymousFunc7" class="hideAll" wx:if="{{overEight&&itemDataNew.showAll}}">
+            <text class="showAll_text">收起</text>
+        </view>
+        <block wx:if="{{itemDataNew.imgList&&itemDataNew.imgList.length>0}}">
+            <view class="item_img_warp one_img" wx:if="{{itemDataNew.imgList.length==1}}">
+                <image binderror="listImgError" bindload="imageLoad" catchtap="anonymousFunc8" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}" style="{{'width:'+(images.width||0)+'rpx; height:'+(images.height||0)+'rpx;border-radius: 8rpx;'}}"></image>
+            </view>
+            <view class="item_img_warp two_img question_img width_297" wx:if="{{itemDataNew.imgList.length==2}}">
+                <image binderror="listImgError" catchtap="anonymousFunc9" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+                <image binderror="listImgError" catchtap="anonymousFunc10" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+            </view>
+            <view class="item_img_warp three_img question_img width_194" wx:if="{{itemDataNew.imgList.length>=3}}">
+                <image binderror="listImgError" catchtap="anonymousFunc11" class="no_data_img" data-imgindex="0" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[0]}}"></image>
+                <image binderror="listImgError" catchtap="anonymousFunc12" class="no_data_img" data-imgindex="1" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[1]}}"></image>
+                <image binderror="listImgError" catchtap="anonymousFunc13" class="no_data_img" data-imgindex="2" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{itemDataNew.imgList[2]}}"></image>
+                <text catchtap="anonymousFunc14" class="more_img_tip" data-imgindex="2" data-index="{{index}}" wx:if="{{itemDataNew.imgList.length>3}}">{{'+'+itemDataNew.imgList.length-3}}</text>
+            </view>
+        </block>
+        <view catchtap="anonymousFunc15" class="question_illegal" wx:if="{{isXyq&&itemDataNew.parentShowScope==0}}">
+            <view class="question_illegal_icon">!</view>
+            <view class="question_illegal_text">该问题存在违规</view>
+        </view>
+        <view class="{{!isTopic&&itemDataNew.talkTypeDTO&&isHelpType==0?'oneLine':''}}">
+            <view catchtap="anonymousFunc16" class="zan_ctrl1" data-id="{{itemDataNew.id}}" wx:if="{{isHelpType==1&&itemDataNew.showScope!=0}}">
+                <view class="left_zan1">
+                    <view bindtap="toDetail" catchtap="anonymousFunc17" class="tag_comment" data-item="{{itemDataNew}}" wx:if="{{itemDataNew.commentCount}}">
+                        <text class="icon icon-pinglun"></text>
+                        <text class="comment_text">{{itemDataNew.commentCount}}</text>
+                    </view>
+                    <view bindtap="awesome" class="tag_awesome_bind_help" data-id="{{itemDataNew.id}}" data-index="{{index}}" data-status="{{itemDataNew.praise}}"></view>
+                    <view class="tag_awesome">
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.praise}}"></image>
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.praise}}"></image>
+                        <image binderror="{{true}}" bindload="{{true}}" class="like_gif1" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                        <text class="like_gif_bkg1" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                        <text class="{{'awesome_text '+(itemDataNew.praise?'awesome_text_red':'')}}">{{itemDataNew.totalPraise==0||itemDataNew.totalPraise==null?'点赞':itemDataNew.totalPraise}}</text>
+                    </view>
+                </view>
+                <text class="join_btn">立即参与</text>
+            </view>
+            <view class="zan_ctrl1" data-id="{{itemDataNew.id}}" wx:if="{{isHelpType==2&&itemDataNew.showScope!=0}}">
+                <view class="left_zan1">
+                    <view class="tag_comment" wx:if="{{itemDataNew.commentCount}}">
+                        <text class="icon icon-pinglun"></text>
+                        <text class="comment_text">{{itemDataNew.commentCount}}</text>
+                    </view>
+                    <view catchtap="anonymousFunc18" class="tag_awesome_bind_help" data-id="{{itemDataNew.id}}" data-index="{{index}}" data-status="{{itemDataNew.praise}}"></view>
+                    <view class="tag_awesome" wx:if="{{isHelpType!=40}}">
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.praise}}"></image>
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.praise}}"></image>
+                        <image binderror="{{true}}" bindload="{{true}}" class="like_gif1" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                        <text class="like_gif_bkg1" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                        <text class="{{'awesome_text '+(itemDataNew.praise?'awesome_text_red':'')}}">{{itemDataNew.totalPraise==0||itemDataNew.totalPraise==null?'点赞':itemDataNew.totalPraise}}</text>
+                    </view>
+                </view>
+                <text catchtap="anonymousFunc19" class="look_btn" data-item="{{itemDataNew}}">立即查看</text>
+            </view>
+        </view>
+        <view class="item_footer" wx:if="{{isHelpType==0}}">
+            <view class="leftLayout">
+                <view catchtap="anonymousFunc20" class="tagView" data-dto="{{itemDataNew.talkTypeDTO}}" wx:if="{{!isTopic&&itemDataNew.talkTypeDTO}}">
+                    <image class="newIcon" role="img" src="https://xcxresources.xybsyw.com/xcx/images/tag_icon_new.png" wx:if="{{itemDataNew.talkTypeDTO.top}}"></image>
+                    <text class="tagContent maxTextNine single_text">
+                        <text class="icon icon-icon-test icon3"></text>{{itemDataNew.talkTypeDTO.name}}</text>
+                    <view class="tag_line"></view>
+                    <text bindtap="followTopic" class="tag_fllow" wx:if="{{!itemDataNew.talkFollowFlag}}">关注</text>
+                    <text class="tag_fllow2" wx:if="{{itemDataNew.talkFollowFlag}}">已关注</text>
+                </view>
+            </view>
+            <view class="rightLayout">
+                <view class="left_zan">
+                    <view class="tag_comment">
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_liulan.png"></image>
+                        <text class="comment_text">{{itemData.totalBrowse==null||itemData.totalBrowse==0?'浏览':itemData.totalBrowse}}</text>
+                    </view>
+                    <view class="tag_awesome">
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_comment.png"></image>
+                        <text class="awesome_text">{{itemData.commentCount==null||itemDataNew.commentCount==0?'评论':itemDataNew.commentCount}}</text>
+                    </view>
+                    <view catchtap="anonymousFunc21" class="tag_comment" data-id="{{itemDataNew.id}}" data-status="{{itemDataNew.praise}}">
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan_default.png" wx:if="{{!itemDataNew.praise}}"></image>
+                        <image class="zan_icon" src="https://xcxresources.xybsyw.com/xcx/images/hot_zan.png" wx:if="{{itemDataNew.praise}}"></image>
+                        <view class="tag_awesome">
+                            <image binderror="{{true}}" bindload="{{true}}" class="like_gif" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/firstPageLike.gif" wx:if="{{itemDataNew.showLikeGif}}"></image>
+                            <text class="like_gif_bkg" wx:if="{{itemDataNew.showLikeGif}}"></text>
+                            <text class="{{'awesome_text '+(itemDataNew.praise?'awesome_text_red':'')}}">{{itemDataNew.totalPraise==0||itemDataNew.totalPraise==null?'赞':itemDataNew.totalPraise}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

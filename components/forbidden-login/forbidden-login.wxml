@@ -1,0 +1,10 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="forbiddenDialog" wx:if="{{isForbiddenLogin}}">
+        <view class="contentItem">
+            <image class="forbiddenLogin" src="https://xcxresources.xybsyw.com/xcx/images/forbiddenLogin.png"></image>
+            <view class="text1">禁止登录提示</view>
+            <view class="text2">你的账号因用户投诉，已被禁止登录。如需申诉，请联系邦邦微信：Xybxybsyw</view>
+            <view catchtap="anonymousFunc0" class="closeButton">好的</view>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,7 @@
+<view class="constain" wx:if="{{$taroCompReady}}">
+    <view class="labConstain">
+        <text class="labConstain_lab">{{labConstainLab}}</text>
+        <text catchtap="anonymousFunc0" class="{{signed?'labConstain_sign_ed':'labConstain_sign'}}">{{signed?'已签到':'签到'}}</text>
+    </view>
+    <image class="image_points" mode="aspectFit" src="{{imagePointsSrc}}"></image>
+</view>

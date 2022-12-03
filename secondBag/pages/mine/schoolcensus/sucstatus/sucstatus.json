@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-popup": "../../../../../vant-weapp/dist/popup/index",
+        "van-radio": "../../../../../vant-weapp/dist/radio/index",
+        "van-radio-group": "../../../../../vant-weapp/dist/radio-group/index",
+        "van-cell": "../../../../../vant-weapp/dist/cell/index",
+        "van-cell-group": "../../../../../vant-weapp/dist/cell-group/index"
+    },
+    "navigationBarTitleText": "学籍认证"
+}

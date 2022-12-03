@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "actionradio": "../../../../components/actionradio/actionradio",
+        "areaselect": "../../../../../components/areaselect/areaselect",
+        "professionselect": "../../../../../components/professionselect/professionselect",
+        "van-radio-group": "../../../../../vant-weapp/dist/radio-group/index",
+        "van-radio": "../../../../../vant-weapp/dist/radio/index",
+        "van-dialog": "../../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "教育经历"
+}

@@ -1,0 +1,5 @@
+<view bind:tap="onClick" class="custom-class {{classPrefix}} {{utils.isSrc(name)?'van-icon--image':classPrefix+'-'+name}}" style="{{color?'color: '+color+';':''}}{{size?'font-size: '+size+';':''}}{{customStyle}}">
+    <van-info customClass="van-icon__info" info="{{info}}" wx:if="{{info!==null}}"></van-info>
+    <image class="van-icon__image" mode="aspectFit" src="{{name}}" wx:if="{{utils.isSrc(name)}}"></image>
+</view>
+<wxs module="utils" src="../wxs/utils.wxs" />

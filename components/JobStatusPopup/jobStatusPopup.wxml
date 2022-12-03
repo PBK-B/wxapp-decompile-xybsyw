@@ -1,0 +1,46 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="jobStatusPopup" wx:if="{{isShow}}">
+        <view class="contentData" wx:if="{{jobStatusTypeStep==1}}">
+            <view catchtap="anonymousFunc0" class="closeImg"></view>
+            <view class="textTop" wx:if="{{jobStatusType==0}}">
+                <view class="textItem">hi，同学你好呀~</view>
+                <view class="textItem">{{isGrowUp?'目前正在找实习工作吗？':'目前的求职状态是？'}}</view>
+            </view>
+            <view class="textTop textTop_jobStatusType2" wx:if="{{jobStatusType!=0}}">
+                <view class="textItem">hi，同学你好呀~</view>
+                <view class="textItem">{{jobStatusType==1?'你的实习即将开始，是否已经找到了实习单位？':'对现在的实习岗位还满意吗？'}}</view>
+            </view>
+            <view class="{{'buttonContent '+(jobStatusType!=0?'buttonContent_type2':'')}}">
+                <block wx:if="{{jobStatusType!=2}}">
+                    <view catchtap="anonymousFunc1" class="{{item[$original].id==2?'item item2':'item'}}" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hidden="{{jobStatusType==1&&item[$original].id==2}}" hoverClass="click_hover" wx:for="{{loopArray631}}" wx:key="index">{{item[$original].name}}</view>
+                </block>
+                <block wx:if="{{jobStatusType==2}}">
+                    <view catchtap="anonymousFunc2" class="item" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray632}}" wx:key="index">{{item[$original].name}}</view>
+                </block>
+            </view>
+        </view>
+        <view class="{{'contentData  contentData2 '+(typeOneSelected.id==2?'contentData3':'')}}" wx:if="{{jobStatusTypeStep==2}}">
+            <view catchtap="anonymousFunc3" class="closeImg"></view>
+            <view class="textTop" wx:if="{{typeOneSelected&&typeOneSelected.id==0}}">
+                <view class="textItem">感谢反馈ヽ(✿ﾟ▽ﾟ)ノ</view>
+                <view class="textItem">去看看工作机会吧~</view>
+            </view>
+            <view class="textTop textTop2" wx:if="{{typeOneSelected&&typeOneSelected.id==1}}">
+                <view class="textItem">太好了</view>
+                <view class="textItem">祝愿你工作顺利~</view>
+            </view>
+            <view class="textTop" wx:if="{{typeOneSelected&&typeOneSelected.id==2}}">
+                <view class="textItem">那你目前准备做什么呢？</view>
+            </view>
+            <view class="buttonContent" wx:if="{{typeOneSelected.id==0}}">
+                <view catchtap="anonymousFunc4" class="{{item[$original].id==1?'item item2':'item'}}" data-e-tap-a-a="{{item[_$indexKey3]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray633}}" wx:key="index">{{item[$original].name}}</view>
+            </view>
+            <view class="buttonContent buttonContent2" wx:if="{{typeOneSelected.id==1}}">
+                <view catchtap="anonymousFunc5" class="item" hoverClass="click_hover">看看职场推荐课程</view>
+            </view>
+            <view class="buttonContent" wx:if="{{typeOneSelected.id==2}}">
+                <view catchtap="anonymousFunc6" class="{{item[$original].id==statusThreeSelected.id?'item':'item'}}" data-e-tap-a-a="{{item[_$indexKey4]}}" data-e-tap-so="this" data-obj="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray634}}" wx:key="index">{{item[$original].name}}</view>
+            </view>
+        </view>
+    </view>
+</block>

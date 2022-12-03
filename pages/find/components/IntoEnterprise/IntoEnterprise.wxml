@@ -1,0 +1,45 @@
+<block wx:if="{{$taroCompReady}}">
+    <view catchtap="anonymousFunc0" class="company_box" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-id="{{item[$original].enterpriseId}}" wx:for="{{loopArray637}}">
+        <view catchtap="anonymousFunc1" class="company_top" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-id="{{item[$original].enterpriseId}}" data-type="1">
+            <view class="company_icon">
+                <image binderror="funPrivateedbzz" data-errorimg="{{index}}" src="{{item[$original].logoUrl}}" wx:if="{{item[$original].logoUrl}}"></image>
+                <image src="https://xcxresources.xybsyw.com/xcx/images/com_default.png" wx:if="{{!item[$original].logoUrl}}"></image>
+            </view>
+            <view class="company_content">
+                <view class="company_company">
+                    <view class="enterpriseNameText single_text">{{item[$original].enterpriseName}}</view>
+                    <view class="lableText" wx:if="{{item[$original].tagName}}">{{item[$original].tagName}}</view>
+                </view>
+                <view class="company_text">
+                    <view class="tag" wx:if="{{item[$original].nature}}">{{item[$original].nature}}</view>
+                    <text class="line" wx:if="{{item[$original].nature&&(item[$original].industry||item[$original].scale)}}"></text>
+                    <view class="tag" wx:if="{{item[$original].industry}}">{{item[$original].industry}}</view>
+                    <text class="line" wx:if="{{item[$original].industry&&item[$original].scale}}"></text>
+                    <view class="tag" wx:if="{{item[$original].scale}}">{{item[$original].scale}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="read_more_box" wx:if="{{item[$original].hotPostNum>0}}">
+            <view class="read_more_left">
+                <view class="black_text">热招{{item[$original].hotPostNum}}个岗位:</view>
+                <view class="post_text single_text">
+                    <text class="{{post.match?'on':''}}" wx:for="{{item[$original].postVoList}}" wx:for-index="postIndex" wx:for-item="post">{{post.postName}}{{item[$original].postVoList.length==1?'':postIndex==item[$original].postVoList.length-1?'':'、'}}</text>
+                </view>
+            </view>
+            <text class="icon icon-arrowright"></text>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{hasMore2}}">
+        <at-activity-indicator compid="{{$compid__911}}"></at-activity-indicator>
+    </view>
+    <view class="noDataView" wx:if="{{!comList||comList.length==0}}">
+        <image class="noDataPic" src="https://xcxresources.xybsyw.com/xcx/images/nodata_8.png"></image>
+        <view class="noDataText1">暂无相关名企</view>
+        <view class="noDataText1">
+            <text bindtap="funPrivateedczz">重新选择城市</text>获取更多企业</view>
+    </view>
+    <view class="blankView"></view>
+    <view class="nodata" wx:if="{{!hasMore2&&maxPage2>=1&&comList&&comList.length>0}}">
+        <text>我是有底线的</text>
+    </view>
+</block>

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "cropper": "../../../../components/cropper/cropper"
+    },
+    "navigationBarTitleText": "个人信息"
+}

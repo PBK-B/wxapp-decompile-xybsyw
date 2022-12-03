@@ -1,0 +1,10 @@
+<at-action-sheet compid="{{$compid__1082}}" wx:if="{{$taroCompReady}}">
+    <at-action-sheet-item>
+        <view class="describe" wx:if="{{!status}}">
+            <image class="logo" src="https://test-oss.xybsyw.com/permanent/enterprise/0/logo/3106/1642988690635.jpg"></image>关注“校友邦”公众号，你将收到{{describe}}通知</view>
+        <view class="describe" wx:if="{{status}}">不关注“校友邦”公众号，你将<text>无法收到{{describe}}通知</text>
+        </view>
+        <view></view>
+    </at-action-sheet-item>
+    <at-action-sheet-item compid="{{$compid__1083}}">去开启{{openText}}通知</at-action-sheet-item>
+</at-action-sheet>

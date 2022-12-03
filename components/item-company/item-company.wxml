@@ -1,0 +1,21 @@
+<view catchtap="anonymousFunc0" class="{{'company_top '+(type==2?'border_radius_28':'')}}" data-id="{{itemData.enterpriseId}}" wx:if="{{$taroCompReady}}">
+    <view class="left">
+        <image binderror="binderrorimg" src="{{itemData.enterpriseLog}}" wx:if="{{itemData.enterpriseLog}}"></image>
+        <image src="https://xcxresources.xybsyw.com/xcx/images/com_default.png" wx:if="{{!itemData.enterpriseLog}}"></image>
+    </view>
+    <view class="right">
+        <view class="name">{{itemData.enterpriseName}}</view>
+        <view class="info">
+            <text wx:if="{{itemData.natureName}}">{{itemData.natureName}}</text>
+            <text wx:if="{{itemData.industryName}}">
+                <text wx:if="{{itemData.natureName}}">|</text>{{itemData.industryName}}</text>
+            <text wx:if="{{itemData.scaleName}}">
+                <text wx:if="{{itemData.location||itemData.industryName}}">|</text>{{itemData.scaleName}}</text>
+        </view>
+        <view class="detailLocation">{{itemData.location}}</view>
+        <view class="hotwantedLayout">
+            <view class="hotwanted" wx:if="{{itemData.postNum>1}}">
+                <text>{{itemData.postNum+'个职位'}}</text>正在热招中</view>
+        </view>
+    </view>
+</view>

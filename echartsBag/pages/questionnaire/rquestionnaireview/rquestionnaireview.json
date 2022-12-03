@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "van-rate": "../../../../vant-weapp/dist/rate/index"
+    },
+    "navigationBarTitleText": "问卷详情"
+}

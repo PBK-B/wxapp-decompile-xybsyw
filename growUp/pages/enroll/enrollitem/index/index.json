@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-dialog": "../../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../../vant-weapp/dist/popup/index",
+        "van-notice-bar": "../../../../../vant-weapp/dist/notice-bar/index",
+        "van-search": "../../../../../vant-weapp/dist/search/index"
+    },
+    "navigationBarTitleText": "è®¡åˆ’è¯¦æƒ…",
+    "navigationStyle": "custom"
+}

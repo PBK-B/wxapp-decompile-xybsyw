@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "actionradio": "../../../../components/actionradio/actionradio",
+        "van-dialog": "../../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "技能与特长"
+}

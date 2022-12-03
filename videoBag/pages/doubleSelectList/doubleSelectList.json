@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f5f5f5"
+}

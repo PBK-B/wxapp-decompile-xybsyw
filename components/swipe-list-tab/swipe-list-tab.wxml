@@ -1,0 +1,8 @@
+<scroll-view scrollWithAnimation scrollX scrollLeft="{{scrollLeft}}">
+    <view class="tabs {{scroll?'tabs--scroll':''}}" style="height: {{size}}rpx">
+        <view bindtap="toggleTab" class="tabs__item {{index===tabCur?'tabs__item--cur':''}}" data-index="{{index}}" id="item{{index}}" style="height: {{size}}rpx;line-height: {{size}}rpx" wx:for="{{tabData}}" wx:key="index">
+            <view class="tabs__item-child">{{item}}</view>
+        </view>
+        <view class="tabs__line {{needTransition?'transition':''}}" style="background: {{color}};width: {{lineWidth}}px;transform: translateX({{translateX}}px)"></view>
+    </view>
+</scroll-view>

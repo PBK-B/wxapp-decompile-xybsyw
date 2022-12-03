@@ -1,0 +1,17 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "file-image": "../../../../components/fileImage/fileImage",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index",
+        "van-field": "../../../../vant-weapp/dist/field/index",
+        "van-cell-group": "../../../../vant-weapp/dist/cell-group/index"
+    },
+    "navigationBarTitleText": "消息",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,10 @@
+<view class="card-wrap" wx:if="{{$taroCompReady}}">
+    <view class="card-title">热招双选会</view>
+    <scroll-view class="card-scroll-wrap" scrollWithAnimation="{{true}}" scrollX="{{true}}">
+        <view class="card-scroll">
+            <view class="card-scroll-item" wx:for="{{data}}">
+                <image bindtap="imgClick" class="exposure-item" data-id="{{item.id}}" data-item="{{item}}" mode="aspectFill" src="{{item.entListImg}}"></image>
+            </view>
+        </view>
+    </scroll-view>
+</view>

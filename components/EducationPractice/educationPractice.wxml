@@ -1,0 +1,209 @@
+<block wx:if="{{$taroCompReady}}">
+    <block wx:if="{{isShow}}">
+        <view bindtouchstart="touchStart" class="{{'educationPractice '+(noData?'educationPractice_2':'')}}" style="{{'height:'+maxHeight+'px;'}}">
+            <scroll-view bindscroll="onScrollEvent" bindscrolltolower="scrollToLower" scrollY="{{true}}" style="{{'height:'+maxHeight+'px;'}}">
+                <view bindtap="viewClickEvent" class="{{'eduPracticeTop '+(tabFixedTop?'eduPracticeTop_2':'')}}" style="{{'top:'+statusHeight+'px;'}}">
+                    <view class="eduPracticeTop-container">
+                        <view bindtap="toScanQrCodes" class="scan-code">
+                            <van-icon color="#FFFFFF" name="scan" size="60rpx"></van-icon>
+                            <view>扫码</view>
+                        </view>
+                        <canvas-progress compid="{{$compid__895}}">
+                            <view catchtap="anonymousFunc0" class="project-pool">劳育项目池</view>
+                            <view class="project-pool-tips">去报名</view>
+                        </canvas-progress>
+                        <view bindtap="toCreditList" class="credits-detail">学分明细</view>
+                    </view>
+                </view>
+                <view bindtap="viewClickEvent" class="eduPracticeContent">
+                    <view class="{{'eduPracticeTab '+(tabFixedTop?'eduPracticeTabHide':'')}}">
+                        <view catchtap="anonymousFunc1" class="{{'tipItem '+(randomNumber==2?'tipItem_2':'')}}" wx:if="{{newProjectFlag}}">有{{newProjectArray.length}}个新项目， <text wx:if="{{randomNumber==0}}">手慢无</text>
+                            <text wx:if="{{randomNumber==1}}">去看看</text>
+                            <text wx:if="{{randomNumber==2}}">抢先报名</text>
+                            <text catchtap="anonymousFunc2" class="closeIcon"></text>
+                        </view>
+                        <view class="tipTextView" wx:if="{{tipTextFlag}}">参与劳育项目，完成劳动要求后申请认定，认定通过就可获得{{periodFlag?'学时':'学分'}}<text catchtap="anonymousFunc3" class="closeIcon1"></text>
+                        </view>
+                    </view>
+                    <view class="eduPracticeContent-top">
+                        <view class="eduPracticeContent-title">我的劳育实践任务</view>
+                        <view class="search_warp" hidden="{{noData&&!inputValue&&!searchedId&&!projectIdSelected&&!status.id&&status.id!==0}}">
+                            <view class="flex_box">
+                                <view catchtap="anonymousFunc4" class="{{'searchType '+(showSearchType?'searchType_red ':'')+(showSearchMask?'searchType_shadow':'')}}">
+                                    <view class="text_wid">{{searchedType}}</view>
+                                    <view class="atIcon">
+                                        <at-icon compid="{{$compid__896}}"></at-icon>
+                                    </view>
+                                </view>
+                                <view catchtap="anonymousFunc5" class="{{'searchType '+(showSearchMask3?'searchType_red ':'')+(showSearchMask3?'searchType_shadow':'')}}" style="margin-left:20rpx">
+                                    <view class="text_wid">{{status.name}}</view>
+                                    <view class="atIcon">
+                                        <at-icon compid="{{$compid__897}}"></at-icon>
+                                    </view>
+                                </view>
+                                <view class="input_searchBar">
+                                    <at-icon compid="{{$compid__898}}"></at-icon>
+                                    <input bindconfirm="clickSearch" bindinput="keyInput" class="input_search" confirmType="search" placeholder="搜索项目名称" value="{{inputValue}}"></input>
+                                    <view bindtap="clearInput" class="clear" wx:if="{{showClear}}">
+                                        <at-icon compid="{{$compid__899}}"></at-icon>
+                                    </view>
+                                </view>
+                            </view>
+                            <view catchtap="anonymousFunc6" class="selectItem" style="{{'top:'+dynamicTop+'px'}}" wx:if="{{showSearchMask}}">
+                                <view class="selectContent" wx:if="{{showSearchType}}">
+                                    <view catchtap="anonymousFunc7" class="selectInfo" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:for="{{loopArray624}}">
+                                        <view class="{{'selectName '+(searchedType==item[$original].name?'selectedName':'')}}">{{item[$original].name}}</view>
+                                        <at-icon compid="{{item[$compid__892]}}" wx:if="{{searchedType==item[$original].name}}"></at-icon>
+                                    </view>
+                                </view>
+                            </view>
+                            <view catchtap="anonymousFunc8" class="selectItem" style="{{'top:'+dynamicTop+'px'}}" wx:if="{{showSearchMask2}}">
+                                <view class="selectContent">
+                                    <view catchtap="anonymousFunc9" class="selectInfo" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-item="{{item[$original]}}" hoverClass="click_hover" wx:for="{{loopArray625}}">
+                                        <view class="{{'selectName '+(projectIdSelected==item[$original].name?'selectedName':'')}}">{{item[$original].name}}</view>
+                                        <at-icon compid="{{item[$compid__893]}}" wx:if="{{projectIdSelected==item[$original].name}}"></at-icon>
+                                    </view>
+                                    <view class="search-nodata" wx:if="{{projectArray.length===0}}">没有找到？换个词试试吧</view>
+                                </view>
+                            </view>
+                            <view catchtap="anonymousFunc10" class="selectItem" style="{{'top:'+dynamicTop+'px'}}" wx:if="{{showSearchMask3}}">
+                                <view class="selectContent">
+                                    <view catchtap="anonymousFunc11" class="selectInfo" data-e-tap-a-a="{{item[_$indexKey3]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:for="{{loopArray626}}">
+                                        <view class="{{'selectName '+(status.id===item[$original].id?'selectedName':'')}}">{{item[$original].name}}</view>
+                                        <at-icon compid="{{item[$compid__894]}}" wx:if="{{status.id===item[$original].id}}"></at-icon>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tabFixedTopView" style="{{'top:'+statusHeight+'px'}}" wx:if="{{tabFixedTop}}">
+                        <view class="eduPracticeTab">
+                            <view class="tipTextView" wx:if="{{tipTextFlag}}">参与劳育项目，完成劳动要求后申请认定，认定通过就可获得{{periodFlag?'学时':'学分'}}<text catchtap="anonymousFunc12" class="closeIcon1"></text>
+                            </view>
+                        </view>
+                        <view class="search_warp" hidden="{{noData&&!inputValue&&!searchedId&&!projectIdSelected}}">
+                            <view class="flex_box flex_box2">
+                                <view catchtap="anonymousFunc13" class="{{'searchType '+(showSearchType?'searchType_red ':'')+(showSearchMask?'searchType_shadow':'')}}">
+                                    <view class="text_wid">{{searchedType}}</view>
+                                    <view class="atIcon">
+                                        <at-icon compid="{{$compid__900}}"></at-icon>
+                                    </view>
+                                </view>
+                                <view catchtap="anonymousFunc14" class="{{'searchType '+(showSearchMask3?'searchType_red ':'')+(showSearchMask3?'searchType_shadow':'')}}" style="margin-left:20rpx">
+                                    <view class="text_wid">{{status.name}}</view>
+                                    <view class="atIcon">
+                                        <at-icon compid="{{$compid__901}}"></at-icon>
+                                    </view>
+                                </view>
+                                <view class="input_searchBar">
+                                    <at-icon compid="{{$compid__902}}"></at-icon>
+                                    <input bindconfirm="clickSearch" bindinput="keyInput" class="input_search" confirmType="search" placeholder="搜索项目名称" value="{{inputValue}}"></input>
+                                    <view bindtap="clearInput" class="clear" wx:if="{{showClear}}">
+                                        <at-icon compid="{{$compid__903}}"></at-icon>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="{{'projectContent '+(!hasMore&&maxPage>1?'projectContent_2':'')}}">
+                        <view class="{{'projectListItem '+(ifIphoneX?'projectListItem_iphonex':'')}}" hidden="{{projectList.length==0}}">
+                            <view class="projectListView projectListView_2" wx:for="{{loopArray627}}" wx:key="index">
+                                <view class="projectDataTop">
+                                    <view bindtap="anonymousFunc15" class="proInfoTop" data-e-tap-a-a="{{item[_$indexKey4]}}" data-e-tap-so="this" data-item="{{item[$original]}}">
+                                        <view class="infoTopLeft">
+                                            <view class="project-name">
+                                                <view class="projectNameText single_text">{{item[$original].name}}</view>
+                                                <view class="project-name-status">
+                                                    <view class="infoTopRight_unstart" wx:if="{{item[$original].signUpStatus==3&&item[$original].projectStatus==0}}">未开始</view>
+                                                    <view class="infoTopRight_shz" wx:if="{{item[$original].signUpStatus==1}}">报名审核中</view>
+                                                    <view class="infoTopRight_bgt" wx:if="{{item[$original].signUpStatus==2}}">报名审核不通过</view>
+                                                    <view class="infoTopRight_shz" wx:if="{{item[$original].identificationStatus==1}}">待认定</view>
+                                                    <view class="infoTopRight_tg" wx:if="{{item[$original].identificationStatus==2}}">认定通过</view>
+                                                    <text class="icon icon-jiantou"></text>
+                                                </view>
+                                            </view>
+                                            <view class="projectTimeAndType">
+                                                <text class="itemLeft">项目时间：</text>
+                                                <text class="itemRight">{{item[$original].startDate}}～{{item[$original].endDate}}</text>
+                                            </view>
+                                            <view class="projectTimeAndType">
+                                                <text class="itemLeft">劳动形式：</text>
+                                                <text class="itemRight">{{item[$original].laborForm}}</text>
+                                            </view>
+                                            <view class="projectTimeAndType align-center">
+                                                <text class="itemLeft">可得{{periodFlag?'学时':'学分'}}：</text>
+                                                <text class="itemRight">{{item[$original].credit}}{{periodFlag?'学时':'分'}}</text>
+                                                <view catchtap="anonymousFunc16" class="icon2" data-e-tap-a-a="{{item[_$indexKey5]}}" data-e-tap-so="this" data-id="{{item[$original].id}}" wx:if="{{item[$original].deductedCredit&&item[$original].deductedCredit!=null}}">
+                                                    <view class="tipTextView2" wx:if="{{tipTextFlag2&&tipTextFlagId==item[$original].id}}">认定不通过将扣掉{{item[$original].deductedCredit}}{{periodFlag?'学时':'学分'}}<text catchtap="anonymousFunc17" class="closeIcon2" data-e-tap-a-a="{{item[_$indexKey6]}}" data-e-tap-so="this"></text>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="noPassView" wx:if="{{item[$original].signUpStatus==2&&item[$original].statusDesc&&item[$original].statusDesc!=null}}">未通过原因： <text class="text_nopass">{{item[$original].statusDesc}}</text>
+                                    </view>
+                                    <view class="{{'proInfoBottom '+(item[$original].signUpStatus!=1&&item[$original].signUpStatus!=2?'proInfoBottom_2':'')}}" style="{{item[$original].signUpStatus==2?'justify-content: center;':''}}">
+                                        <view catchtap="anonymousFunc18" class="proInfoBottomL" data-e-tap-a-a="{{item[_$indexKey7]}}" data-e-tap-so="this" data-item="{{item[$original].id}}" wx:if="{{item[$original].signUpStatus==3}}">联系老师</view>
+                                        <view catchtap="anonymousFunc19" class="proInfoBottomL" data-e-tap-a-a="{{item[_$indexKey8]}}" data-e-tap-so="this" data-item="{{item[$original].id}}" wx:if="{{item[$original].signUpStatus==2}}">删除</view>
+                                        <view catchtap="anonymousFunc20" class="{{'proInfoBottomR '+(item[$original].signUpStatus==1?'proInfoBottomR_2':'')}}" data-e-tap-a-a="{{item[_$indexKey9]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:if="{{item[$original].signUpStatus==3}}">查看任务详情</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="loading" wx:if="{{hasMore&&maxPage>1}}">
+                            <van-loading color="#807E7E" customClass="xyb_loading" size="26px" type="spinner"></van-loading>
+                        </view>
+                        <view class="nodata" wx:if="{{!hasMore&&maxPage>1}}">
+                            <text>我是有底线的</text>
+                        </view>
+                    </view>
+                    <view class="noDataView" wx:if="{{noData&&!inputValue&&!searchedId&&!projectIdSelected&&!status.id&&status.id!==0}}">
+                        <image class="noDataPic" src="https://xcxresources.xybsyw.com/xcx/images/nodata_13.png"></image>
+                        <view class="noDataText1">当前您还没有参与的项目呢</view>
+                        <view class="noDataText2">参与劳育项目，完成劳动要求就可申请认定获得{{periodFlag?'学时':'学分'}}</view>
+                        <view bindtap="toEducationProjectEvent" class="{{'noDataBtn '+(ifIphoneX?'noDataBtn_iphonex':'')}}">我要去报名</view>
+                    </view>
+                    <view class="noDataView" wx:if="{{noData&&(inputValue||searchedId||projectIdSelected||status.id||status.id===0)}}">
+                        <image class="noDataPic" src="https://xcxresources.xybsyw.com/xcx/images/nodata_11.png"></image>
+                        <view class="noDataText1">{{projectIdSelected?'没有找到？换个词试试吧～':'没有找到？换个劳动形式试试吧～'}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="dialogItem" wx:if="{{projectApplicationApproved}}">
+            <view class="dialog">
+                <view class="dialogTop">
+                    <view bindtap="closeApplicationApproved" class="close_box" data-item="{{newMessageForm.id}}">
+                        <at-icon compid="{{$compid__904}}"></at-icon>
+                    </view>
+                    <image class="pic1" src="https://xcxresources.xybsyw.com/xcx/images/laborEducation202106_18.png"></image>
+                    <view class="dialog_text1">恭喜你</view>
+                    <view class="dialog_tips">
+                        <text>你在【{{newMessageForm.name}}】中认定通过，</text>
+                        <text wx:if="{{newMessageForm.score}}">成绩为<text class="redText">{{newMessageForm.score}}</text>
+                        </text>
+                        <text wx:if="{{newMessageForm.score&&newMessageForm.credit}}">，</text>
+                        <text wx:if="{{newMessageForm.credit}}">获得<text class="redText">{{newMessageForm.credit}}</text>{{periodFlag?'学时':'学分'}}</text>
+                    </view>
+                </view>
+                <view bindtap="closeApplicationApproved" class="btn" data-item="{{newMessageForm.id}}">朕知道了</view>
+            </view>
+        </view>
+        <view class="dialogItem" wx:if="{{projectApplicationUnapproved}}">
+            <view class="dialog dialog2">
+                <view bindtap="closeApplicationUnapproved" class="close_box" data-item="{{newMessageForm.id}}">
+                    <at-icon compid="{{$compid__905}}"></at-icon>
+                </view>
+                <view class="pic_box">
+                    <image class="picItem" src="https://xcxresources.xybsyw.com/xcx/images/laborEducation202106_02.png"></image>
+                </view>
+                <view class="dialog_tips">
+                    <text>你在【{{newMessageForm.name}}】的申请认定未通过</text>
+                    <text wx:if="{{newMessageForm.credit}}">，扣掉 <text class="redText">{{newMessageForm.credit}}</text> {{periodFlag?'学时':'学分'}}</text>
+                </view>
+                <view bindtap="toProjectJoinDetails" class="btn" data-item="{{newMessageForm}}">去看看</view>
+            </view>
+        </view>
+        <contact-teacher compid="{{$compid__906}}"></contact-teacher>
+    </block>
+</block>

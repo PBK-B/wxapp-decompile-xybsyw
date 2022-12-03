@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "sort-list-bar": "../../../components/SortListBar/SortListBar",
+        "at-icon": "../../../npm/taro-ui/dist/weapp/components/icon/index",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "劳育项目池"
+}

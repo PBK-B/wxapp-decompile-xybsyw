@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "企业招聘列表"
+}

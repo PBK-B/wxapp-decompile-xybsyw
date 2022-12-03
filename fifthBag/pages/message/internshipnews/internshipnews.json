@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "实习消息",
+    "enablePullDownRefresh": false
+}

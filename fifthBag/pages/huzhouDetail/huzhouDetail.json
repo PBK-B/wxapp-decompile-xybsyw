@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "inputview": "../../components/input-view/input-view",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-toast": "../../../vant-weapp/dist/toast/index"
+    },
+    "navigationBarTitleText": "官方发布",
+    "navigationStyle": "custom"
+}

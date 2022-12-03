@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "msgdot": "../../../../components/msg-dot/msg-dot"
+    },
+    "navigationBarTitleText": "城市频道消息",
+    "navigationBarTextStyle": "black"
+}

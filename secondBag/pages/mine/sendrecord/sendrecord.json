@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "send-item-job": "../../../components/item-job-new/item-job-new",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "Vandialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "投递反馈"
+}

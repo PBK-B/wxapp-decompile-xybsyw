@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "itemjob": "../../../../components/item-job/item-job",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "professionselect": "../../../../components/professionselect/professionselect",
+        "item-info-post": "../../../components/itemInfoPost/itemInfoPost",
+        "next-industry": "../../../components/nextIndustry/nextIndustry"
+    },
+    "navigationBarTitleText": "求职指南",
+    "enablePullDownRefresh": false
+}

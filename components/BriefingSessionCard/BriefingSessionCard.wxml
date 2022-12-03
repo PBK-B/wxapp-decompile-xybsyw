@@ -1,0 +1,285 @@
+<view class="BriefingSessionCard" wx:if="{{$taroCompReady}}">
+    <block wx:if="{{privateData.length===1}}">
+        <view bindtap="cardClick" class="card-wrap" data-id="{{item[$original].id}}" data-index="{{index}}" wx:for="{{loopArray643}}">
+            <view bindtap="goLiveDetails" class="card-text" data-id="{{item[$original].id}}">
+                <view class="card-text-text">{{item[$original].name}}</view>
+                <view class="card-status not-start" wx:if="{{item[$original].status===1}}">
+                    <text>开播</text>
+                    <view>{{item[$original].startDate}}</view>
+                </view>
+                <view class="card-status countdown-not-wifi" wx:if="{{item[$original].status===-1&&item[$original].preVideoUrl&&!hasWIFI}}">
+                    <text>倒计时</text>
+                    <view>
+                        <count-down compid="{{item[$compid__915]}}"></count-down>
+                    </view>
+                </view>
+                <view class="card-status countdown-has-wifi" wx:if="{{item[$original].status===-1&&item[$original].preVideoUrl&&hasWIFI}}">
+                    <text>倒计时</text>
+                    <view>
+                        <count-down compid="{{item[$compid__916]}}"></count-down>
+                    </view>
+                </view>
+                <view class="card-status live" wx:if="{{item[$original].status===0}}">直播中</view>
+            </view>
+            <view class="media-content">
+                <block wx:if="{{item[$original].status===1}}">
+                    <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].preVideoUrl}}"></image>
+                    <block wx:if="{{item[$original].preVideoUrl}}">
+                        <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                        <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                    </block>
+                    <view bindtap="anonymousFunc0" class="play-button" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" wx:if="{{item[$original].preVideoUrl&&!hasWIFI&&!isPlay}}">
+                        <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                    </view>
+                    <view class="wifi-auto-play" wx:if="{{item[$original].preVideoUrl&&hasWIFI}}">
+                        <view class="wifi-auto-play-text">
+                            <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                            <text>仅在WiFi环境下自动播放</text>
+                        </view>
+                        <view bindtap="anonymousFunc1" class="mute-button" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this">
+                            <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{item[$original].status===-1}}">
+                    <block wx:if="{{!item[$original].preVideoUrl}}">
+                        <image mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                        <view bindtap="goLiveDetails" class="countdown-mask" data-id="{{item[$original].id}}">
+                            <view class="countdown-title">
+                                <image class="countdown-title-clock" mode="aspectFill" src="{{item[$loopState__temp2]}}"></image>
+                                <text>开播倒计时</text>
+                            </view>
+                            <view class="countdown-container-wrap">
+                                <view class="countdown-container">
+                                    <count-down compid="{{item[$compid__917]}}"></count-down>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{item[$original].preVideoUrl}}">
+                        <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                        <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                    </block>
+                    <view bindtap="anonymousFunc2" class="play-button" data-e-tap-a-a="{{item[_$indexKey3]}}" data-e-tap-so="this" wx:if="{{item[$original].preVideoUrl&&!hasWIFI&&!isPlay}}">
+                        <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                    </view>
+                    <view class="wifi-auto-play" wx:if="{{item[$original].preVideoUrl&&hasWIFI}}">
+                        <view class="wifi-auto-play-text">
+                            <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                            <text>仅在WiFi环境下自动播放</text>
+                        </view>
+                        <view bindtap="anonymousFunc3" class="mute-button" data-e-tap-a-a="{{item[_$indexKey4]}}" data-e-tap-so="this">
+                            <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{item[$original].status===0}}">
+                    <block wx:if="{{!hasWIFI&&!item[$original].browseFlag}}">
+                        <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                        <view bindtap="goLiveDetails" class="play-button" data-id="{{item[$original].id}}" data-item="{{item[$original]}}">
+                            <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                        </view>
+                    </block>
+                    <block wx:if="{{!hasWIFI&&item[$original].browseFlag}}">
+                        <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                        <view bindtap="goLiveDetails" class="continue-play" data-id="{{item[$original].id}}" data-item="{{item[$original]}}">
+                            <van-icon customStyle="display:flex" name="play" size="26px"></van-icon>
+                            <text>继续观看</text>
+                        </view>
+                    </block>
+                    <block wx:if="{{hasWIFI}}">
+                        <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].preVideoUrl}}"></image>
+                        <block wx:if="{{item[$original].preVideoUrl}}">
+                            <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                            <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                            <view class="wifi-auto-play">
+                                <view class="wifi-auto-play-text">
+                                    <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                    <text>仅在WiFi环境下自动播放</text>
+                                </view>
+                                <view bindtap="anonymousFunc4" class="mute-button" data-e-tap-a-a="{{item[_$indexKey5]}}" data-e-tap-so="this">
+                                    <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </block>
+                <block wx:if="{{item[$original].status===2}}">
+                    <block wx:if="{{item[$original].browseFlag}}">
+                        <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                        <view bindtap="goLiveDetails" class="continue-play" data-id="{{item[$original].id}}">
+                            <van-icon customStyle="display:flex" name="play" size="26px"></van-icon>
+                            <text>继续观看</text>
+                        </view>
+                    </block>
+                    <block wx:if="{{!item[$original].browseFlag&&(!hasWIFI||!item[$original].preVideoUrl)}}">
+                        <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                        <view bindtap="goLiveDetails" class="play-button" data-id="{{item[$original].id}}">
+                            <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                        </view>
+                    </block>
+                    <block wx:if="{{!item[$original].browseFlag&&hasWIFI&&item[$original].preVideoUrl}}">
+                        <block wx:if="{{item[$original].preVideoUrl}}">
+                            <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                            <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                        </block>
+                        <view class="wifi-auto-play">
+                            <view class="wifi-auto-play-text">
+                                <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                <text>仅在WiFi环境下自动播放</text>
+                            </view>
+                            <view bindtap="anonymousFunc5" class="mute-button" data-e-tap-a-a="{{item[_$indexKey6]}}" data-e-tap-so="this">
+                                <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{privateData.length>1}}">
+        <swiper autoplay="{{!isPlay}}" bindchange="swiperChange" circular="{{true}}" class="swiper-wrap" interval="{{3000}}">
+            <swiper-item wx:for="{{loopArray644}}">
+                <view bindtap="cardClick" class="card-wrap" data-id="{{item[$original].id}}" data-index="{{index}}">
+                    <view bindtap="goLiveDetails" class="card-text" data-id="{{item[$original].id}}">
+                        <view class="card-text-text">{{item[$original].name}}</view>
+                        <view class="card-status not-start" wx:if="{{item[$original].status===1}}">
+                            <text>开播</text>
+                            <view>{{item[$original].startDate}}</view>
+                        </view>
+                        <view class="card-status countdown-not-wifi" wx:if="{{item[$original].status===-1&&item[$original].preVideoUrl&&!hasWIFI}}">
+                            <text>倒计时</text>
+                            <view>
+                                <count-down compid="{{item[$compid__918]}}"></count-down>
+                            </view>
+                        </view>
+                        <view class="card-status countdown-has-wifi" wx:if="{{item[$original].status===-1&&item[$original].preVideoUrl&&hasWIFI}}">
+                            <text>倒计时</text>
+                            <view>
+                                <count-down compid="{{item[$compid__919]}}"></count-down>
+                            </view>
+                        </view>
+                        <view class="card-status live" wx:if="{{item[$original].status===0}}">直播中</view>
+                    </view>
+                    <view class="media-content">
+                        <block wx:if="{{item[$original].status===1}}">
+                            <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].preVideoUrl}}"></image>
+                            <block wx:if="{{item[$original].preVideoUrl}}">
+                                <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                                <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                            </block>
+                            <view bindtap="anonymousFunc6" class="play-button" data-e-tap-a-a="{{item[_$indexKey7]}}" data-e-tap-so="this" wx:if="{{item[$original].preVideoUrl&&!hasWIFI&&!isPlay}}">
+                                <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                            </view>
+                            <view class="wifi-auto-play" wx:if="{{item[$original].preVideoUrl&&hasWIFI}}">
+                                <view class="wifi-auto-play-text">
+                                    <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                    <text>仅在WiFi环境下自动播放</text>
+                                </view>
+                                <view bindtap="anonymousFunc7" class="mute-button" data-e-tap-a-a="{{item[_$indexKey8]}}" data-e-tap-so="this">
+                                    <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{item[$original].status===-1}}">
+                            <block wx:if="{{!item[$original].preVideoUrl}}">
+                                <image mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                                <view bindtap="goLiveDetails" class="countdown-mask" data-id="{{item[$original].id}}">
+                                    <view class="countdown-title">
+                                        <image class="countdown-title-clock" mode="aspectFill" src="{{item[$loopState__temp6]}}"></image>
+                                        <text>开播倒计时</text>
+                                    </view>
+                                    <view class="countdown-container-wrap">
+                                        <view class="countdown-container">
+                                            <count-down compid="{{item[$compid__920]}}"></count-down>
+                                        </view>
+                                    </view>
+                                </view>
+                            </block>
+                            <block wx:if="{{item[$original].preVideoUrl}}">
+                                <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                                <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                            </block>
+                            <view bindtap="anonymousFunc8" class="play-button" data-e-tap-a-a="{{item[_$indexKey9]}}" data-e-tap-so="this" wx:if="{{item[$original].preVideoUrl&&!hasWIFI&&!isPlay}}">
+                                <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                            </view>
+                            <view class="wifi-auto-play" wx:if="{{item[$original].preVideoUrl&&hasWIFI}}">
+                                <view class="wifi-auto-play-text">
+                                    <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                    <text>仅在WiFi环境下自动播放</text>
+                                </view>
+                                <view bindtap="anonymousFunc9" class="mute-button" data-e-tap-a-a="{{item[_$indexKey10]}}" data-e-tap-so="this">
+                                    <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                                </view>
+                            </view>
+                        </block>
+                        <block wx:if="{{item[$original].status===0}}">
+                            <block wx:if="{{!hasWIFI&&!item[$original].browseFlag}}">
+                                <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                                <view bindtap="goLiveDetails" class="play-button" data-id="{{item[$original].id}}" data-item="{{item[$original]}}">
+                                    <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                                </view>
+                            </block>
+                            <block wx:if="{{!hasWIFI&&item[$original].browseFlag}}">
+                                <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                                <view bindtap="goLiveDetails" class="continue-play" data-id="{{item[$original].id}}" data-item="{{item[$original]}}">
+                                    <van-icon customStyle="display:flex" name="play" size="26px"></van-icon>
+                                    <text>继续观看</text>
+                                </view>
+                            </block>
+                            <block wx:if="{{hasWIFI}}">
+                                <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].preVideoUrl}}"></image>
+                                <block wx:if="{{item[$original].preVideoUrl}}">
+                                    <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                                    <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                                    <view class="wifi-auto-play">
+                                        <view class="wifi-auto-play-text">
+                                            <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                            <text>仅在WiFi环境下自动播放</text>
+                                        </view>
+                                        <view bindtap="anonymousFunc10" class="mute-button" data-e-tap-a-a="{{item[_$indexKey11]}}" data-e-tap-so="this">
+                                            <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                                        </view>
+                                    </view>
+                                </block>
+                            </block>
+                        </block>
+                        <block wx:if="{{item[$original].status===2}}">
+                            <block wx:if="{{item[$original].browseFlag}}">
+                                <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                                <view bindtap="goLiveDetails" class="continue-play" data-id="{{item[$original].id}}">
+                                    <van-icon customStyle="display:flex" name="play" size="26px"></van-icon>
+                                    <text>继续观看</text>
+                                </view>
+                            </block>
+                            <block wx:if="{{!item[$original].browseFlag&&(!hasWIFI||!item[$original].preVideoUrl)}}">
+                                <image bindtap="goLiveDetails" data-id="{{item[$original].id}}" mode="aspectFill" src="{{item[$original].bigPicUrl}}"></image>
+                                <view bindtap="goLiveDetails" class="play-button" data-id="{{item[$original].id}}">
+                                    <van-icon customStyle="display:flex" name="play" size="29px"></van-icon>
+                                </view>
+                            </block>
+                            <block wx:if="{{!item[$original].browseFlag&&hasWIFI&&item[$original].preVideoUrl}}">
+                                <block wx:if="{{item[$original].preVideoUrl}}">
+                                    <image mode="aspectFill" src="{{item[$original].bigPicUrl}}" wx:if="{{!item[$original].isShowVideo}}"></image>
+                                    <video catchtap="videoClick" controls="{{false}}" data-id="{{item[$original].id}}" enableProgressGesture="{{false}}" id="{{'Double'+item[$original].id}}" loop="{{true}}" muted="{{item[$original].isMute}}" posterForCrawler="{{item[$original].bigPicUrl}}" showCenterPlayBtn="{{false}}" src="{{item[$original].preVideoUrl}}" wx:if="{{item[$original].isShowVideo}}"></video>
+                                </block>
+                                <view class="wifi-auto-play">
+                                    <view class="wifi-auto-play-text">
+                                        <van-icon name="info-o" size="15px" style="display:flex"></van-icon>
+                                        <text>仅在WiFi环境下自动播放</text>
+                                    </view>
+                                    <view bindtap="anonymousFunc11" class="mute-button" data-e-tap-a-a="{{item[_$indexKey12]}}" data-e-tap-so="this">
+                                        <text class="{{'icon '+(item[$original].isMute?'icon-mute':'icon-volume')}}"></text>
+                                    </view>
+                                </view>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view class="swiper-dots">
+            <view class="{{'swiper-dots-item '+(index===currentSwipe?'swiper-dots-active':'')}}" wx:for="{{privateData}}"></view>
+        </view>
+    </block>
+</view>

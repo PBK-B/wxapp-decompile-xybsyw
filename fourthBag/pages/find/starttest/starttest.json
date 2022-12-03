@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "职业性格测试"
+}

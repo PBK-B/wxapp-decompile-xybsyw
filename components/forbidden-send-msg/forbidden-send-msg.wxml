@@ -1,0 +1,14 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="forbiddenDialog" wx:if="{{isForbiddenSendMsg}}">
+        <view class="contentItem">
+            <image class="forbiddenMsg" src="https://xcxresources.xybsyw.com/xcx/images/forbiddenMsg.png"></image>
+            <view class="text1">禁言提示</view>
+            <view class="text2" wx:if="{{forbiddenSendMsgInfo.level==0||forbiddenSendMsgInfo.level==1||forbiddenSendMsgInfo.level==2}}">同学，近期您违反了平台言论的守则，已对你做出禁言 <text wx:if="{{forbiddenSendMsgInfo.level==0}}">3</text>
+                <text wx:if="{{forbiddenSendMsgInfo.level==1}}">7</text>
+                <text wx:if="{{forbiddenSendMsgInfo.level==2}}">14</text>{{'天的处罚。禁言截止时间为'+forbiddenSendMsgInfo.expireDate+'。'}}</view>
+            <view class="text2" wx:if="{{forbiddenSendMsgInfo.level==3}}">同学，近期您违反了平台言论的守则，已对你做出永久禁言处罚。</view>
+            <view class="text3">平台的言论健康与自由，你我共同建造~</view>
+            <view catchtap="anonymousFunc0" class="closeButton">好的</view>
+        </view>
+    </view>
+</block>

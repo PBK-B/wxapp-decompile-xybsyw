@@ -1,0 +1,20 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "itemcourse": "../../../components/item-course/item-course",
+        "itemdynamic": "../../../../components/item-dynamic/item-dynamic",
+        "itemanswer": "../../../../components/item-answer/item-answer",
+        "itemquestion": "../../../../components/item-question/item-question",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "complaint-popup": "../../../../components/complaint-popup/complaint-popup",
+        "forbiddensendmsg": "../../../../components/forbidden-send-msg/forbidden-send-msg",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "话题圈",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom"
+}

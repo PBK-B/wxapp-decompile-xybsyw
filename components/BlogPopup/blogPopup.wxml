@@ -1,0 +1,20 @@
+<van-popup __fn_onClose="{{true}}" bindclose="onClose" customStyle="border-radius:28rpx 28rpx 0rpx 0rpx;" position="bottom" show="{{isShow}}" wx:if="{{$taroCompReady}}">
+    <view class="actionradio_warp">
+        <view class="title">{{title}} <view catchtap="anonymousFunc0" class="closeIcon"></view>
+        </view>
+        <view class="contentWarp">
+            <view class="optionwarp">
+                <scroll-view scrollY="{{true}}" style="height: 500rpx;">
+                    <block wx:if="{{dataList}}">
+                        <view class="dataItem" wx:for="{{loopArray647}}">
+                            <view class="firstItem">{{item[$original].name}}</view>
+                            <view class="secondItem" wx:if="{{item[$original].list}}">
+                                <view catchtap="anonymousFunc1" class="{{item2[$original].id==selectForm.id&&item2[$original].name==selectForm.name?'item current':'item'}}" data-e-tap-a-a="{{item2[_$indexKey]}}" data-e-tap-so="this" data-first="{{item[$original].name}}" data-obj="{{item2[$original]}}" hoverClass="click_hover" wx:for="{{item[$anonymousCallee__120]}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">{{item2[$original].name}}</view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</van-popup>

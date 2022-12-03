@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "at-icon": "../../../../npm/taro-ui/dist/weapp/components/icon/index",
+        "resumepublic": "../../../components/resumepublic/resumepublic",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "求职设置"
+}

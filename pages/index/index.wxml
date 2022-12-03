@@ -1,0 +1,254 @@
+<view class="container" wx:if="{{$taroCompReady}}">
+    <view class="{{'container_title '+(fixedTop&&isLogin?'container_title2':'')}}" style="{{'padding-top:'+statusHeight+'px;'}}">
+        <view bindtap="toSearch" class="search_warp_min" wx:if="{{!fixedTop||!isLogin}}">
+            <view class="search">
+                <text class="icon icon-ic_sousuo"></text>搜索职位/公司</view>
+        </view>
+        <view class="searchLayout" wx:if="{{fixedTop}}">
+            <view class="recomposItem recomposItem1" wx:if="{{isLogin}}">
+                <text bindtap="toJobobjective" class="recomposName single_text">{{jobObjectiveStr}}</text>
+                <text bindtap="toJobobjective" class="icon icon-arrowright"></text>
+            </view>
+            <view bindtap="toSearch" class="rightItem">
+                <text class="icon icon-ic_sousuo"></text>搜索</view>
+        </view>
+    </view>
+    <view style="{{'width:100%;backgroud:#f5f5f5;margin-top:'+titleHeight+'px; background-position:0 -'+titleHeight+'px'}}">
+        <view>
+            <view class="banner_borderbottom">
+                <view class="banner" wx:if="{{bannerList.length>=1||showXjhFlag>0||showSxhFlag>0}}">
+                    <swiper autoplay="true" bindchange="swiperChange" circular="true" class="swiperContainer" duration="300" indicatorActiveColor="rgba(255,255,255,0.3)" indicatorDots="true" interval="3000" wx:if="{{bannerList.length>=1}}">
+                        <swiper-item wx:for="{{bannerList}}" wx:key="index">
+                            <image bindtap="toBannerLink" class="slide-image" data-item="{{item}}" mode="scaleToFill" src="{{item.bannerImgUrl}}" style="border-radius: 28rpx;"></image>
+                        </swiper-item>
+                    </swiper>
+                </view>
+                <view class="moduleEntryView">
+                    <view bindtap="toPreachMeeting" class="moduleEntryItem moduleEntryItem1">
+                        <view class="topText">
+                            <text class="moduleName">宣讲会</text>
+                            <image class="playOn" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/qzntg_15.gif"></image>
+                        </view>
+                        <view class="centerText">{{careerDesc}}</view>
+                        <view class="bottomText">
+                            <view class="imgInfo">
+                                <image class="{{'imgItem '+'imgItem'+index}}" mode="scaleToFill" src="{{'https://xcxresources.xybsyw.com/xcx/images/qzntg_student_pic_'+(item>=10?item:'0'+item)+'.png'}}" wx:for="{{xjhRandomImg}}" wx:key="index"></image>
+                            </view>
+                            <view class="numberInfo">同学最爱</view>
+                        </view>
+                    </view>
+                    <view bindtap="toDoubleMeeting" class="moduleEntryItem moduleEntryItem2">
+                        <view class="topText">
+                            <text class="moduleName">双选会</text>
+                        </view>
+                        <view class="centerText">{{choiceDesc}}</view>
+                        <view class="bottomText bottomText2">
+                            <view class="imgInfo">
+                                <image class="{{'imgItem '+'imgItem'+index}}" mode="scaleToFill" src="{{'https://xcxresources.xybsyw.com/xcx/images/qzntg_com_logo_'+(item>=10?item:'0'+item)+'.png'}}" wx:for="{{sxhRandomImg}}" wx:key="index"></image>
+                            </view>
+                            <view class="numberInfo">企业汇聚</view>
+                        </view>
+                    </view>
+                    <view class="{{'moduleEntryItem '+(!animateFlag&&currentSwiper==0?'moduleEntryItem_qy':'moduleEntryItem_ntg')}}">
+                        <swiper autoplay="true" bindchange="moduleSwiperChange" circular="true" class="{{'swiperContainer2 '+(animateFlag?'swiperContainer2_on':'')}}" duration="300" interval="5000">
+                            <swiper-item wx:if="{{!animateFlag}}">
+                                <view bindtap="toCompany" class="moduleEntryItem1 moduleEntryItem3">
+                                    <view class="topText">
+                                        <text class="moduleName">名企优选</text>
+                                    </view>
+                                    <view class="centerText">行业Top企业</view>
+                                    <view class="bottomText bottomText2">
+                                        <view class="imgInfo">
+                                            <image class="{{'imgItem '+'imgItem'+index}}" mode="scaleToFill" src="{{'https://xcxresources.xybsyw.com/xcx/images/qzntg_com_logo_'+(item>=10?item:'0'+item)+'.png'}}" wx:for="{{comRandomImg}}" wx:key="index"></image>
+                                        </view>
+                                        <view class="numberInfo">一览名企</view>
+                                    </view>
+                                </view>
+                            </swiper-item>
+                            <swiper-item>
+                                <view bindtap="toLookingForMyPush" class="{{'moduleEntryItem2 '+(animateFlag?'moduleEntryItem4_on':'moduleEntryItem4')}}">
+                                    <view class="topText">
+                                        <text class="moduleName">找我内推</text>
+                                    </view>
+                                    <view class="centerText">直通行业大厂</view>
+                                    <image class="img_nt" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/qzntg_16.png" wx:if="{{!animateFlag}}"></image>
+                                    <canvas id="lottieAnimate" style="{{'display: inline-block; width: 154rpx; height: 154rpx;left: -20rpx;display:'+(animateFlag?'':'none')+';'}}" type="2d"></canvas>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                        <view class="dotView" wx:if="{{!animateFlag}}">
+                            <view class="{{'dot '+(index==currentSwiper?'dot_active':'')}}" wx:for="{{[1,2]}}" wx:key="index"></view>
+                        </view>
+                    </view>
+                    <view class="bottomLine"></view>
+                </view>
+                <view class="blankItem"></view>
+                <view bindtap="toCompleteResume" class="incompleteResume" wx:if="{{!notJobResume&&notCompleteResume}}">
+                    <view class="incompleteResumeItem">
+                        <view class="incompleteResumeLeft">
+                            <image bindtap="closeEvent" class="closeImg" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/qzntg_02.png"></image>
+                            <image class="imgLeft" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/qzntg_03.png"></image>
+                            <view class="textContent">
+                                <view class="textUp">你的简历还有<text>{{resumeOptimization+'个'}}</text>优化项</view>
+                                <view>优化简历，解锁岗位精准推荐</view>
+                            </view>
+                        </view>
+                        <view class="buttonRight">立即查看</view>
+                    </view>
+                </view>
+                <view bindtap="toLookResume" class="incompleteResume" wx:if="{{notJobResume}}">
+                    <view class="incompleteResumeItem incompleteResumeItemNew">
+                        <view class="incompleteResumeLeft">
+                            <image bindtap="closeJobEvent" class="closeImg" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/qzntg_05.png"></image>
+                            <view class="textJob">想看看学长的选岗经验嘛~</view>
+                        </view>
+                        <view class="buttonRightNew">立即查看</view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="toJobobjective" class="recomposItem recomposItem2" wx:if="{{isLogin}}">
+                <text class="recomposName single_text">{{jobObjectiveStr}}</text>
+                <view class="textRightItem">
+                    <text class="textRight">求职意向</text>
+                    <text class="triangleRight"></text>
+                </view>
+            </view>
+            <view class="contentLayout">
+                <view class="topBg"></view>
+                <view class="{{'recommendBox '+(fixedTop?'fixedTop':'')+' '+(bannerList.length==0?'no_banner_radius':'')}}" style="{{'top:'+titleHeight-10+'px;'}}">
+                    <view class="{{'vanTab '+(isLogin?'':'vanTab2')}}">
+                        <van-tabs __fn_onClick="{{true}}" bindclick="changeType" border="{{false}}" customClass="xyb_tabs" lineWidth="20">
+                            <van-tab key="index" title="{{item}}" wx:for="{{titleList}}"></van-tab>
+                        </van-tabs>
+                    </view>
+                    <view bindtap="selectCityEvent" class="tabRightItem">
+                        <text class="cityText single_text">{{selectCityName}}</text>
+                        <image class="iconItem" src="https://xcxresources.xybsyw.com/xcx/images/markJobStatus202104_12.png"></image>
+                    </view>
+                </view>
+                <view class="{{'recom_pos_warp '+(fixedTop?'pdTop_44':'')}}" hidden="{{actType!=1}}">
+                    <view class="norecom_pos" wx:if="{{loadCompleteList}}">
+                        <text>sorry~ 暂无更多精准岗位</text>
+                    </view>
+                    <view class="recom_pos padding-top-24">
+                        <view bindtap="toposDetail" class="{{item[$original].loadFinish?'loadFinish':''}}" data-id="{{item[$original].id}}" data-type="1" wx:for="{{loopArray743}}" wx:key="index">
+                            <view class="recomnodata" wx:if="{{loadComplete&&item[$original].loadFinish}}">
+                                <text>发现更多职位</text>
+                            </view>
+                            <block wx:else>
+                                <view class="jobStatusView" wx:if="{{isLogin&&jobStatusFlag&&index==2}}">
+                                    <view class="jobStatusTopText">你现在的求职状态是？</view>
+                                    <view class="jobStatusListItem">
+                                        <view catchtap="anonymousFunc0" class="item" data-e-tap-a-a="{{item2[_$indexKey]}}" data-e-tap-so="this" data-obj="{{item2[$original]}}" wx:for="{{item[$anonymousCallee__128]}}" wx:for-index="index2" wx:for-item="item2" wx:key="index">{{item2[$original].name}}</view>
+                                    </view>
+                                </view>
+                                <view class="jobLayout">
+                                    <itemjob compid="{{item[$compid__1125]}}"></itemjob>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="loading" wx:if="{{hasMore&&maxPage>1}}">
+                        <at-activity-indicator compid="{{$compid__1128}}"></at-activity-indicator>
+                    </view>
+                    <view class="nodata" wx:if="{{!hasMore&&maxPage>=1}}">
+                        <text>我是有底线的</text>
+                    </view>
+                </view>
+                <view class="{{'recom_pos_warp '+(fixedTop?'pdTop_44':'')}}" hidden="{{actType!=2||!haveSchool}}">
+                    <view class="norecom_pos" wx:if="{{!postList2}}">
+                        <text>sorry~ 暂无本校推荐岗位</text>
+                    </view>
+                    <view class="recom_pos padding-top-24">
+                        <view bindtap="toposDetail" class="{{item[$original].loadFinish?'loadFinish':''}}" data-id="{{item[$original].postId}}" data-type="2" wx:for="{{loopArray744}}" wx:key="index">
+                            <view class="jobLayout">
+                                <itemjob compid="{{item[$compid__1126]}}"></itemjob>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="loading" wx:if="{{hasMore6&&maxPage6>1}}">
+                        <at-activity-indicator compid="{{$compid__1129}}"></at-activity-indicator>
+                    </view>
+                    <view class="nodata" wx:if="{{!hasMore6&&maxPage6>1}}">
+                        <text>我是有底线的</text>
+                    </view>
+                </view>
+                <view class="{{'recom_pos_warp '+(fixedTop?'pdTop_44':'')}}" hidden="{{haveSchool&&actType==2||actType==1}}">
+                    <view class="recom_pos" wx:if="{{hasProfession}}">
+                        <view class="profession_info_container">
+                            <view class="one_line_container">
+                                <text class="profession_name">{{selectProfession.name}}</text>
+                                <text bindtap="showSelectprofession" class="profession_change">更换专业</text>
+                            </view>
+                            <text class="profession_des">{{professionDes}}</text>
+                            <scroll-view scrollLeft="{{navScrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                                <view class="profession_tab_container" id="profession_tab_1">
+                                    <view bindtap="professionTab" class="{{professionTabType==1?'profession_tab_on':'profession_tab'}}" data-id="{{professionInfo.industrys[0].industryId}}" data-type="1">
+                                        <view class="{{professionTabType==1?'profession_tab_title_on':'profession_tab_title'}}">{{professionInfo.industrys[0].name}}</view>
+                                        <view class="{{professionTabType==1?'profession_tab_des_on':'profession_tab_des'}}" wx:if="{{professionInfo.industrys[0].percent}}">{{professionInfo.industrys[0].percent}}</view>
+                                    </view>
+                                    <image class="profession_tab_arror" src="https://xcxresources.xybsyw.com/xcx/images/ic_red_arrow_down.png" wx:if="{{professionTabType==1}}"></image>
+                                </view>
+                                <view class="profession_tab_container" id="profession_tab_2">
+                                    <view bindtap="professionTab" class="{{professionTabType==2?'profession_tab_on':'profession_tab'}}" data-id="{{professionInfo.industrys[1].industryId}}" data-type="2">
+                                        <view class="profession_tab_in">
+                                            <view class="{{professionTabType==2?'profession_tab_title_on':'profession_tab_title'}}">{{professionInfo.industrys[1].name}}</view>
+                                            <view class="{{professionTabType==2?'profession_tab_des_on':'profession_tab_des'}}" wx:if="{{professionInfo.industrys[1].percent}}">{{professionInfo.industrys[1].percent}}</view>
+                                        </view>
+                                    </view>
+                                    <image class="profession_tab_arror" src="https://xcxresources.xybsyw.com/xcx/images/ic_red_arrow_down.png" wx:if="{{professionTabType==2}}"></image>
+                                </view>
+                                <view class="profession_tab_container" id="profession_tab_3">
+                                    <view bindtap="professionTab" class="{{professionTabType==3?'profession_tab_on':'profession_tab'}}" data-id="{{professionInfo.industrys[2].industryId}}" data-type="3">
+                                        <view class="profession_tab_in">
+                                            <view class="{{professionTabType==3?'profession_tab_title_on':'profession_tab_title'}}">{{professionInfo.industrys[2].name}}</view>
+                                            <view class="{{professionTabType==3?'profession_tab_des_on':'profession_tab_des'}}" wx:if="{{professionInfo.industrys[2].percent}}">{{professionInfo.industrys[2].percent}}</view>
+                                        </view>
+                                    </view>
+                                    <image class="profession_tab_arror" src="https://xcxresources.xybsyw.com/xcx/images/ic_red_arrow_down.png" wx:if="{{professionTabType==3}}"></image>
+                                </view>
+                            </scroll-view>
+                        </view>
+                        <view bindtap="toposDetail" data-id="{{item[$original].id}}" data-type="3" wx:for="{{loopArray745}}" wx:key="index">
+                            <view class="jobLayout">
+                                <itemjob compid="{{item[$compid__1127]}}"></itemjob>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="loading" wx:if="{{hasMore2&&maxPage2>1&&schoolLeaderpostList.length>0}}">
+                        <van-loading color="#807E7E" customClass="xyb_loading" size="26px" type="spinner"></van-loading>
+                    </view>
+                    <view class="nodata" wx:if="{{!hasMore2&&maxPage2>1&&schoolLeaderpostList.length>0}}">
+                        <text>我是有底线的</text>
+                    </view>
+                    <view class="profession_list_nodata" wx:if="{{hasProfession&&schoolLeaderpostList.length==0}}">
+                        <text>sorry~ 暂无更多精准岗位</text>
+                    </view>
+                    <view class="noChoiceProfessionConstainer" wx:if="{{!hasProfession}}">
+                        <image src="https://xcxresources.xybsyw.com/xcx/images/nodata_5.png"></image>
+                        <text>30w+的毕业生就业方向</text>
+                        <text>让同专业学长学姐为你职点迷津</text>
+                        <button bindtap="showSelectprofession">选择专业</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <fastlogin compid="{{$compid__1130}}" id="fastlogin"></fastlogin>
+    <van-popup customStyle="border-radius:8rpx;background:transparent;" overlayStyle="background-color:rgba(0,0,0,0.4)" show="{{false}}">
+        <view class="firstNotice">
+            <image class="bgImg" src="https://ss0.xybsyw.com//upload/picture/enterprise/1852/detail/1546687704901.png"></image>
+            <view class="content">
+                <text bindtap="closeFirst" class="icon icon-guanbi close"></text>
+                <view class="title">全新校招体验</view>
+                <view class="text">30W+前辈经验指路</view>
+                <view class="text">涵盖500+职位的深度解读</view>
+                <view class="text">只为你找到最适合的岗位</view>
+                <button bindtap="toFindindex" class="look_btn">快去看看</button>
+            </view>
+        </view>
+    </van-popup>
+    <professionselect compid="{{$compid__1131}}" id="profession"></professionselect>
+    <city-select compid="{{$compid__1132}}" id="citySelect"></city-select>
+    <forbiddenlogin compid="{{$compid__1133}}"></forbiddenlogin>
+</view>

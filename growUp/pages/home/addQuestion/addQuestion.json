@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "choose-tiop-tag": "../../../components/chooseTiopTag/chooseTiopTag",
+        "more-tag-popup": "../../../components/chooseTiopTag/moreTagPopup",
+        "insert-bottom": "../../../../components/insertBottom/insertBottom",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-field": "../../../../vant-weapp/dist/field/index"
+    },
+    "navigationBarTitleText": "提问"
+}

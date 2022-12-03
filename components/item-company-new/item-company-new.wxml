@@ -1,0 +1,25 @@
+<view class="company_box" wx:if="{{$taroCompReady}}">
+    <view catchtap="anonymousFunc0" class="company_top" data-id="{{itemData.id}}">
+        <view class="company_icon">
+            <image binderror="binderrorimg" src="{{itemData.logoUrl}}" wx:if="{{itemData.logoUrl}}"></image>
+            <image src="https://xcxresources.xybsyw.com/xcx/images/com_default.png" wx:if="{{!itemData.logoUrl}}"></image>
+        </view>
+        <view class="company_content">
+            <view class="company_company">{{itemData.enterpriseName}}</view>
+            <view class="company_text">
+                <view class="tag" wx:if="{{itemData.industry}}">{{itemData.industry}} <text wx:if="{{itemData.scale}}">|</text>
+                </view>
+                <view class="tag" wx:if="{{itemData.scale}}">{{itemData.scale}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="read_more_box" wx:if="{{itemData.hotPostNum>0}}">
+        <view class="read_more_left">
+            <view class="black_text">热招{{itemData.hotPostNum}}个岗位:</view>
+            <view class="post_text single_text">
+                <text catchtap="anonymousFunc1" class="{{post[$original].match?'on':''}}" data-e-tap-a-a="{{post[_$indexKey]}}" data-e-tap-so="this" data-id="{{itemData.id}}" wx:for="{{loopArray655}}" wx:for-index="postIndex" wx:for-item="post">{{post[$original].postName}}{{itemData.postVoList.length==1?'':postIndex==itemData.postVoList.length-1?'':'、'}}</text>
+            </view>
+        </view>
+        <text class="icon icon-arrowright"></text>
+    </view>
+</view>

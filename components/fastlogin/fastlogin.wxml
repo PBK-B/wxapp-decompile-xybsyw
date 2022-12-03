@@ -1,0 +1,35 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="tipToast" style="{{'top:'+statusHeight+'px;'}}" wx:if="{{tipFlag}}">
+        <image class="successIcon" src="https://xcxresources.xybsyw.com/xcx/images/blogOptimize202103_22.png"></image>登录成功</view>
+    <van-popup __fn_onClose="{{true}}" bindclose="closeLogin" customClass="xyb_popup" customStyle="border-radius:28rpx 28rpx 0rpx 0rpx;background-color:#FFFFFF" overlayStyle="background-color:rgba(0,0,0,0.4)" position="bottom" show="{{showLogin}}">
+        <view class="{{'loginBox '+(ifIphoneX?'loginBox_iphonex':'')}}">
+            <view class="title">
+                <view catchtap="anonymousFunc0" class="closeImg" wx:if="{{!isFromRecomm}}"></view>
+            </view>
+            <view class="no_login">{{posResumeMatch?'亲，登录后才能完成操作哦':'您尚未登录'}}</view>
+            <view class="login_btn" hoverClass="none" hoverStopPropagation="false">
+                <block wx:if="{{!currentEnvironment}}">
+                    <button bindtap="getUserInfo" class="getinfo_btn getinfo_btn2" data-e-tap-so="this" lang="zh_CN" wx:if="{{!canIUseGetUserProfile}}">
+                        <image class="weixinIcon" src="https://xcxresources.xybsyw.com/xcx/images/weixinIcon.png"></image>微信快速登录</button>
+                    <button catchtap="anonymousFunc1" class="getinfo_btn getinfo_btn2" wx:if="{{canIUseGetUserProfile}}">
+                        <image class="weixinIcon" src="https://xcxresources.xybsyw.com/xcx/images/weixinIcon.png"></image>微信快速登录</button>
+                </block>
+                <button bindgetphonenumber="getEnterpriseUserInfo" class="getinfo_btn" openType="getPhoneNumber" wx:if="{{currentEnvironment=='wxwork'}}">企业微信快速登录</button>
+            </view>
+            <view class="user-agreement">登录代表您已同意校友邦 <text bindtap="anonymousFunc2" class="link">《用户协议》</text> 和 <text bindtap="anonymousFunc3" class="link">《隐私政策》</text>
+            </view>
+        </view>
+    </van-popup>
+    <van-popup customClass="xyb_popup" customStyle="border-radius:28rpx 28rpx 0rpx 0rpx;" overlayStyle="background-color:rgba(0,0,0,0.4)" position="bottom" show="{{showbind}}">
+        <view class="{{'loginBox '+(ifIphoneX?'loginBox_iphonex':'')}}">
+            <view class="title">
+                <view catchtap="anonymousFunc4" class="closeImg"></view>
+            </view>
+            <view class="login_phone">校友邦申请绑定您的手机号</view>
+            <view class="bottom">
+                <button bindgetphonenumber="getPhoneNumber" class="getmobile_btn" openType="getPhoneNumber" wx:if="{{!currentEnvironment}}">绑定手机号</button>
+                <button bindgetphonenumber="getEnterpriseUserPhone" class="getmobile_btn" openType="getPhoneNumber" wx:if="{{currentEnvironment=='wxwork'}}">绑定手机号</button>
+            </view>
+        </view>
+    </van-popup>
+</block>

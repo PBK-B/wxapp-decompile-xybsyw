@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "消息详情",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+}

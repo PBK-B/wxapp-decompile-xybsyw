@@ -1,0 +1,129 @@
+<view class="container" wx:if="{{$taroCompReady}}">
+    <view class="recom_com1">
+        <view class="profession_warp" wx:if="{{collectList.length>0}}">
+            <view class="list_warp2">
+                <view wx:for="{{loopArray641}}">
+                    <view bindtap="goLiveDetails" class="list1" data-id="{{item[$original].id}}" data-name="{{item[$original].name}}" data-picUrl="{{item[$original].picUrl}}" data-status="{{item[$original].status}}" wx:if="{{item[$original].sameDay}}">
+                        <view class="list_top">
+                            <view class="list_top_img">
+                                <image binderror="{{true}}" bindload="{{true}}" class="{{true}}" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="{{item[$original].bigPicUrl}}"></image>
+                            </view>
+                            <view class="list_top_content">
+                                <view class="list_top_content_icon">
+                                    <text wx:if="{{item[$original].defaultLabel}}">{{item[$original].defaultLabel}}</text>
+                                    <text wx:if="{{item[$original].schoolMatch}}">本校推荐</text>
+                                    <text wx:if="{{item[$original].specialtyMatch}}">专业必看</text>
+                                    <text wx:if="{{item[$original].cityMatch}}">家乡名企</text>
+                                </view>
+                                <view class="list_top_content_count">
+                                    <view class="num" wx:if="{{item[$original].status==1&&item[$original].signupCount>0}}">{{item[$original].signupCount}}名同学已报名</view>
+                                    <view class="num" wx:if="{{item[$original].status==0}}">{{item[$original].browseIngNum}}名同学正在观看</view>
+                                    <view class="num" wx:if="{{item[$original].status==2}}">{{item[$original].browseCount}}名同学已观看</view>
+                                    <view class="num" wx:if="{{item[$original].status==3}}">{{item[$original].browseCount}}名同学已观看</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="list_bottom">
+                            <view class="list_bottom_left">
+                                <view class="name max_line1">{{item[$original].name}}</view>
+                                <view class="time">宣讲时间：{{item[$original].startTime}}</view>
+                            </view>
+                            <view class="list_bottom_right">
+                                <view class="list_item_btn" wx:if="{{item[$original].status==0}}">
+                                    <image binderror="{{true}}" bindload="{{true}}" class="btn_on" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/play_on_gif_v2.gif"></image>
+                                    <text>正在宣讲</text>
+                                </view>
+                                <view catchtap="anonymousFunc0" class="list_item_btn1" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-eid="{{item[$original].enterpriseId}}" data-id="{{item[$original].id}}" data-index="{{index}}" data-name="{{item[$original].name}}" wx:if="{{item[$original].status==1&&!item[$original].hasSignup}}">
+                                    <text>立即预约</text>
+                                </view>
+                                <view class="list_item_btn2" wx:if="{{item[$original].status==1&&item[$original].hasSignup}}">
+                                    <text>已预约</text>
+                                </view>
+                                <view class="list_item_btn3" wx:if="{{item[$original].status==2}}">
+                                    <text>回看宣讲</text>
+                                </view>
+                                <view class="list_item_btn2" wx:if="{{item[$original].status==3}}">
+                                    <text>已结束</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="goLiveDetails" class="list" data-id="{{item[$original].id}}" data-name="{{item[$original].name}}" data-picUrl="{{item[$original].picUrl}}" data-status="{{item[$original].status}}" wx:if="{{!item[$original].sameDay}}">
+                        <view class="list_top">
+                            <view class="list_top_img" style="{{'opacity:'+(item[$original].status==3?'0.6':'1.0')+';'}}">
+                                <image binderror="{{true}}" bindload="{{true}}" class="{{true}}" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="{{item[$original].picUrl}}"></image>
+                            </view>
+                            <view class="list_top_content">
+                                <view class="list_top_content_title single_text" style="{{'color:'+(item[$original].status==3?'#B8B8B8':'#333')}}">{{item[$original].name}}</view>
+                                <view class="list_top_content_icon" style="{{'opacity:'+(item[$original].status==3?'0.6':'1.0')+';'}}">
+                                    <text wx:if="{{item[$original].defaultLabel}}">{{item[$original].defaultLabel}}</text>
+                                    <text wx:if="{{item[$original].schoolMatch}}">本校推荐</text>
+                                    <text wx:if="{{item[$original].specialtyMatch}}">专业必看</text>
+                                    <text wx:if="{{item[$original].cityMatch}}">家乡名企</text>
+                                </view>
+                                <view class="list_top_content_time" style="{{'color:'+(item[$original].status==3?'#B8B8B8':'#666666')+';'}}">
+                                    <text>宣讲时间：</text>
+                                    <text>{{item[$original].startTime}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="list_bottom">
+                            <view class="list_bottom_left">
+                                <view wx:if="{{item[$original].status==1&&item[$original].signupCount>0}}">
+                                    <text class="num">{{item[$original].signupCount}}</text>名同学已报名</view>
+                                <view wx:if="{{item[$original].status==0}}">
+                                    <text class="num">{{item[$original].browseIngNum}}</text>名同学正在观看</view>
+                                <view wx:if="{{item[$original].status==2}}">
+                                    <text class="num">{{item[$original].browseCount}}</text>名同学已观看</view>
+                                <view class="list_bottom_left2" wx:if="{{item[$original].status==3}}">{{item[$original].browseCount+'名同学已观看'}}</view>
+                            </view>
+                            <view class="list_bottom_right">
+                                <view class="list_item_btn" wx:if="{{item[$original].status==0}}">
+                                    <image binderror="{{true}}" bindload="{{true}}" class="btn_on" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/play_on_gif_v2.gif"></image>
+                                    <text>正在宣讲</text>
+                                </view>
+                                <view catchtap="anonymousFunc1" class="list_item_btn1" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-eid="{{item[$original].enterpriseId}}" data-id="{{item[$original].id}}" data-index="{{index}}" data-name="{{item[$original].name}}" wx:if="{{item[$original].status==1&&!item[$original].hasSignup}}">
+                                    <text>立即预约</text>
+                                </view>
+                                <view class="list_item_btn2" wx:if="{{item[$original].status==1&&item[$original].hasSignup}}">
+                                    <text>已预约</text>
+                                </view>
+                                <view class="list_item_btn3" wx:if="{{item[$original].status==2}}">
+                                    <text>回看宣讲</text>
+                                </view>
+                                <view class="list_item_btn2" wx:if="{{item[$original].status==3}}">
+                                    <text>已结束</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="nodataList" wx:if="{{collectList.length==0&&pageIndex5>1}}">
+            <image src="https://xcxresources.xybsyw.com/xcx/images/nodata_12_1.png"></image>
+            <view class="no_text">暂无宣讲会</view>
+        </view>
+        <view class="loading" wx:if="{{hasMore5&&pageIndex5>1}}">
+            <at-activity-indicator compid="{{$compid__914}}"></at-activity-indicator>
+        </view>
+        <view class="nodata" wx:if="{{!hasMore5&&pageIndex5>1}}">
+            <text>我是有底线的</text>
+        </view>
+    </view>
+    <view class="qrCodePopupView" wx:if="{{qrCodeFlag}}">
+        <view class="qrCodeContent">
+            <view bindtap="qrCodeClose" class="closeIcon"></view>
+            <view class="topData">
+                <image class="successIcon" src="https://xcxresources.xybsyw.com/xcx/images/markJobStatus202104_08.png"></image>预约成功！</view>
+            <view class="imgData">
+                <image class="img" showMenuByLongpress="true" src="{{qrCodeImg}}"></image>
+            </view>
+            <view class="textData">扫码添加邦邦微信</view>
+            <view class="textData">加入宣讲会互动交流群</view>
+            <button class="share_btn" data-from="1" openType="share">
+                <text>分享给好友</text>
+            </button>
+        </view>
+    </view>
+</view>

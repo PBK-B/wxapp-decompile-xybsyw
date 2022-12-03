@@ -1,0 +1,16 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "chat-item": "./ChatItem/ChatItem",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "van-popup": "../../../vant-weapp/dist/popup/index",
+        "trtc-room": "../../components/trtc-room/trtc-room"
+    },
+    "navigationBarTitleText": "在线宣讲会",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+}

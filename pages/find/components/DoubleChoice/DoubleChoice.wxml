@@ -1,0 +1,128 @@
+<view class="{{'container '+(schoolList.length==0?'container2':'')}}" wx:if="{{$taroCompReady}}">
+    <view class="qrCodePopupView" wx:if="{{showSignUpSuccessTip}}">
+        <view class="qrCodeContent">
+            <view bindtap="closeTipEvent" class="closeIcon"></view>
+            <view class="topData">
+                <image class="successIcon" src="https://xcxresources.xybsyw.com/xcx/images/markJobStatus202104_08.png"></image>
+            </view>
+            <view class="shadow_img"></view>
+            <view class="textData">报名成功</view>
+            <view class="textTipsData">已开放我的简历，如需修改请至“我的-求职设置”中调整</view>
+            <view bindtap="closeTipEvent" class="know_btn">知道了</view>
+        </view>
+    </view>
+    <view bindtap="toMineReport" class="{{'fastReport '+(hasScorll==0?'':hasScorll==1?'reportMove':'reportMove2')}}" wx:if="{{reportNum>0}}">
+        <view class="reportNum">{{'报名'+reportNum+'场'}}</view>
+        <image class="ic_report" src="https://xcxresources.xybsyw.com/xcx/images/ic_double_meet_report.png"></image>
+    </view>
+    <view class="schoolLayout" wx:if="{{schoolList&&schoolList.length>0}}">
+        <swiper autoplay="false" bindchange="swiperChange" circular="true" class="swiperContainer" current="{{currentSwiper}}" duration="300" interval="300000">
+            <swiper-item wx:for="{{loopArray639}}" wx:key="index">
+                <view bindtap="goDoubleDetails" class="schoolItem" data-id="{{item[$original].id}}" data-item="{{item[$original]}}" data-name="{{item[$original].name}}" data-studentListImg="{{item[$original].studentListImg}}">
+                    <view class="topLayout">
+                        <image class="lab" src="https://xcxresources.xybsyw.com/xcx/images/ic_lab_schoolMatch.png" wx:if="{{!item[$original].preSignUp}}"></image>
+                        <image class="preApply" src="https://xcxresources.xybsyw.com/xcx/images/mutualSelectionImg1.png" wx:if="{{item[$original].preSignUp}}"></image>
+                        <image class="slide-image" data-item="{{item[$original]}}" mode="scaleToFill" src="{{item[$original].studentInfoImg}}" wx:if="{{item[$original].studentInfoImg}}"></image>
+                        <image class="slide-image" data-item="{{item[$original]}}" lazyLoad="false" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/sxhDefaultCoverImg.png" wx:if="{{!item[$original].studentInfoImg}}"></image>
+                        <view class="desLayout">
+                            <view class="labTxtLayout" wx:if="{{!item[$original].preSignUp}}">
+                                <text class="txt">{{item[$original].enterpriseNum+'家企业'}}</text>
+                                <text class="line"></text>
+                                <text class="txt">{{item[$original].totalBrowseNum+'位学生'}}</text>
+                            </view>
+                            <view class="labTxtLayout" wx:if="{{item[$original].preSignUp}}">
+                                <text class="txt">预约报名，提前获得名企关注</text>
+                            </view>
+                            <view catchtap="anonymousFunc0" class="signUpBtn" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:if="{{!item[$original].signUp&&item[$original].canSignUp}}">立即报名</view>
+                            <view catchtap="anonymousFunc1" class="signUpBtn preSignUpBtn" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:if="{{!item[$original].signUp&&item[$original].preSignUp}}">预约报名</view>
+                            <view catchtap="anonymousFunc2" class="signUpBtn hasSignUpText" data-e-tap-a-a="{{item[_$indexKey3]}}" data-e-tap-so="this" wx:if="{{item[$original].signUp}}">已报名</view>
+                        </view>
+                        <view class="videoCoverImg" wx:if="{{item[$original].preVideoUrl}}">
+                            <image src="https://xcxresources.xybsyw.com/xcx/images/videoPlayIcon.png"></image>
+                        </view>
+                    </view>
+                    <view class="bottomLayout">
+                        <view class="layout">
+                            <text class="txt1 max_line1">{{item[$original].name}}</text>
+                            <view class="labTxt" wx:if="{{item[$original].defaultLabel}}">{{item[$original].defaultLabel}}</view>
+                        </view>
+                        <view class="numLayout">
+                            <text class="txt1">{{index+1}}</text>
+                            <text class="txt2">{{'/'+schoolList.length}}</text>
+                        </view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="list_warp" wx:if="{{doubleSelectList.length>0}}">
+        <view bindtap="goDoubleDetails" class="list" data-id="{{item[$original].id}}" data-item="{{item[$original]}}" data-name="{{item[$original].name}}" data-studentListImg="{{item[$original].studentListImg}}" wx:for="{{loopArray640}}" wx:key="index">
+            <view class="list_top">
+                <view class="list_top_img" style="{{'opacity:'+(item[$original].status=='END'?'0.6':'1.0')+';'}}">
+                    <image binderror="{{true}}" bindload="{{true}}" class="sxhImg" lazyLoad="false" mode="aspectFill" src="{{item[$original].studentListImg}}" wx:if="{{item[$original].studentListImg}}"></image>
+                    <image binderror="{{true}}" bindload="{{true}}" class="sxhImg" lazyLoad="false" mode="aspectFill" src="https://xcxresources.xybsyw.com/xcx/images/sxhDefaultCoverImg.png" wx:if="{{!item[$original].studentListImg}}"></image>
+                    <view class="videoCoverItem" wx:if="{{item[$original].preVideoUrl}}">
+                        <image src="https://xcxresources.xybsyw.com/xcx/images/videoPlayIcon.png"></image>
+                    </view>
+                </view>
+                <view class="list_top_content">
+                    <view class="list_top_content_title max_line2" style="{{'color:'+(item[$original].status=='END'?'#B8B8B8':'#484848')}}">{{item[$original].name}}</view>
+                    <view class="list_top_content_icon" style="{{'opacity:'+(item[$original].status=='END'?'0.6':'1.0')+';'}}">
+                        <text wx:if="{{item[$original].defaultLabel}}">{{item[$original].defaultLabel}}</text>
+                        <text wx:if="{{item[$original].schoolMatch}}">本校专场</text>
+                        <text wx:if="{{item[$original].specialtyMatch}}">专业必看</text>
+                        <text wx:if="{{item[$original].locationMatch}}">家乡名企</text>
+                        <view class="empty" wx:if="{{!item[$original].defaultLabel&&!item[$original].schoolMatch&&!item[$original].specialtyMatch&&!item[$original].locationMatch}}"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="list_bottom">
+                <view wx:if="{{!item[$original].preSignUp}}">
+                    <text class="enterpriseNumTxt" style="{{'color:'+(item[$original].status=='END'?'#B8B8B8':'#666')}}">{{item[$original].enterpriseNum+'家企业'}}</text>
+                    <text class="line"></text>
+                    <text class="enterpriseNumTxt" style="{{'color:'+(item[$original].status=='END'?'#B8B8B8':'#666')}}">{{item[$original].totalBrowseNum+'位学生'}}</text>
+                </view>
+                <view wx:if="{{item[$original].preSignUp}}">
+                    <text class="enterpriseNumTxt">预约报名，提前获得名企关注</text>
+                </view>
+                <view catchtap="anonymousFunc3" class="signUpText" data-e-tap-a-a="{{item[_$indexKey4]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:if="{{!item[$original].signUp&&item[$original].canSignUp}}">立即报名</view>
+                <view catchtap="anonymousFunc4" class="signUpText preSignUpText" data-e-tap-a-a="{{item[_$indexKey5]}}" data-e-tap-so="this" data-item="{{item[$original]}}" wx:if="{{!item[$original].signUp&&item[$original].preSignUp}}">预约报名</view>
+                <view catchtap="anonymousFunc5" class="signUpText hasSignUpText" data-e-tap-a-a="{{item[_$indexKey6]}}" data-e-tap-so="this" wx:if="{{item[$original].signUp&&item[$original].status!='END'}}">已报名</view>
+                <view catchtap="anonymousFunc6" class="signUpText hasSignUpText" data-e-tap-a-a="{{item[_$indexKey7]}}" data-e-tap-so="this" wx:if="{{item[$original].status=='END'}}">已结束</view>
+            </view>
+        </view>
+    </view>
+    <view class="nodataList" style="{{'top:'+(schoolList.length>0?60:40)+'%;'}}" wx:if="{{pageIndex4>1&&doubleSelectList.length==0}}">
+        <image src="https://xcxresources.xybsyw.com/xcx/images/nodata_2.png"></image>
+        <view class="no_text">暂无在线双选会</view>
+        <view class="no_text">过段时间再来看看哦</view>
+    </view>
+    <view class="loading" wx:if="{{(hasMore4||hasMore)&&doubleSelectList.length>0}}">
+        <at-activity-indicator compid="{{$compid__913}}"></at-activity-indicator>
+    </view>
+    <view class="nodata" wx:if="{{!hasMore4&&!hasMore&&pageIndex4+pageIndex>4}}">
+        <text>我是有底线的</text>
+    </view>
+    <view bindtouchmove="privateStopNoop" class="dualSelectDialog" wx:if="{{unCompleteJobIntention}}">
+        <view class="dialogContent unCompleteJobIntentionContent">
+            <text bindtap="closeJobIntentionEvent" class="icon icon-guanbi"></text>
+            <image class="img1" src="https://xcxresources.xybsyw.com/xcx/images/mutualSelectionImg2.png"></image>
+            <view class="text1">报名之前，请先完善我的</view>
+            <view class="text1">求职意向哦~</view>
+            <text bindtap="toJobobjective" class="textBtn">立即完善</text>
+        </view>
+    </view>
+    <view class="dualSelectDialog" wx:if="{{signUpDualSelectDialog}}">
+        <view class="dialogContent dualSelectContent">
+            <view class="dualSelectData">
+                <text bindtap="closeSignUpDualSelectEvent" class="icon icon-guanbi"></text>
+                <view class="sxhTitle max_line2">{{dualSelectForm.talkName}}</view>
+                <view class="sxhDate">{{'参与时间：'+dualSelectForm.startDate+'-'+dualSelectForm.endDate}}</view>
+                <rich-text class="sxhInfo" nodes="{{dualSelectForm.appIntroduce}}"></rich-text>
+            </view>
+            <view bindtap="signUpDoubleSelection" class="signUpSxhBtn" wx:if="{{!dualSelectForm.signUp&&dualSelectForm.preSignUp}}">立即预约报名</view>
+            <view bindtap="signUpDoubleSelection" class="signUpSxhBtn" wx:if="{{!dualSelectForm.signUp&&dualSelectForm.canSignUp}}">立即报名</view>
+            <view class="signUpSxhBtn hasEndText" wx:if="{{dualSelectForm.signUp}}">已报名</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../../components/top-button-group/top-button-group",
+        "choose-school": "../../../../components/chooseSchool/chooseSchool",
+        "choose-tools": "../../../../components/ChooseTools/ChooseTools",
+        "van-popup": "../../../../../vant-weapp/dist/popup/index",
+        "van-dialog": "../../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationStyle": "custom"
+}

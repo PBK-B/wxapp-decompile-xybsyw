@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "invitationanswer": "../../../components/invitation-answer/invitation-answer",
+        "swipe-list-scroll": "../../../../components/swipe-list-scroll/swipe-list-scroll",
+        "swipe-list-tab": "../../../../components/swipe-list-tab/swipe-list-tab"
+    },
+    "navigationBarTitleText": "邀请回答",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

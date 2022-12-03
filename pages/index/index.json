@@ -1,0 +1,18 @@
+{
+    "usingComponents": {
+        "itemjob": "../../components/item-job/item-job",
+        "at-activity-indicator": "../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "fastlogin": "../../components/fastlogin/fastlogin",
+        "professionselect": "../../components/professionselect/professionselect",
+        "city-select": "../../components/CitySelect/citySelect",
+        "forbiddenlogin": "../../components/forbidden-login/forbidden-login",
+        "van-tabs": "../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../vant-weapp/dist/tab/index",
+        "van-icon": "../../vant-weapp/dist/icon/index",
+        "van-button": "../../vant-weapp/dist/button/index",
+        "van-popup": "../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "求职",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false
+}

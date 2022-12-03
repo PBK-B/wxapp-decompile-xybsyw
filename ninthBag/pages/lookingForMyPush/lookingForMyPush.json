@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index"
+    },
+    "navigationBarTitleText": "找我内推"
+}

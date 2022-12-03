@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "itemanswer": "../../../../components/item-answer/item-answer",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "问答助手"
+}

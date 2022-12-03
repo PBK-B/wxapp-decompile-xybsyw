@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "popup": "../../../../components/Popup/Popup",
+        "van-icon": "../../../../vant-weapp/dist/icon/index"
+    }
+}

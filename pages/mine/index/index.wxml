@@ -1,0 +1,138 @@
+<view class="container" wx:if="{{$taroCompReady}}">
+    <image class="bgImg" src="https://xcxresources.xybsyw.com/xcx/images/mine_headbg.png"></image>
+    <view class="navTitle" style="{{'height:'+statusHeight+108+'rpx;line-height:'+statusHeight+108+'rpx;background:'+topBg+';'}}">{{title}}</view>
+    <view class="contentView">
+        <view bindtap="toPersonEdit" class="{{anonymousState__temp}}">
+            <image class="slogan" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_slogan.png"></image>
+            <view class="personal-info">
+                <view class="personal-info-text">
+                    <view class="name" wx:if="{{isLogin}}">{{name||'请填写姓名'}}</view>
+                    <view class="name" wx:if="{{!isLogin}}">立即登录</view>
+                    <view style="display:flex;align-items:center">
+                        <text class="label cut_text" wx:if="{{personInfoObj.school}}">{{personInfoObj.school}}</text>
+                        <text class="label-line" wx:if="{{personInfoObj.specialty}}"></text>
+                        <text class="label cut_text" style="max-width:5em" wx:if="{{personInfoObj.specialty}}">{{personInfoObj.specialty}}</text>
+                        <text class="label-line" wx:if="{{personInfoObj.schoolyear}}"></text>
+                        <text class="label" wx:if="{{personInfoObj.schoolyear}}">{{personInfoObj.schoolyear+'级'}}</text>
+                    </view>
+                </view>
+                <view class="avatar-wrap">
+                    <image binderror="errorFunction" class="avatar" mode="aspectFill" src="{{headImage}}" wx:if="{{headImage}}"></image>
+                    <image class="avatar" mode="aspectFill" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!headImage&&sexType!=0}}"></image>
+                    <image class="avatar" mode="aspectFill" src="data:image/png;base64,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" wx:if="{{!headImage&&sexType==0}}"></image>
+                </view>
+            </view>
+            <view class="not-complete-card" wx:if="{{isShowJobobjectiveCard}}">
+                <view class="not-complete-card-text">
+                    <image class="not-complete-icon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_objectiveNot.png"></image>
+                    <view>完善求职意向更容易获得企业投递邀请</view>
+                </view>
+                <view class="not-complete-operation">
+                    <view catchtap="anonymousFunc0" class="cancel">稍后完善</view>
+                    <view catchtap="anonymousFunc1" class="confirm">立即完善</view>
+                </view>
+            </view>
+            <view class="not-complete-card" wx:if="{{!isShowJobobjectiveCard&&showResumeCard}}">
+                <view class="not-complete-card-text">
+                    <image class="not-complete-icon" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_resumeNot.png"></image>
+                    <view>你的简历还有 <text>{{resumeNum}}</text> 项未完善</view>
+                </view>
+                <view class="not-complete-operation">
+                    <view catchtap="anonymousFunc2" class="cancel">稍后完善</view>
+                    <view catchtap="anonymousFunc3" class="confirm">立即完善</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="toResume" class="online-resume">
+            <image class="online-resume-bg" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_resumeBg.png"></image>
+            <view>在线简历 <text wx:if="{{!showResumeCard&&resumeIsComplete&&percent!==null}}">{{'('+percent+'%)'}}</text>
+            </view>
+            <image class="not-complete-img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_notPerfect_v2.png" wx:if="{{!showResumeCard&&!resumeIsComplete}}"></image>
+        </view>
+        <view class="apply-job-part">
+            <view class="apply-job-menu">
+                <view bindtap="toAccessoryResume" class="apply-job-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_resume_v2.png"></image>
+                    <view class="accessory-resume-tips" wx:if="{{isLogin&&showAccessoryResumeTips}}">
+                        <view>可支持附件简历上传哦</view>
+                        <text class="icon icon-guanbi"></text>
+                        <view catchtap="anonymousFunc4" class="click-block"></view>
+                    </view>
+                    <image class="not-complete-img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_notUpload.png" wx:if="{{!showAccessoryResumeTips&&!isUploadedResume}}"></image>
+                    <view>附件简历</view>
+                </view>
+                <view bindtap="toJobobjective" class="apply-job-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_objective.png"></image>
+                    <image class="not-complete-img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_notPerfect.png" wx:if="{{!isShowJobobjectiveCard&&!jobObjectiveFlag}}"></image>
+                    <view>求职意向</view>
+                </view>
+                <view bindtap="toSendRecord" class="apply-job-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_deliveryFeedback.png"></image>
+                    <view>投递反馈</view>
+                </view>
+                <view bindtap="toCollectposition" class="apply-job-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_collection.png"></image>
+                    <view>收藏职位</view>
+                </view>
+            </view>
+        </view>
+        <view class="common-function-part">
+            <view class="common-function-title">常用功能</view>
+            <view class="common-function-menu">
+                <view bindtap="toPersonInfo" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_personalHome.png"></image>
+                    <view>个人主页</view>
+                </view>
+                <view bindtap="toFriendList" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_xyCircle.png"></image>
+                    <view>校友圈</view>
+                </view>
+                <view bindtap="toCourse" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_course.png"></image>
+                    <view>我的课程</view>
+                </view>
+                <view bindtap="gotoQusList" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_questionnaire.png"></image>
+                    <view>问卷调查</view>
+                </view>
+            </view>
+            <view class="common-function-menu" style="margin-top:64rpx">
+                <view bindtap="toNaturetest" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_evaluate.png"></image>
+                    <view>职业测评</view>
+                </view>
+                <view bindtap="toMineIntegral" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_point.png"></image>
+                    <view>我的积分</view>
+                </view>
+                <view bindtap="toSchoolCensusList" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_schoolAuth.png"></image>
+                    <image class="not-complete-img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_notPerfect.png" wx:if="{{showActivepop}}"></image>
+                    <view>学籍认证</view>
+                </view>
+                <view bindtap="gotoKefu" class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_feedback.png"></image>
+                    <view>客服与反馈</view>
+                </view>
+            </view>
+            <view bindtap="toSetting" class="common-function-menu" style="margin-top:64rpx">
+                <view class="common-function-menu-item">
+                    <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/mine_setting.png"></image>
+                    <view>设置</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <fastlogin compid="{{$compid__1150}}" id="fastlogin"></fastlogin>
+    <bottom-tabbar compid="{{$compid__1151}}"></bottom-tabbar>
+    <forbiddenlogin compid="{{$compid__1152}}"></forbiddenlogin>
+    <view class="bookingTag" wx:if="{{showTagView}}">
+        <view class="content">
+            <text bindtap="closePop" class="icon icon-guanbi"></text>
+            <view class="schoolInfo">
+                <view class="tit">{{tagInfo.identityName}}</view>
+                <view class="txt">{{tagInfo.identityDesc}}</view>
+            </view>
+        </view>
+    </view>
+</view>

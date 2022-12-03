@@ -1,0 +1,21 @@
+<view class="WxEmojiViewContainer" style="{{'bottom:'+bottom-1+'px'}}" wx:if="{{$taroCompReady}}">
+    <view class="{{'handle_bottom '+(ifIphoneX?'handle_bottom_iphonex':'')}}">
+        <view class="insert_image">
+            <image catchtap="anonymousFunc0" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/insert_picture.png"></image>
+            <image catchtap="anonymousFunc1" class="keyboard" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/keyboard.png" wx:if="{{showKeyboard}}"></image>
+            <image catchtap="anonymousFunc2" class="keyboard" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/smiley_face.png" wx:if="{{!showKeyboard}}"></image>
+        </view>
+        <view catchtap="anonymousFunc3" class="button1">发布</view>
+    </view>
+    <swiper circular="{{true}}" class="swiperContainer" indicatorActiveColor="#999" indicatorColor="#CCC" indicatorDots="{{true}}" wx:if="{{showKeyboard}}">
+        <swiper-item wx:for="{{loopArray690}}" wx:for-index="page">
+            <view class="emoji-box emoji-move-in">
+                <view class="emoji-cell" wx:for="{{item[$original]}}" wx:for-item="e" wx:key="index">
+                    <image bindtap="emojiChoose" class="touch-active" data-emoji="{{e.char}}" src="{{'https://xcxresources.xybsyw.com/xcx/emoji/emoji_'+page*27+index+1+'.png'}}" wx:if="{{index!=27}}"></image>
+                    <image class="touch-active" src="{{true}}" wx:if="{{index==27}}"></image>
+                </view>
+            </view>
+            <image catchtap="anonymousFunc4" class="touch-active-0" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" src="https://xcxresources.xybsyw.com/xcx/images/emoji00.png"></image>
+        </swiper-item>
+    </swiper>
+</view>

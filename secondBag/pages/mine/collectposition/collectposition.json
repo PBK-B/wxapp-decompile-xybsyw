@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "收藏职位"
+}

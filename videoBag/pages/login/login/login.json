@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "forbiddenlogin": "../../../../components/forbidden-login/forbidden-login",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "van-field": "../../../../vant-weapp/dist/field/index"
+    },
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "登录"
+}

@@ -1,0 +1,224 @@
+<movable-area class="detailPage" wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}" style="{{'height: '+statusHeight+'px;background-color: '+(actType==='劳育实践'?'#2ab98d':'#FFFFFF')}}">
+        <view class="recommendBox">
+            <view bindtap="changeType" class="{{'tabName '+(item.name==actType?'tabName_active':'')}}" data-item="{{item.name}}" wx:for="{{tabList}}" wx:key="index">{{item.name}} <text class="tabLine" wx:if="{{item.name==actType}}"></text>
+            </view>
+        </view>
+    </view>
+    <view class="{{'container '+(noData?'writeMode':'')}}" style="{{'padding-top:'+statusHeight+'px'}}">
+        <view class="practiceWrap" hidden="{{actType!='实习'}}">
+            <view class="notiView" wx:if="{{hasMessage}}">
+                <view class="swiperBg">
+                    <text class="icon icon-laba001hover"></text>
+                    <swiper autoplay="true" circular="true" class="swiper_container" interval="2000" vertical="true">
+                        <swiper-item bindtap="toMsgDetail" data-project="{{item}}" wx:for="{{msgList}}">
+                            <view class="swiper_item">{{item.title}}</view>
+                        </swiper-item>
+                    </swiper>
+                    <view bindtap="toMessageList" class="textMore">更多</view>
+                    <view class="redBadge notice-bar-badge" wx:if="{{hasNewMessage}}"></view>
+                </view>
+            </view>
+            <view wx:if="{{studentActivate}}">
+                <view class="topMenu">
+                    <view class="topBg">
+                        <view class="menuList">
+                            <view bindtap="toSign" class="item">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-sign.png"></image>
+                                </view>
+                                <view class="text">签到</view>
+                            </view>
+                            <view bindtap="toJournalList" class="item">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-log.png"></image>
+                                </view>
+                                <view class="text">周日志</view>
+                            </view>
+                            <view bindtap="toQuestionnairelist" class="item">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-questionnaire.png"></image>
+                                </view>
+                                <view class="redBadge icon_rignt" wx:if="{{hasNewQuestion}}"></view>
+                                <view class="text">问卷调查</view>
+                            </view>
+                            <view bindtap="toOffWorklist" class="item" wx:if="{{offWorkMsg&&offWorkMsg.open}}">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-leave.png"></image>
+                                </view>
+                                <view class="message_account" hoverClass="none" hoverStopPropagation="false" wx:if="{{offWorkMsg.count>0}}">{{offWorkMsg.count}}</view>
+                                <view class="text">请假</view>
+                            </view>
+                            <view bindtap="toEmploymentReport" class="item" wx:if="{{offWorkMsg&&offWorkMsg.hasEmploymentReport}}">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-report.png"></image>
+                                </view>
+                                <view class="text">就业上报</view>
+                            </view>
+                            <view bindtap="toEnrolllist" class="item" wx:if="{{offWorkMsg&&!offWorkMsg.hasEmploymentReport&&!offWorkMsg.open}}">
+                                <view class="imgV">
+                                    <image class="img" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/growup-apply.png"></image>
+                                </view>
+                                <view class="redBadge icon_rignt" wx:if="{{hasNewSignup}}"></view>
+                                <view class="text">实习报名</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="sp_line"></view>
+                <view class="practice-tab-wrap">
+                    <view class="practice-tab">
+                        <view bindtap="anonymousFunc0" class="{{anonymousState__temp2}}">实习报名 <view class="line" wx:if="{{practiceTab===0}}"></view>
+                        </view>
+                        <view bindtap="anonymousFunc1" class="{{anonymousState__temp3}}">我的实习 <view class="line" wx:if="{{practiceTab===1}}"></view>
+                        </view>
+                    </view>
+                    <view bindtap="toKefu" class="kefu">
+                        <image class="lianxikefu" src="https://xcxresources.xybsyw.com/xcx/images/msgReach202103_10.png"></image>客服中心</view>
+                </view>
+                <enrolllist id="enrolllist" wx:if="{{practiceTab===0}}"></enrolllist>
+                <block wx:if="{{practiceTab===1}}">
+                    <view class="emptyView" wx:if="{{noData}}">
+                        <image src="https://ss0.xybsyw.com//upload/picture/enterprise/1852/detail/1566870587865.png"></image>
+                        <view class="text">{{titleText}}</view>
+                    </view>
+                    <view class="postsView" wx:if="{{noData}}">
+                        <view class="postTitle">推荐本校合作企业的岗位，让实习更安心</view>
+                        <view class="recom_pos">
+                            <view bindtap="toposDetail" class="posList" data-id="{{item.postId}}" wx:for="{{postList}}" wx:key="index">
+                                <view>
+                                    <view class="pos_header clearfix">
+                                        <text class="name single_text">{{item.postName}}</text>
+                                        <text class="nature" wx:if="{{item.nature}}">{{item.nature}}</text>
+                                        <text class="salary" wx:if="{{item.salary}}">{{item.salary}}</text>
+                                    </view>
+                                    <view class="pos_main">
+                                        <view class="logo">
+                                            <image binderror="binderrorimg" data-errorimg="{{index}}" src="{{item.logoUrl}}" wx:if="{{item.logoUrl}}"></image>
+                                            <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAElBMVEVHcEzd3d3c3Nzb29vMy8vU09OM7aHFAAAAA3RSTlMAJq2Rz5ivAAABt0lEQVRYw+2YS07EMAyGyw3YcALEBXB9gjgHAMf3vwp+5DkMEh0JiUW86DROPtv543akHk9vcMk+n48XuGgfx+tV5P2Ay7aRjWxkIxvZyD9EkLjdnjQvWkeBFIqZ1Nxl0N9Gv0dQzC4hZJYrgjRZVnIZ1tm8IMsauh12xII1BDRCVqOiJoB6Jb/3IZCOqIgjqe+FrFjdkEcJByx7MdcdRH2F2gnlWwR9mhui5SYfn3XpNyQiRu6OxKoSOuMQzHxmbEjuiGqUS8SNn3NGumIY8RpCYuJAYQlHtqOOnCIKCK+Ipa57TLV44akHmmJTYV7r6dtP0ByT1IaiizwjhbGq5o7cVv1wLqjne7pkNaxOnR4gDfWyt1tDTo0JrOtbWK0xAvBQzxAYbZk8s83VrdgsSQRAbT7tOFmyIDuCVOvymRGgBveGSTePWBl1hSb9nZC8h8rUMLBm8Q7AgYSOoeKCuDKZa1CJxhp1WRaeXhfx8Fmx3rPeDxn1Ir3O8Sz1LK1rc+0giZ/UOhXvILIIETWIIXN5A5EM80sIpN8xtJnC+/9lIxvZyEY28pcIXyXwkY9dD3xSu/7h7gsj7xO5+/krugAAAABJRU5ErkJggg==" wx:if="{{!item.logoUrl}}"></image>
+                                        </view>
+                                        <view class="pos_info">
+                                            <view class="com_name single_text">
+                                                <text>{{item.enterpriseName}}</text>
+                                                <text class="tagJidi" wx:if="{{item.label}}">
+                                                    <text class="icon icon-qizi" wx:if="{{item.baseType}}"></text>{{item.label}}</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="gomore" class="morepost">查看更多职位<text class="icon icon-jiantou" style="padding-left: 8rpx;color: #d8d8d8;font-weight: 1;font-size: 18rpx;position: absolute;right: 0;top: 50%;transform: translateY(-50%);"></text>
+                        </view>
+                    </view>
+                    <view class="listContainer" wx:if="{{!noData}}">
+                        <view class="gradientRamp"></view>
+                        <view class="data_list">
+                            <view bindtap="jumpDetail" class="data_item" data-attention="{{item[$original].cenProjectFlag?1:0}}" data-double="{{item[$original].douProjectFlag?1:0}}" data-id="{{item[$original].planId}}" data-independent="{{item[$original].indProjectFlag?1:0}}" data-planname="{{item[$original].planName}}" wx:for="{{loopArray734}}" wx:key="index">
+                                <view class="plan_name">
+                                    <view class="name">{{item[$original].planName}}</view>
+                                    <text class="icon icon-jiantou"></text>
+                                </view>
+                                <view class="plan_type_time" wx:for="{{item[$original].projectList}}" wx:for-index="idc" wx:for-item="project" wx:key="index">
+                                    <view class="plan_status">
+                                        <text class="plan_status_left">{{project.projectName}}</text>
+                                        <view class="plan_type_text">{{project.moduleName}}</view>
+                                    </view>
+                                    <view class="project_date" wx:for="{{project.dates}}" wx:for-index="idcd" wx:for-item="projectDate">
+                                        <view class="project_date_time" wx:if="{{(project.length!=1||project.dates.length!=1)&&projectDate.dateName}}">{{'分组名称: '+projectDate.dateName}}</view>
+                                        <view>
+                                            <view class="project_date_time">{{'实习时间: '+projectDate.startDate+'~'+projectDate.endDate}}</view>
+                                            <view class="zd_tag" wx:if="{{project.remove}}"></view>
+                                            <view class="zd_tag_2" wx:if="{{!project.remove&&projectDate.remove}}"></view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="button_block">
+                                    <button catchtap="anonymousFunc2" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" data-project="{{item[$original]}}" style="color:#666666;border:1px solid rgba(102, 102, 102, 0.4)" wx:if="{{item[$original].moduleId==1}}">修改岗位</button>
+                                    <button catchtap="anonymousFunc3" data-e-tap-a-a="{{item[_$indexKey2]}}" data-e-tap-so="this" data-project="{{item[$original]}}" style="color:#FF453A;border:1px solid rgba(255, 69, 58, 0.4);">实习任务</button>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="nodata">
+                            <view class="textBg">
+                                <view class="line1"></view>没有更多了 <view class="line2"></view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="noActivateLayout" wx:if="{{!studentActivate}}">
+                <text class="tipTxt1">如需计划报名和完成实习任务</text>
+                <text class="tipTxt1">请先进行学籍认证</text>
+                <text bindtap="toAuthSchool" class="authTxt">学籍认证</text>
+                <view class="toSetLayout">
+                    <text class="txt1">不需要实习模块，</text>
+                    <text bindtap="toSet" class="txt2">去关闭</text>
+                    <text class="icon icon-fanhui-copy-copy"></text>
+                </view>
+            </view>
+        </view>
+        <view class="content_warp" hidden="{{actType!='职引'}}">
+            <view bindtap="jumpToPrivateSphere" class="top_jump" wx:if="{{sphereInfo.status}}">
+                <view class="img_icon"></view>
+                <text class="text" decode="{{true}}">{{sphereInfo.content}}</text>
+                <view class="right_btn">咨询</view>
+            </view>
+            <view class="content_warp_padding">
+                <view bindtap="toWhere" class="content_itme">
+                    <image class="backimg" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/book_bg_4.png"></image>
+                    <view class="text_warp">
+                        <text class="title">开启求职指南</text>
+                        <text class="subtit">揭秘就业</text>
+                        <button class="btn">立即查看</button>
+                    </view>
+                </view>
+                <view bindtap="tonatureTest" class="content_itme">
+                    <image class="backimg" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/book_bg_1.png"></image>
+                    <view class="text_warp">
+                        <text class="title">MBTI职业性格测试</text>
+                        <text class="subtit" wx:if="{{!userinfo.mbtitest}}">匹配你最合适的职位</text>
+                        <text class="subtit" wx:if="{{userinfo.mbtitest}}">{{'我的测评：'+userinfo.type+' ('+userinfo.typeName+')'}}</text>
+                        <button class="btn" wx:if="{{!userinfo.mbtitest}}">立即测试</button>
+                        <button class="btn" wx:if="{{userinfo.mbtitest}}">立即查看</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <education-practice compid="{{$compid__1118}}" id="educationPractice" wx:if="{{actType=='劳育实践'}}"></education-practice>
+        <my-course wx:if="{{actType=='课程'}}"></my-course>
+        <fastlogin compid="{{$compid__1119}}" id="fastlogin"></fastlogin>
+        <forbiddenlogin compid="{{$compid__1120}}"></forbiddenlogin>
+        <job-status-popup compid="{{$compid__1121}}" id="JobStatusPopup"></job-status-popup>
+        <bottom-tabbar compid="{{$compid__1122}}"></bottom-tabbar>
+        <van-dialog id="van-dialog"></van-dialog>
+        <movable-view bindtap="goNewGuide" class="backHome" direction="all" x="{{windowData.safeArea.width-68}}" y="{{windowData.safeArea.height-91-49-(ifIphoneX?25:0)}}" wx:if="{{practiceEnd&&actType==='实习'}}">
+            <image class="follow_icon" src="https://xcxresources.xybsyw.com/xcx/images/new_guide_icon.png"></image>
+        </movable-view>
+    </view>
+    <official-accounts-popup compid="{{$compid__1123}}"></official-accounts-popup>
+    <view bindtap="toBottomPopupDetail" class="{{'bottomItem '+(ifIphoneX?'bottomItem_iphonex':'')}}" wx:if="{{!( (talkList&&talkList.length>0||schoolTalkList&&schoolTalkList.length>0)&&showboxFlag&&!showRecommand&&!jobStatusPopupFlag )&&showBottomPopup}}">
+        <image catchtap="anonymousFunc4" class="closeIcon" src="https://xcxresources.xybsyw.com/xcx/images/msgReach202103_03.png"></image>
+    </view>
+    <view bindtap="showRecommandBox" class="{{'fixed_box '+(ifIphoneX?'fixed_box_iphonex':'')}}" wx:if="{{(talkList&&talkList.length>0||schoolTalkList&&schoolTalkList.length>0)&&showboxFlag&&!showRecommand&&!jobStatusPopupFlag}}">
+        <view catchtap="anonymousFunc5" class="close_icon"></view>
+    </view>
+    <popup compid="{{$compid__1124}}">
+        <view class="fixed_recommand">
+            <view class="recommand_top" wx:if="{{showRecommand}}">
+                <view class="top_title"></view>
+                <view bindtap="closeRecommandBox" class="top_close"></view>
+            </view>
+            <view class="recommand_bottom" wx:if="{{showRecommand}}">
+                <view class="double_item" wx:for="{{schoolTalkList}}" wx:for-index="_anonIdx2" wx:for-item="talk">
+                    <view class="item_left">{{talk.name}}</view>
+                    <view bindtap="humpTalkDetails" class="item_right" data-id="{{talk.id}}">去看看</view>
+                </view>
+                <view class="double_item" wx:for="{{talkList}}" wx:for-index="_anonIdx4" wx:for-item="talk1">
+                    <view class="item_left">{{talk1.name}}</view>
+                    <view bindtap="humpTalkDetails" class="item_right" data-id="{{talk1.id}}">去看看</view>
+                </view>
+            </view>
+        </view>
+    </popup>
+</movable-area>

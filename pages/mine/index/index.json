@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "bottom-tabbar": "../../../components/bottom-tabbar/bottom-tabbar",
+        "forbiddenlogin": "../../../components/forbidden-login/forbidden-login"
+    },
+    "navigationBarTitleText": "",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

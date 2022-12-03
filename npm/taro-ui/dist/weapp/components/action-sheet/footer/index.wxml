@@ -1,0 +1,3 @@
+<view bindtap="handleClick" class="{{rootClass}}" wx:if="{{$taroCompReady}}">
+    <slot></slot>
+</view>

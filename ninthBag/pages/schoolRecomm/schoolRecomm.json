@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "item-job-new": "../../components/item-job-new/item-job-new",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "本校推荐"
+}

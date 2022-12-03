@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-search": "../../../../../vant-weapp/dist/search/index"
+    },
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false
+}

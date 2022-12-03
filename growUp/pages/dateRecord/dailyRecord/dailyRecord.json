@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "calendar": "../../../components/calendar-record/calendar-record",
+        "top-button-group": "../../../../components/top-button-group/top-button-group"
+    },
+    "navigationStyle": "custom"
+}

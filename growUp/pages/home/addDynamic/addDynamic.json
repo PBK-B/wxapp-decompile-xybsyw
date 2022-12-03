@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "choose-tiop-tag": "../../../components/chooseTiopTag/chooseTiopTag",
+        "more-tag-popup": "../../../components/chooseTiopTag/moreTagPopup",
+        "insert-bottom": "../../../../components/insertBottom/insertBottom"
+    },
+    "navigationBarTitleText": "发布动态"
+}

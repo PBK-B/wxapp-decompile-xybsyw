@@ -1,0 +1,18 @@
+<view class="container" style="{{anonymousState__temp}}" wx:if="{{$taroCompReady}}">
+    <view class="positionWarp" wx:if="{{!noDate}}">
+        <view class="{{'post_item'+index}}" wx:for="{{loopArray635}}">
+            <item-job-new compid="{{item[$compid__909]}}"></item-job-new>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{hasMore&&maxPage}}">
+        <at-activity-indicator compid="{{$compid__910}}"></at-activity-indicator>
+    </view>
+    <view class="nodata" wx:if="{{!hasMore&&maxPage>1}}">
+        <text>我是有底线的</text>
+    </view>
+    <view class="noDate" wx:if="{{noDate}}">
+        <image mode="widthFix" src="https://ss0.xybsyw.com//upload/picture/enterprise/1852/detail/1546685635007.png"></image>
+        <view class="no_text">暂无关注的职位</view>
+        <view bindtap="toIndex" class="look_text">看看推荐的职位</view>
+    </view>
+</view>

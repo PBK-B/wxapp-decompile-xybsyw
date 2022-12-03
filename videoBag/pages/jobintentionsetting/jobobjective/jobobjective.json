@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "actionradio": "../../../components/actionradio/actionradio",
+        "resumepublic": "../../../components/resumepublic/resumepublic"
+    },
+    "navigationBarTitleText": "我的求职意向"
+}

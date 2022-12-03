@@ -1,0 +1,7 @@
+<block wx:if="{{$taroCompReady}}">
+    <view bindtap="nextStep" catchtouchmove="anonymousFunc0" class="{{anonymousState__temp}}" wx:if="{{guideIndex>=0}}">
+        <image class="welcom-image" src="https://xcxresources.xybsyw.com/xcx/images/home-guide.png" wx:if="{{guideIndex===0}}"></image>
+        <image class="guide-image-1" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homepage-guide-1.png" wx:if="{{guideIndex===1}}"></image>
+        <image class="guide-image-2" mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/homepage-guide-2.png" wx:if="{{guideIndex===2}}"></image>
+    </view>
+</block>

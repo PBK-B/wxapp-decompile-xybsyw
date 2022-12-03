@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "双选会预告",
+    "enablePullDownRefresh": false
+}

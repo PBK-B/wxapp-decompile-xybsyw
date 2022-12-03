@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "item-question": "../../../../components/item-question/item-question",
+        "item-answer": "../../../../components/item-answer/item-answer",
+        "item-dynamic": "../../../../components/item-dynamic/item-dynamic",
+        "item-information": "../../../../components/item-information/item-information",
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "搜索"
+}

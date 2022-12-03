@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "points-day-sign": "../../../../components/points-day-sign/points-day-sign",
+        "points-box": "../../../components/points-box/points-box",
+        "add-integral": "../../../../components/addIntegral/addIntegral",
+        "integralguid": "../../../../components/integral-guid/integral-guid",
+        "van-tabs": "../../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "我的积分"
+}

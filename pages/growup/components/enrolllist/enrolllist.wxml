@@ -1,0 +1,91 @@
+<view class="container_warp" wx:if="{{$taroCompReady}}">
+    <view class="no_data" wx:if="{{noData}}">
+        <image binderror="{{true}}" bindload="{{true}}" class="no_data_img" lazyLoad="false" src="https://xcxresources.xybsyw.com/xcx/images/enroll_no_list.png"></image>
+        <text class="no_data_text">暂无相关实习计划</text>
+        <text class="no_data_reason">可能原因: 还没有老师把你添加到实习中，</text>
+        <text class="no_data_reason_ask">快去问问老师吧～</text>
+    </view>
+    <view class="data_list" wx:if="{{!noData}}">
+        <view class="data_item" wx:for="{{loopArray638}}" wx:key="index">
+            <view class="box_top">
+                <view class="plan_name">{{item[$original].name}}</view>
+                <view class="data_item_list">
+                    <view bindtap="jumpDetail" class="plan_type" data-attention="{{item[$original].centerProjectList.length>0?1:0}}" data-double="{{item[$original].doubleProjectList.length>0?1:0}}" data-id="{{item[$original].id}}" data-independent="{{item[$original].indProjectList.length>0?1:0}}" data-planname="{{item[$original].name}}" style="{{'border-bottom:'+(item[$original].centerProjectList.length>0&&item[$original].doubleProjectList.length>0?'1rpx dashed #E5E5E5':'')}}" wx:if="{{item[$original].indProjectList.length>0}}">
+                        <view class="{{true}}"></view>
+                        <view class="plan_type_time" wx:for="{{item[$anonymousCallee__113]}}" wx:for-index="idi" wx:for-item="indProject">
+                            <view class="plan_status">
+                                <view class="plan_status_left">
+                                    <text class="plan_status_left_name">{{indProject[$original].projectName}}</text>
+                                    <text class="plan_type_text">自主实习</text>
+                                </view>
+                                <view class="plan_status_right" style="{{indProject[$loopState__temp2]}}">{{item[$original].joinStatus}}</view>
+                            </view>
+                            <view class="project_time">{{'实习时间: '+indProject[$original].startDate+'~'+indProject[$original].endDate}}</view>
+                            <view class="project_time">{{'岗位申请时间: '+indProject[$original].postStartDate+'~'+indProject[$original].postEndDate}}</view>
+                            <view class="over_time" wx:if="{{!indProject[$original].expireSignUp&&item[$original].joinStatus!='已逾期不可报名'}}">*逾期不可报名</view>
+                            <view class="nopass_reason" wx:if="{{item[$original].joinStatus=='已逾期不可报名'}}">
+                                <image binderror="{{true}}" bindload="{{true}}" class="{{true}}" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nopass_icon.png"></image>
+                                <view class="{{true}}">报名时间已过，无法报名！老师设置了“过期不允许报名”，请联系你的老师解决</view>
+                            </view>
+                            <view class="nopass_reason" wx:if="{{item[$original].joinStatus=='老师审核未通过'&&indProject[$original].auditDesc}}">
+                                <image binderror="{{true}}" bindload="{{true}}" class="{{true}}" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nopass_icon.png"></image>
+                                <view class="{{true}}">{{indProject[$original].auditDesc}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="jumpDetail" class="plan_type" data-attention="{{item[$original].centerProjectList.length>0?1:0}}" data-double="{{item[$original].doubleProjectList.length>0?1:0}}" data-id="{{item[$original].id}}" data-independent="{{item[$original].indProjectList.length>0?1:0}}" data-planname="{{item[$original].name}}" style="{{'border-bottom:'+(item[$original].doubleProjectList.length>0?'1rpx dashed #E5E5E5':'')}}" wx:if="{{item[$original].centerProjectList.length>0}}">
+                        <view class="plan_type_time" wx:for="{{item[$anonymousCallee__115]}}" wx:for-index="idc" wx:for-item="centerProject">
+                            <view class="plan_status">
+                                <view class="plan_status_left">
+                                    <text class="plan_status_left_name">{{centerProject[$original].projectName}}</text>
+                                    <text class="plan_type_text">集中实习</text>
+                                </view>
+                                <view class="plan_status_right" style="{{centerProject[$loopState__temp4]}}" wx:if="{{centerProject[$original].dateList.length==1}}">{{centerProject[$original].dateList[0].joinStatus}}</view>
+                            </view>
+                            <view class="project_date project_date_indProject" wx:for="{{centerProject[$anonymousCallee__114]}}" wx:for-index="idcd" wx:for-item="centerProjectDate">
+                                <view class="plan_status_left">
+                                    <view class="project_date_time" wx:if="{{(item[$original].centerProjectList.length!=1||centerProject[$original].dateList.length!=1)&&centerProjectDate[$original].name}}">{{'分组名称: '+centerProjectDate[$original].name}}</view>
+                                    <view class="project_date_time">{{'实习时间: '+centerProjectDate[$original].startDate+'~'+centerProjectDate[$original].endDate}}</view>
+                                </view>
+                                <view class="plan_status_right" style="{{centerProjectDate[$loopState__temp6]}}" wx:if="{{centerProject[$original].dateList.length>1}}">{{centerProjectDate[$original].joinStatus}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="jumpDetail" class="plan_type" data-attention="{{item[$original].centerProjectList.length>0?1:0}}" data-double="{{item[$original].doubleProjectList.length>0?1:0}}" data-id="{{item[$original].id}}" data-independent="{{item[$original].indProjectList.length>0?1:0}}" data-planname="{{item[$original].name}}" wx:if="{{item[$original].doubleProjectList.length>0}}">
+                        <view class="plan_type_time" wx:for="{{item[$anonymousCallee__117]}}" wx:for-index="idd" wx:for-item="doubleProject">
+                            <view class="plan_status">
+                                <view class="plan_status_left">
+                                    <text class="plan_status_left_name">{{doubleProject[$original].projectName}}</text>
+                                    <text class="plan_type_text">双向实习</text>
+                                </view>
+                                <view class="plan_status_right" style="{{doubleProject[$loopState__temp8]}}">{{doubleProject[$original].joinStatus}}</view>
+                            </view>
+                            <view class="project_date" wx:for="{{doubleProject[$original].dateList}}" wx:for-index="iddd" wx:for-item="doubleProjectDate">
+                                <view class="project_date_time" wx:if="{{(item[$original].doubleProjectList.length!=1||doubleProject[$original].dateList.length!=1)&&doubleProjectDate.name}}">{{'分组名称: '+doubleProjectDate.name}}</view>
+                                <view class="project_date_time">{{'实习时间: '+doubleProjectDate.startDate+'~'+doubleProjectDate.endDate}}</view>
+                            </view>
+                            <view class="nopass_reason" wx:if="{{doubleProject[$original].joinStatus=='老师审核未通过'&&doubleProject[$original].auditDesc}}">
+                                <image binderror="{{true}}" bindload="{{true}}" class="{{true}}" lazyLoad="false" mode="aspectFit|aspectFill|widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nopass_icon.png"></image>
+                                <view class="{{true}}">{{doubleProject[$original].auditDesc}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="button_block">
+                    <button bindtap="jumpZW" class="xyb_apply_buttom bbtn" style="margin-bottom:48rpx;border:'1rpx solid #ff453a'" wx:if="{{item[$original].indProjectList.length>0&&havePost&&item[$original].signStatus!=1}}">本校推荐职位</button>
+                    <view class="space"></view>
+                    <button bindtap="jumpTips" class="xyb_apply_buttom overdue_btn" wx:if="{{item[$original].indProjectList.length>0&&item[$original].centerProjectList.length==0&&item[$original].doubleProjectList.length==0&&item[$original].joinStatus!='实习中断'&&item[$original].signStatus==3}}">已逾期，不可报名</button>
+                    <button bindtap="jump" class="{{'xyb_apply_buttom '+(havePost?'bbtn':'')}}" data-attention="{{item[$original].centerProjectList.length>0?1:0}}" data-audit="{{item[$original].subscribeAuditFlag}}" data-double="{{item[$original].doubleProjectList.length>0?1:0}}" data-id="{{item[$original].id}}" data-independent="{{item[$original].indProjectList.length>0?1:0}}" data-planname="{{item[$original].name}}" data-project="{{item[$original]}}" data-status="{{item[$original].signStatus}}" style="{{'margin-bottom:48rpx;color:'+(item[$original].signStatus==1?'#333333':'')+';border:'+(item[$original].signStatus==1?'1rpx solid #DBDBDB':'1rpx solid #ff453a')}}" wx:if="{{item[$original].signStatus!=3}}">{{item[$loopState__temp10]}}</button>
+                </view>
+            </view>
+            <view class="double_box" wx:if="{{item[$original].indProjectList.length>0&&!item[$original].indProjectList[0].projectEnd&&item[$original].indProjectList[0].choiceTalks&&item[$original].indProjectList[0].choiceTalks.length>0}}">
+                <view class="title"></view>
+                <view class="double_item" wx:for="{{item[$original].indProjectList[0].choiceTalks}}" wx:for-index="_anonIdx2" wx:for-item="talk1">
+                    <view class="item_left">{{talk1.name}}</view>
+                    <view bindtap="humpTalkDetails" class="item_right" data-id="{{talk1.id}}">去看看</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <official-accounts-popup compid="{{$compid__912}}"></official-accounts-popup>
+</view>

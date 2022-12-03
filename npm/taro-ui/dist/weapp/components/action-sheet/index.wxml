@@ -1,0 +1,10 @@
+<view catchtouchmove="handleTouchMove" class="{{rootClass}}" wx:if="{{$taroCompReady}}">
+    <view bindtap="close" class="at-action-sheet__overlay"></view>
+    <view class="at-action-sheet__container">
+        <at-action-sheet-header wx:if="{{title}}">{{title}}</at-action-sheet-header>
+        <at-action-sheet-body>
+            <slot></slot>
+        </at-action-sheet-body>
+        <at-action-sheet-footer compid="{{$compid__1084}}" wx:if="{{cancelText}}">{{cancelText}}</at-action-sheet-footer>
+    </view>
+</view>

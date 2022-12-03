@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "item-job-new": "../../../../components/item-job-new/item-job-new",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "求职详情"
+}

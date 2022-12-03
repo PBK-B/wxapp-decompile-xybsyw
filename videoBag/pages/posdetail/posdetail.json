@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "accessory-resume-tip-bar": "./inc/accessoryResumeTipBar/accessoryResumeTipBar",
+        "item-job-new": "../../../components/item-job-new/item-job-new",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "actionradio": "../../components/actionradio/actionradio",
+        "collection-dialog": "./inc/CollectionDialog/CollectionDialog",
+        "resume-select": "./inc/resumeSelect/resumeSelect",
+        "no-complete-resume-tip": "./inc/noCompleteResumeTip/noCompleteResumeTip",
+        "van-popup": "../../../vant-weapp/dist/popup/index",
+        "van-checkbox": "../../../vant-weapp/dist/checkbox/index",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "职位详情"
+}

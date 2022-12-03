@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "Vandialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "编辑工作经历"
+}

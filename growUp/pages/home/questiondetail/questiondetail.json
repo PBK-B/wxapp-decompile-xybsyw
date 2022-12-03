@@ -1,0 +1,19 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "invitation-answer": "../../../components/invitation-answer/invitation-answer",
+        "answer-input": "../../../components/answerInput/answerInput",
+        "complaint-popup": "../../../../components/complaint-popup/complaint-popup",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "add-integral": "../../../../components/addIntegral/addIntegral",
+        "forbidden-send-msg": "../../../../components/forbidden-send-msg/forbidden-send-msg",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "问题详情",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

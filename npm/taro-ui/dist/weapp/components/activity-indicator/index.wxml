@@ -1,0 +1,6 @@
+<view class="{{rootClass}}" wx:if="{{$taroCompReady}}">
+    <view class="at-activity-indicator__body">
+        <at-loading compid="{{$compid__1113}}"></at-loading>
+    </view>
+    <text class="at-activity-indicator__content" wx:if="{{content}}">{{content}}</text>
+</view>

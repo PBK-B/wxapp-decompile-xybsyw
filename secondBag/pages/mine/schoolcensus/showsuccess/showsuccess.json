@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../../components/top-button-group/top-button-group",
+        "actionradio": "../../../../components/actionradio/actionradio",
+        "birthplace": "../../../../components/birthplace/birthplace",
+        "resumepublic": "../../../../components/resumepublic/resumepublic"
+    },
+    "navigationBarTitleText": "",
+    "navigationStyle": "custom"
+}

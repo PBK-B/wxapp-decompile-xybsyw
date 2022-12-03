@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "birthplace": "../../../../components/birthplace/birthplace",
+        "actionradio": "../../../../components/actionradio/actionradio"
+    },
+    "navigationBarTitleText": "编辑个人信息"
+}

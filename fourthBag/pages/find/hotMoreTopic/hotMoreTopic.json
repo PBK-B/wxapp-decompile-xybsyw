@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "itemquestion": "../../../../components/item-question/item-question",
+        "itemanswer": "../../../../components/item-answer/item-answer",
+        "itemdynamic": "../../../../components/item-dynamic/item-dynamic",
+        "iteminformation": "../../../../components/item-information/item-information",
+        "complaintpopup": "../../../../components/complaint-popup/complaint-popup",
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "今日热榜",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTextStyle": "black"
+}

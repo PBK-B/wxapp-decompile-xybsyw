@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "msg-dot": "../msg-dot/msg-dot"
+    }
+}

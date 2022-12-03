@@ -1,0 +1,23 @@
+{
+    "usingComponents": {
+        "itemquestion": "../../../components/item-question/item-question",
+        "itemanswer": "../../../components/item-answer/item-answer",
+        "itemdynamic": "../../../components/item-dynamic/item-dynamic",
+        "itemginfo": "../../components/item-ginfo/item-ginfo",
+        "itemblog": "../../components/item-blog/item-blog",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "itemjob": "../../../components/item-job/item-job",
+        "itemcompany": "../../../components/item-company/item-company",
+        "itemcity": "../../components/item-city/item-city",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "complaintpopup": "../../../components/complaint-popup/complaint-popup",
+        "jobselectpop": "../../components/job-select-pop/job-select-pop",
+        "conpanyselectpop": "../../components/conpany-select-pop/conpany-select-pop",
+        "Vantoast": "../../../vant-weapp/dist/toast/index"
+    },
+    "navigationBarTitleText": "湖州频道",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black"
+}

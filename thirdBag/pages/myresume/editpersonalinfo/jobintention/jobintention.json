@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "actionradio": "../../../../components/actionradio/actionradio",
+        "van-popup": "../../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "求职意向"
+}

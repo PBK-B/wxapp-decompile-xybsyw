@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "at-action-sheet-header": "./header/index",
+        "at-action-sheet-body": "./body/index",
+        "at-action-sheet-footer": "./footer/index"
+    }
+}

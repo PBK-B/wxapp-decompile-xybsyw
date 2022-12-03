@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "搜索结果"
+}

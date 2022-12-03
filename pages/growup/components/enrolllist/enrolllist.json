@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "official-accounts-popup": "../../../../components/OfficialAccountsPopup/OfficialAccountsPopup",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "报名"
+}

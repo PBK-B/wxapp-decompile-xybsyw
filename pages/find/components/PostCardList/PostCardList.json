@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "briefing-session-card": "../../../../components/BriefingSessionCard/BriefingSessionCard",
+        "double-choice-session-card": "../../../../components/DoubleChoiceSessionCard/DoubleChoiceSessionCard",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "van-icon": "../../../../vant-weapp/dist/icon/index"
+    }
+}

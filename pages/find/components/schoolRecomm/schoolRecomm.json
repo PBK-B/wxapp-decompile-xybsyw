@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "item-job-new": "../item-job-new/item-job-new",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    }
+}

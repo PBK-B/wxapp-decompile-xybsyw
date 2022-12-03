@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../../components/top-button-group/top-button-group",
+        "van-collapse-item": "../../../../vant-weapp/dist/collapse-item/index",
+        "van-collapse": "../../../../vant-weapp/dist/collapse/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationStyle": "custom"
+}

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "van-toast": "../../../../vant-weapp/dist/toast/index"
+    },
+    "navigationBarTitleText": "意见反馈"
+}

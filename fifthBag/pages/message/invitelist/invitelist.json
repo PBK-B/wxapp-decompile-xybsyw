@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-swipe-cell": "../../../../vant-weapp/dist/swipe-cell/index"
+    },
+    "navigationBarTitleText": "企业消息",
+    "enablePullDownRefresh": false
+}

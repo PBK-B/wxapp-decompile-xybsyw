@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "van-icon": "../../../../vant-weapp/dist/icon/index"
+    },
+    "navigationBarTitleText": "积分记录"
+}

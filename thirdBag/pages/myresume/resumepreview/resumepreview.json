@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "我的简历"
+}

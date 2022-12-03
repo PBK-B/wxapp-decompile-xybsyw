@@ -1,0 +1,12 @@
+<view class="ring-canvas-wrap" id="ring" style="{{anonymousState__temp}}" wx:if="{{$taroCompReady}}">
+    <canvas canvasId="ring" class="ring-canvas" wx:if="{{!isFinished}}"></canvas>
+    <image class="img" src="{{imgUrl}}" wx:if="{{isFinished}}"></image>
+    <view class="text-box">
+        <view class="process-num">
+            <text>{{processText}}</text>/{{totalText}}</view>
+        <view>{{text}}</view>
+    </view>
+    <view class="children">
+        <slot></slot>
+    </view>
+</view>

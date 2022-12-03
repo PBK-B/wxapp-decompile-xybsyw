@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "在线双选会",
+    "enablePullDownRefresh": false
+}

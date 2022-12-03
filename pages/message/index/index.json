@@ -1,0 +1,14 @@
+{
+    "usingComponents": {
+        "msgdot": "../../../components/msg-dot/msg-dot",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "bottomtabbar": "../../../components/bottom-tabbar/bottom-tabbar",
+        "forbiddenlogin": "../../../components/forbidden-login/forbidden-login",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+}

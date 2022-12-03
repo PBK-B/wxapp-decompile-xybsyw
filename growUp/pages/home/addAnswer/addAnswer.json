@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "insert-bottom": "../../../../components/insertBottom/insertBottom",
+        "van-toast": "../../../../vant-weapp/dist/toast/index"
+    },
+    "navigationBarTitleText": "回答"
+}

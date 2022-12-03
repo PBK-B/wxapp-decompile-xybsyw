@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-radio-group": "../../../../vant-weapp/dist/radio-group/index",
+        "van-radio": "../../../../vant-weapp/dist/radio/index"
+    },
+    "navigationBarTitleText": "实习计划"
+}

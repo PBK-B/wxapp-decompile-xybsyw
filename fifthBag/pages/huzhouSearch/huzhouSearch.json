@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "itemcompany": "../../../components/item-company/item-company",
+        "itemjob": "../../../components/item-job/item-job",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "jobselectpop": "../../components/job-select-pop/job-select-pop",
+        "conpanyselectpop": "../../components/conpany-select-pop/conpany-select-pop",
+        "van-col": "../../../vant-weapp/dist/col/index",
+        "van-row": "../../../vant-weapp/dist/row/index",
+        "van-search": "../../../vant-weapp/dist/search/index"
+    },
+    "navigationBarTitleText": "搜索"
+}

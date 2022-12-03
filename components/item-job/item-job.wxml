@@ -1,0 +1,73 @@
+<view class="posList" wx:if="{{$taroCompReady}}">
+    <view class="pos_header">
+        <view class="topLayout">
+            <view class="rightTitle">
+                <text class="name single_text" wx:if="{{type==1||type==3}}">{{itemData.postName}}</text>
+                <text class="name single_text" wx:if="{{type==2||type==4}}">{{itemData.name}}</text>
+            </view>
+            <view class="left" wx:if="{{type==1||type==2||type==4}}">
+                <text class="salary" wx:if="{{itemData.salaryType==0}}">
+                    <text wx:if="{{!itemData.floorSalary&&!itemData.upperSalary}}">面议</text>
+                    <text wx:if="{{itemData.floorSalary||itemData.upperSalary}}">{{anonymousState__temp}}</text>
+                </text>
+                <text class="salary" wx:if="{{itemData.salaryType==2}}">
+                    <text wx:if="{{!itemData.upperSalary}}">面议</text>
+                    <text wx:if="{{itemData.upperSalary}}">{{anonymousState__temp2}}</text>
+                </text>
+                <text class="salary" wx:if="{{itemData.salaryType==1}}">
+                    <text wx:if="{{!itemData.daySalary}}">面议</text>
+                    <text wx:if="{{itemData.miniDaySalary===null&&itemData.daySalary}}">{{itemData.daySalary+'元/天'}}</text>
+                    <text wx:if="{{itemData.miniDaySalary!==null&&itemData.daySalary}}">{{itemData.miniDaySalary+'-'+itemData.daySalary+'元/天'}}</text>
+                </text>
+                <text class="salary" wx:if="{{itemData.salaryType==3}}">
+                    <text wx:if="{{!itemData.daySalary}}">面议</text>
+                    <text wx:if="{{itemData.daySalary}}">{{itemData.daySalary+'元/天'}}</text>
+                </text>
+            </view>
+            <view class="left" wx:if="{{type==3}}">
+                <text class="salary">{{itemData.salary}}</text>
+            </view>
+        </view>
+        <view class="desLayout">
+            <view class="rightWelfare" wx:if="{{type==30}}">
+                <view class="welfareLayout" wx:for="{{itemData.welfareList}}" wx:key="index">
+                    <text class="txt" wx:if="{{index<3}}">{{item}}</text>
+                    <text class="txt" wx:if="{{index==3}}">...</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pos_main">
+        <view class="logo" wx:if="{{type==1}}">
+            <image binderror="binderrorimg" data-errorimg="{{index}}" src="{{itemData.enterpriseLog}}" wx:if="{{itemData.enterpriseLog}}"></image>
+            <image src="https://xcxresources.xybsyw.com/xcx/images/com_default.png" wx:if="{{!itemData.enterpriseLog}}"></image>
+        </view>
+        <view class="logo" wx:if="{{type==2||type==3||type==4}}">
+            <image binderror="binderrorimg" data-errorimg="{{index}}" src="{{itemData.logoUrl}}" wx:if="{{itemData.logoUrl}}"></image>
+            <image src="https://xcxresources.xybsyw.com/xcx/images/com_default.png" wx:if="{{!itemData.logoUrl}}"></image>
+        </view>
+        <view class="pos_info">
+            <view class="com_name single_text" wx:if="{{type!=3}}">{{itemData.enterpriseName}}</view>
+            <view class="com_name single_text" wx:if="{{type==3}}">
+                <text>{{itemData.enterpriseName}}</text>
+                <text class="tagJidi" wx:if="{{itemData.label}}">
+                    <text class="icon icon-qizi" wx:if="{{itemData.baseType}}"></text>{{itemData.label}}</text>
+            </view>
+            <view class="com_info_layout">
+                <view class="com_info">
+                    <view class="tag" wx:if="{{type==1&&itemData.industryName}}">{{itemData.industryName}} <text wx:if="{{itemData.scaleName}}">|</text>
+                    </view>
+                    <view class="tag" wx:if="{{(type==2||type==4)&&itemData.industry}}">{{itemData.industry}} <text wx:if="{{itemData.scale}}">|</text>
+                    </view>
+                    <view class="tag" wx:if="{{type==3&&itemData.industrys}}">{{itemData.industrys}} <text wx:if="{{itemData.scale}}">|</text>
+                    </view>
+                    <view class="tag" wx:if="{{type==1&&itemData.scaleName}}">{{itemData.scaleName}}</view>
+                    <view class="tag" wx:if="{{(type==2||type==4)&&itemData.scale}}">{{itemData.scale}}</view>
+                    <view class="tag" wx:if="{{type==3&&itemData.scale}}">{{itemData.scale}}</view>
+                </view>
+                <view class="tag" wx:if="{{type!=3&&itemData.location}}">{{itemData.location}}</view>
+                <view class="tag" wx:if="{{type==3&&itemData.city}}">{{itemData.city}}</view>
+            </view>
+        </view>
+    </view>
+</view>

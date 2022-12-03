@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "chat-item": "./ChatItem/ChatItem",
+        "chat-input": "./ChatInput/ChatInput"
+    },
+    "navigationStyle": "custom",
+    "disableScroll": true
+}

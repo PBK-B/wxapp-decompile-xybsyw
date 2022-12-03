@@ -1,0 +1,5 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="red" wx:if="{{!showNum&&msgNum>0}}"></view>
+    <view class="red_num" wx:if="{{showNum&&msgNum>0&&msgNum<100}}">{{msgNum}}</view>
+    <view class="red_num_99" wx:if="{{showNum&&msgNum>=100}}">99+</view>
+</block>

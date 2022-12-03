@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-popup": "../../../../vant-weapp/dist/popup/index",
+        "van-datetime-picker": "../../../../vant-weapp/dist/datetime-picker/index",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-rate": "../../../../vant-weapp/dist/rate/index",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "问卷详情"
+}

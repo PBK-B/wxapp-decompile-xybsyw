@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "item-job": "../../../components/item-job/item-job",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "ec-canvas": "../../echarts/ec-canvas/ec-canvas"
+    },
+    "navigationBarTitleText": "职位详情"
+}

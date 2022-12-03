@@ -1,0 +1,21 @@
+<view bindtap="toSort" class="barBox" wx:if="{{$taroCompReady}}">
+    <view class="barItem">
+        <view class="name">{{title}}</view>
+        <view class="iconView">
+            <block wx:if="{{icon=='上下'}}">
+                <image class="icon" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_shangxia0.png" wx:if="{{sortStadus==0}}"></image>
+                <image class="icon" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_shangxia2.png" wx:elif="{{sortStadus==1}}"></image>
+                <image class="icon" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_shangxia1.png" wx:elif="{{sortStadus==2}}"></image>
+            </block>
+            <block wx:elif="{{icon=='左右'}}">
+                <image class="icon2" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_zuoyou1.png" wx:if="{{sortStadus==0||stadus==1}}"></image>
+                <image class="icon2" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_zuoyou2.png" wx:elif="{{sortStadus==0||stadus==2}}"></image>
+                <block wx:else>
+                    <image class="icon2" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_zuoyou0.png" wx:if="{{sortStadus==0}}"></image>
+                    <image class="icon2" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_zuoyou1.png" wx:elif="{{sortStadus==1}}"></image>
+                    <image class="icon2" src="https://xcxresources.xybsyw.com/teacherXcx/images/sort_zuoyou2.png" wx:elif="{{sortStadus==2}}"></image>
+                </block>
+            </block>
+        </view>
+    </view>
+</view>

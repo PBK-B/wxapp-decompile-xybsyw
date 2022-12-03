@@ -1,0 +1,36 @@
+<view class="{{true}}" wx:if="{{$taroCompReady}}">
+    <view bindtap="jumpToPrivateSphere" class="top_jump" wx:if="{{sphereInfo.status}}">
+        <view class="img_icon"></view>
+        <text class="text" decode="{{true}}">{{sphereInfo.content}}</text>
+        <view class="right_btn">咨询</view>
+    </view>
+    <scroll-view bindscrolltolower="scrollToLower" scrollY="{{true}}" style="{{'height:'+maxHeight+'px;'}}" wx:if="{{showChatFlag}}">
+        <view bindtap="goDetail" class="topic_list" data-id="{{item[$original].id}}" wx:for="{{loopArray621}}" wx:key="index">
+            <itemcourse compid="{{item[$compid__890]}}"></itemcourse>
+        </view>
+        <view class="loading" wx:if="{{hasMore&&maxPage>1}}">
+            <at-activity-indicator compid="{{$compid__891}}"></at-activity-indicator>
+        </view>
+        <view class="nodata" wx:if="{{!hasMore&&courseList.length>0}}">
+            <text>暂无更多课程</text>
+        </view>
+        <view class="no_answer_other_container" wx:if="{{!hasMore&&courseList.length==0}}">
+            <image src="https://xcxresources.xybsyw.com/xcx/images/nodata_2.png"></image>
+            <text class="no_answer_other_container_des">暂未领取课程</text>
+        </view>
+    </scroll-view>
+    <view class="default_box" wx:if="{{!showChatFlag}}">
+        <view class="box_item">
+            <view class="box_top"></view>
+            <view class="box_bottom"></view>
+        </view>
+        <view class="box_item">
+            <view class="box_top"></view>
+            <view class="box_bottom"></view>
+        </view>
+        <view class="box_item">
+            <view class="box_top"></view>
+            <view class="box_bottom"></view>
+        </view>
+    </view>
+</view>

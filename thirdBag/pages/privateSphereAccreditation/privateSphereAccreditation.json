@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "van-dialog": "../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationStyle": "custom"
+}

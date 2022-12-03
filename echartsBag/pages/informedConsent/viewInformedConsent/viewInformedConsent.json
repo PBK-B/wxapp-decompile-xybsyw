@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "监护人知情同意书"
+}

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "official-accounts-popup": "../../../components/OfficialAccountsPopup/OfficialAccountsPopup",
+        "van-popup": "../../../vant-weapp/dist/popup/index"
+    },
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+}

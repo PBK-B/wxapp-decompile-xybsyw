@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "canvas-progress": "../CanvasProgress/CanvasProgress",
+        "at-icon": "../../npm/taro-ui/dist/weapp/components/icon/index",
+        "contact-teacher": "../contactTeacher/contactTeacher",
+        "van-loading": "../../vant-weapp/dist/loading/index",
+        "van-icon": "../../vant-weapp/dist/icon/index"
+    }
+}

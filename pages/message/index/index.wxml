@@ -1,0 +1,130 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="fixedTop" style="{{'height:'+statusHeight+'px'}}">
+        <view class="recommendBox" wx:if="{{isLogin==1}}">
+            <van-tabs __fn_onClick="{{true}}" active="{{anonymousState__temp}}" bindclick="changeType" border="{{false}}" customClass="growup_tabs" lineWidth="24">
+                <van-tab title="消息"></van-tab>
+                <van-tab title="人脉" wx:if="{{showMyContainer}}"></van-tab>
+            </van-tabs>
+        </view>
+        <view bindtap="findAlumnus" class="findAlumnus" wx:if="{{isLogin==1}}">找校友</view>
+    </view>
+    <view class="container" style="{{'padding-top:'+statusHeight+'px;padding-bottom:'+bPadding+'rpx'}}" wx:if="{{isLogin==1&&actType==1}}">
+        <view class="ontoLayout">
+            <view bindtap="anonymousFunc0" class="itemLayout" data-e-tap-a-a="{{item[_$indexKey]}}" data-e-tap-so="this" wx:for="{{loopArray749}}" wx:for-index="__index0">
+                <image src="{{item[$original].headUrl}}"></image>
+                <view class="titleLayout">
+                    <text class="titleTxt">{{item[$original].conversationName}}</text>
+                </view>
+                <view class="badg1">
+                    <msgdot compid="{{item[$compid__1145]}}"></msgdot>
+                </view>
+            </view>
+        </view>
+        <view>
+            <block wx:if="{{!noMessage}}">
+                <view class="newsList" wx:for="{{loopArray750}}" wx:key="index">
+                    <view bindtap="toDetail" class="newswarp" data-index="{{index}}">
+                        <view class="headV headv_group" style="{{'color:'+item[$original].headColor}}" wx:if="{{item[$original].conversationType==1}}">{{item[$original].headStr}}</view>
+                        <view class="avatar" wx:if="{{item[$original].conversationType!=1}}">
+                            <image src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!item[$original].headUrl&&!item[$original].logoUrl}}"></image>
+                            <image binderror="errorHeadFunction" data-index="{{index}}" src="{{item[$original].logoUrl}}" wx:if="{{item[$original].clientMsgType==1}}"></image>
+                            <image binderror="errorHeadFunction" data-index="{{index}}" src="{{item[$original].headUrl}}" wx:else></image>
+                        </view>
+                        <view class="content">
+                            <view class="title">
+                                <text class="msg-name single_text">{{item[$original].conversationName||''}}</text>
+                                <text class="time">{{item[$original].dateStr||''}}</text>
+                            </view>
+                            <view class="summary">
+                                <text class="lastMsgText single_text" nodes="{{item[$original].fromName+'：'+item[$original].content}}" style="{{'padding-right: '+(item[$original].unReadFlag||item[$original].unReadCount>0?'52rpx':0)+';'}}" wx:if="{{item[$original].fromName}}">{{item[$original].fromName+'：'+item[$original].content||''}}</text>
+                                <text class="lastMsgText single_text" style="{{'padding-right: '+(item[$original].unReadFlag||item[$original].unReadCount>0?'52rpx':0)+';'}}" wx:else>{{item[$original].content||''}}</text>
+                                <msgdot compid="{{item[$compid__1146]}}"></msgdot>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="nologin_warp" style="{{'height:'+windowHeight+'px'}}" wx:if="{{noMessage}}">
+                <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nodata_4.png"></image>
+                <view class="text">还没有消息哦~</view>
+            </view>
+        </view>
+        <view class="loading_box" wx:if="{{showChatFlag}}">
+            <image src="https://xcxresources.xybsyw.com/xcx/images/chat_loading_v1.gif"></image>
+            <view class="loading_text">加载中</view>
+        </view>
+        <text class="keepTime" wx:if="{{currentPage>=maxPage}}">消息记录仅保留近90天</text>
+    </view>
+    <view class="btns" style="{{'top:'+statusHeight+'px'}}" wx:if="{{isLogin==1&&actType==2}}">
+        <view bindtap="changeFindType" class="{{findType==0?'selectBtn':'btn'}}" data-type="0">找老师</view>
+        <view bindtap="changeFindType" class="{{findType==1?'selectBtn1':'btn1'}}" data-type="1">找同学</view>
+        <view bindtap="changeFindType" class="{{findType==2?'selectBtn1':'btn1'}}" data-type="2">实习群</view>
+    </view>
+    <view class="container" style="{{'padding-top:'+statusHeight+68+'px;padding-bottom:'+bPadding+'rpx'}}" wx:if="{{isLogin==1&&actType==2}}">
+        <view class="dataList" wx:if="{{findType==0&&!noData}}">
+            <view class="dataListItem" wx:for="{{teacherList}}" wx:key="index">
+                <view class="centerView">
+                    <image bindtap="gotoHomePage" class="headImg" data-index="{{index}}" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!item.photograph}}"></image>
+                    <image binderror="errorFunction" bindtap="gotoHomePage" class="headImg" data-index="{{index}}" src="{{item.photograph}}" wx:if="{{item.photograph}}"></image>
+                    <view bindtap="toIM" class="titleView" data-index="{{index}}">
+                        <view class="stuName onlyStuName}}">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="rightView">
+                    <image bindtap="toIM" class="chatImg" data-index="{{index}}" src="https://xcxresources.xybsyw.com/xcx/images/msg_toChat.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="nologin_warp" style="{{'height:'+windowHeight+'px'}}" wx:if="{{findType==0&&noData}}">
+            <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nodata_4.png"></image>
+            <view class="text">老师还未到来，请耐心等待</view>
+        </view>
+        <view class="dataList" wx:if="{{findType==1&&!noData}}">
+            <view class="dataListItem" wx:for="{{classList}}" wx:key="index">
+                <view class="centerView">
+                    <image bindtap="gotoHomePage" class="headImg" data-index="{{index}}" src="https://xcxresources.xybsyw.com/xcx/images/avatar_man.png" wx:if="{{!item.personPic}}"></image>
+                    <image binderror="errorFunction" bindtap="gotoHomePage" class="headImg" data-index="{{index}}" src="{{item.personPic}}" wx:if="{{item.personPic}}"></image>
+                    <view bindtap="toIM" class="titleView" data-index="{{index}}">
+                        <view class="{{'stuName '+(item.enterpriseName?'':'onlyStuName')}}">{{item.name}}</view>
+                        <view class="postName" wx:if="{{item.enterpriseName}}">{{item.enterpriseName+'·'+item.positionName}}</view>
+                    </view>
+                </view>
+                <view class="rightView">
+                    <view class="myself" wx:if="{{item.followState==3}}">自己</view>
+                    <view class="unActive" wx:if="{{!item.activate}}">未激活</view>
+                    <image bindtap="toIM" class="chatImg" data-index="{{index}}" src="https://xcxresources.xybsyw.com/xcx/images/msg_toChat.png" wx:if="{{item.followState!=3&&item.activate}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="nologin_warp" style="{{'height:'+windowHeight+'px'}}" wx:if="{{findType==1&&noData}}">
+            <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nodata_4.png"></image>
+            <view class="text">还没有同学哦~</view>
+        </view>
+        <view class="dataList" wx:if="{{findType==2&&!noData}}">
+            <view wx:for="{{groupList}}" wx:key="index">
+                <view class="dataListItem">
+                    <view class="centerView">
+                        <view bindtap="toGroupDetail" class="headV headv_group" data-index="{{index}}" style="{{'color:'+item.headColor+';'}}">{{item.headStr}}</view>
+                        <view bindtap="toIM" class="name" data-index="{{index}}">{{item.name}}<text bindtap="toIM" class="num" data-index="{{index}}">{{'('+item.memberCount+')'}}</text>
+                        </view>
+                    </view>
+                    <view class="rightView">
+                        <image bindtap="toIM" class="chatImg" data-index="{{index}}" src="https://xcxresources.xybsyw.com/xcx/images/msg_toChat.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="nologin_warp" style="{{'height:'+windowHeight+'px'}}" wx:if="{{findType==2&&noData}}">
+            <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nodata_4.png"></image>
+            <view class="text">老师尚未创建实习群，请耐心等待</view>
+        </view>
+    </view>
+    <view class="nologin_warp" style="{{'height:'+windowHeight+'px'}}" wx:if="{{isLogin==0}}">
+        <image mode="widthFix" src="https://xcxresources.xybsyw.com/xcx/images/nodata_4.png"></image>
+        <view class="text">还没有收到消息哦~</view>
+        <button bindtap="toLogin">立即登录</button>
+    </view>
+    <fastlogin compid="{{$compid__1147}}" id="fastlogin"></fastlogin>
+    <bottomtabbar compid="{{$compid__1148}}" id="Bottomtabbar"></bottomtabbar>
+    <forbiddenlogin compid="{{$compid__1149}}"></forbiddenlogin>
+</block>

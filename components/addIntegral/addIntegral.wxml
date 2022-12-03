@@ -1,0 +1,16 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="container" wx:if="{{isShow}}">
+        <view class="page-body">
+            <image animation="{{animationData}}" class="animation-element" mode="scaleToFill" src="https://xcxresources.xybsyw.com/xcx/images/guang.png"></image>
+            <image class="gold" src="https://xcxresources.xybsyw.com/xcx/images/sendGold.png" wx:if="{{goldType==0}}"></image>
+            <image class="gold" src="https://xcxresources.xybsyw.com/xcx/images/shareGold.png" wx:if="{{goldType==1}}"></image>
+            <image class="gold" src="https://xcxresources.xybsyw.com/xcx/images/lookpostGold.png" wx:if="{{goldType==2}}"></image>
+            <image class="gold_open" src="https://xcxresources.xybsyw.com/xcx/images/points_10_open.gif" wx:if="{{goldType==3}}"></image>
+            <image class="gold_open" src="https://xcxresources.xybsyw.com/xcx/images/points_25_open.gif" wx:if="{{goldType==4}}"></image>
+            <image class="gold_open" src="https://xcxresources.xybsyw.com/xcx/images/points_60_open.gif" wx:if="{{goldType==5}}"></image>
+            <view class="fengV" wx:if="{{fengType!=-1}}">
+                <text class="fengADD">+</text>
+                <text class="fengCont" wx:if="{{fengType!=-1}}">{{fengType}}</text>积分</view>
+        </view>
+    </view>
+</block>

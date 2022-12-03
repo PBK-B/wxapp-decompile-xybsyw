@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index"
+    },
+    "navigationBarTitleText": "人才政策"
+}

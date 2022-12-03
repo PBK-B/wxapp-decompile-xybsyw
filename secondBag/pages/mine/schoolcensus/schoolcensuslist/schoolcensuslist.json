@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "topbuttongroup": "../../../../../components/top-button-group/top-button-group"
+    },
+    "navigationStyle": "custom"
+}

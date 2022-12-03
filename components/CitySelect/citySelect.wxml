@@ -1,0 +1,35 @@
+<van-popup __fn_onClose="{{true}}" bindclose="onClose" customStyle="border-radius:28rpx 28rpx 0rpx 0rpx;" position="bottom" show="{{isShow}}" wx:if="{{$taroCompReady}}">
+    <view class="actionradio_warp">
+        <view class="title">{{title}} <view catchtap="anonymousFunc0" class="closeIcon"></view>
+        </view>
+        <view class="container">
+            <view class="childrenWarp">
+                <view class="firstWarp" style="{{'height:'+height+'px'}}">
+                    <scroll-view scrollY="{{true}}" style="{{'max-height:'+height-28+'px'}}">
+                        <view bindtap="selectFirst" class="{{'item '+(item.id==firstId?'current':'')}}" data-item="{{item}}" wx:for="{{firstArr}}" wx:key="index">{{item.name}}</view>
+                    </scroll-view>
+                </view>
+                <view class="secondWarp">
+                    <scroll-view scrollY="{{true}}" style="{{'max-height:'+height-28+'px'}}">
+                        <view bindtap="selectChange" class="item" data-checked="{{item.checked}}" data-value="{{item}}" hoverClass="click_hover" hoverStartTime="10" hoverStayTime="20" id="{{index}}" wx:for="{{secondArr}}" wx:key="index">{{item.nameHtml?item.nameHtml:item.name}} <text class="checkIcon weixuan" wx:if="{{!item.checked}}"></text>
+                            <image class="checkIcon yixuanzhong" src="https://xcxresources.xybsyw.com/xcx/images/markJobStatus202104_21.png" wx:if="{{item.checked}}"></image>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <view class="{{'footer '+(ifIphoneX?'bottom_iphonex':'')}}">
+                <view class="hasSelect" wx:if="{{resultArr.length>0}}">
+                    <view class="left">已选:</view>
+                    <view class="right">
+                        <view bindtap="deleteResult" class="tag" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}" wx:for="{{resultArr}}" wx:key="index">{{item.name}}<text class="closeImg"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="btn_warp">
+                    <view bindtap="resetResult" class="reset">重置</view>
+                    <view bindtap="sureSelect" class="sure">确定</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</van-popup>

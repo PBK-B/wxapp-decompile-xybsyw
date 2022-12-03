@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "itemquestion": "../../../../components/item-question/item-question",
+        "itemanswer": "../../../../components/item-answer/item-answer",
+        "itemdynamic": "../../../../components/item-dynamic/item-dynamic",
+        "iteminformation": "../../../../components/item-information/item-information",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "fastlogin": "../../../../components/fastlogin/fastlogin",
+        "complaint-popup": "../../../../components/complaint-popup/complaint-popup",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "话题圈",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTextStyle": "black"
+}

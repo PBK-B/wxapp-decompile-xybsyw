@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "professionselect": "../../../../components/professionselect/professionselect",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "一级行业介绍"
+}

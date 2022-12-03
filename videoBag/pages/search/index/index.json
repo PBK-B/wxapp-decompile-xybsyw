@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "city-change": "../../../../components/CityChange/cityChange",
+        "van-col": "../../../../vant-weapp/dist/col/index",
+        "van-row": "../../../../vant-weapp/dist/row/index",
+        "van-search": "../../../../vant-weapp/dist/search/index"
+    },
+    "navigationBarTitleText": "搜索"
+}

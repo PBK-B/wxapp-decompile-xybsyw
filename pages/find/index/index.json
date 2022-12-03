@@ -1,0 +1,27 @@
+{
+    "usingComponents": {
+        "homepage-guide": "../../../components/HomepageGuide/HomepageGuide",
+        "post-card-list": "../components/PostCardList/PostCardList",
+        "briefing-session": "../components/BriefingSession/BriefingSession",
+        "double-choice": "../components/DoubleChoice/DoubleChoice",
+        "into-enterprise": "../components/IntoEnterprise/IntoEnterprise",
+        "school-recomm": "../components/schoolRecomm/schoolRecomm",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "bottom-tabbar": "../../../components/bottom-tabbar/bottom-tabbar",
+        "forbiddenlogin": "../../../components/forbidden-login/forbidden-login",
+        "job-status-popup": "../../../components/JobStatusPopup/jobStatusPopup",
+        "city-select": "../../../components/CitySelect/citySelect",
+        "intention-popup": "../components/IntentionPopup/IntentionPopup",
+        "user-agreement-dialog": "../components/UserAgreementDialog/UserAgreementDialog",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "van-icon": "../../../vant-weapp/dist/icon/index",
+        "van-button": "../../../vant-weapp/dist/button/index",
+        "van-popup": "../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "校友邦",
+    "navigationBarBackgroundColor": "#FF453A",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+}

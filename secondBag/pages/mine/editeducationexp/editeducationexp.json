@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "actionradio": "../../../components/actionradio/actionradio",
+        "areaselect": "../../../../components/areaselect/areaselect",
+        "professionselect": "../../../../components/professionselect/professionselect",
+        "van-dialog": "../../../../vant-weapp/dist/dialog/index"
+    },
+    "navigationBarTitleText": "编辑教育经历"
+}

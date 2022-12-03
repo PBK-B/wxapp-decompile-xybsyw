@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "itemcourse": "../item-course/item-course",
+        "at-activity-indicator": "../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "我的课程"
+}

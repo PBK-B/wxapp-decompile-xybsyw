@@ -1,0 +1,19 @@
+{
+    "usingComponents": {
+        "enrolllist": "./components/enrolllist/enrolllist",
+        "education-practice": "../../components/EducationPractice/educationPractice",
+        "my-course": "../../components/myCourse/myCourse",
+        "fastlogin": "../../components/fastlogin/fastlogin",
+        "forbiddenlogin": "../../components/forbidden-login/forbidden-login",
+        "job-status-popup": "../../components/JobStatusPopup/jobStatusPopup",
+        "bottom-tabbar": "../../components/bottom-tabbar/bottom-tabbar",
+        "official-accounts-popup": "../../components/OfficialAccountsPopup/OfficialAccountsPopup",
+        "popup": "../../components/Popup/Popup",
+        "van-dialog": "../../vant-weapp/dist/dialog/index",
+        "van-popup": "../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+}

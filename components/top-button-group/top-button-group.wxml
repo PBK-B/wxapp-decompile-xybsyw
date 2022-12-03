@@ -1,0 +1,54 @@
+<block wx:if="{{$taroCompReady}}">
+    <view hidden="{{hidePlaceHolder}}" style="{{'height:'+statusHeight+navHeight+'px;'}}"></view>
+    <view class="{{'topbar '+(incompleteResume?'incompleteResumeBg':'')}}" style="{{'background: '+(transparent?'transparent':customBackgroundColor)}}">
+        <view class="status" style="{{'height:'+statusHeight+'px'}}"></view>
+        <view class="navbar" style="{{'height:'+navHeight+'px;'}}">
+            <view class="{{'navbar_home '+(isBlack?'isBlackHome':'')}}" wx:if="{{needHome&&!fromShareLink}}">
+                <block wx:if="{{isBlack}}">
+                    <view catchtap="anonymousFunc0">
+                        <image class=".firstImage" src="https://xcxresources.xybsyw.com/xcx/images/back_arrow_left.png"></image>
+                    </view>
+                    <text class="line"></text>
+                    <view catchtap="anonymousFunc1">
+                        <image class=".lastImage" src="https://xcxresources.xybsyw.com/xcx/images/top_bar_home.png"></image>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view catchtap="anonymousFunc2">
+                        <image class=".firstImage" src="https://xcxresources.xybsyw.com/xcx/images/back_arrow_left_w.png"></image>
+                    </view>
+                    <text class="line2"></text>
+                    <view catchtap="anonymousFunc3">
+                        <image class=".lastImage" src="https://xcxresources.xybsyw.com/xcx/images/top_bar_home_w.png"></image>
+                    </view>
+                </block>
+            </view>
+            <view catchtap="anonymousFunc4" class="navbar_back" wx:if="{{!hideBack&&!needHome&&!fromShareLink}}">
+                <image src="https://xcxresources.xybsyw.com/xcx/images/back_arrow_left.png" wx:if="{{isBlack}}"></image>
+                <image src="https://xcxresources.xybsyw.com/xcx/images/back_arrow_left_w.png" wx:if="{{!isBlack}}"></image>
+            </view>
+            <view class="{{'navbar_home navbar_home2 '+(isBlack?'isBlackHome':'')}}" wx:if="{{fromShareLink}}">
+                <view catchtap="anonymousFunc5" wx:if="{{isBlack}}">
+                    <image class=".lastImage" src="https://xcxresources.xybsyw.com/xcx/images/top_bar_home.png"></image>
+                </view>
+                <view catchtap="anonymousFunc6" wx:else>
+                    <image class=".lastImage" src="https://xcxresources.xybsyw.com/xcx/images/top_bar_home_w.png"></image>
+                </view>
+            </view>
+            <view class="navbar_title" style="{{'height:'+navHeight+'px'}}" wx:if="{{!titleLeftButtonRight}}">
+                <image catchtap="anonymousFunc7" class="titleIcon" src="{{topBar.icon}}" wx:if="{{topBar.icon}}"></image>
+                <text class="navbar_title_text"></text>
+                <view catchtap="anonymousFunc8" class="{{(isBlack?'':'colorfff')+' '+(isBold?'fontBold':'')}}">{{topBar.title}}</view>
+            </view>
+            <view class="{{'navbar_title2 '+(titleImage?'navbar_title3':'')}}" style="{{'height:'+navHeight+'px'}}" wx:if="{{titleLeftButtonRight}}">
+                <view class="titleRight" wx:if="{{!titleImage}}">{{topBar.title}}</view>
+                <image class="titlePic" src="{{titleImage}}" wx:if="{{titleImage}}"></image>
+                <view catchtap="anonymousFunc9" class="{{'topicBtn '+(focusState?'topicBtn_focus':'')+' '+(focusStateText?'focusBtn':'')}}">
+                    <text class="jia" wx:if="{{!focusState}}">+</text>
+                    <text wx:if="{{!focusState}}">关注</text>
+                    <text wx:if="{{focusState}}">{{focusStateText?focusStateText:'已关注'}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index"
+    },
+    "navigationBarTitleText": "已报名的双选会"
+}

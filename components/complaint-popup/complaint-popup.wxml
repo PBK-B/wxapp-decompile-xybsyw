@@ -1,0 +1,37 @@
+<van-popup __fn_onClose="{{true}}" bindclose="onClose" customClass="xyb_popup" customStyle="border-radius:16rpx 16rpx 0rpx 0rpx;" overlayStyle="background-color:rgba(0,0,0,0.4)" position="bottom" show="{{isShow}}" wx:if="{{$taroCompReady}}">
+    <view class="container">
+        <view class="top_container">
+            <text class="title">投诉</text>
+            <image catchtap="anonymousFunc0" class="close" src="https://xcxresources.xybsyw.com/xcx/images/ic_close_gray.png"></image>
+        </view>
+        <view class="main_container" wx:if="{{loadSuccess}}">
+            <view class="content_container">
+                <view class="lab_container">
+                    <text class="lab">此内容涉及以下哪些信息</text>
+                    <radio-group bindchange="labRadioChange" class="radio-group">
+                        <label class="{{'radio '+(item.checked?'active':'disabled')}}" wx:for="{{labTabList}}" wx:key="index">
+                            <radio checked="{{item.checked}}" style="display:none;" value="{{item.id}}"></radio>{{item.name}}</label>
+                    </radio-group>
+                </view>
+                <view class="reason_container" wx:if="{{showReason}}">
+                    <text class="lab">请选择具体原因</text>
+                    <radio-group bindchange="reasonRadioChange" class="radio-group">
+                        <label class="{{'radio '+(item.checked?'active':'disabled')}}" wx:for="{{reasonTabList}}" wx:key="index">
+                            <radio checked="{{item.checked}}" style="display:none;" value="{{item.id}}"></radio>{{item.name}}</label>
+                    </radio-group>
+                    <editor bindinput="inputListener" class="ql-container" id="editor" placeholder="其他信息(选填)"></editor>
+                    <view>
+                        <view class="word_account">
+                            <text class="{{contentLength>=maxWordNum?'word_account_text_red':'word_account_text'}}">{{contentLength}}</text>{{'/'+maxWordNum+'字'}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view catchtap="anonymousFunc1" class="loading_container" wx:if="{{!loadSuccess}}">
+            <text>{{loadText}}</text>
+        </view>
+        <view catchtap="anonymousFunc2" class="submit_container">
+            <text class="{{allowSubmit?'click':'unclick'}}">提交</text>
+        </view>
+    </view>
+</van-popup>

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "birthplace": "../../../components/birthplace/birthplace",
+        "professionselect": "../../../../components/professionselect/professionselect",
+        "fastlogin": "../../../../components/fastlogin/fastlogin"
+    },
+    "navigationBarTitleText": "在线双选会",
+    "enablePullDownRefresh": false
+}

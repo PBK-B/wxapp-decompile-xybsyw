@@ -1,0 +1,13 @@
+<view catchtap="anonymousFunc0" class="courseList" data-item="{{itemDataNew}}" wx:if="{{$taroCompReady}}">
+    <view class="title single_text">{{itemDataNew.title}}</view>
+    <view class="coverItem" style="{{'background-image:url('+(itemDataNew.coverImg?itemDataNew.coverImg:coverImgDefault)+')'}}">
+        <view class="state1" wx:if="{{itemDataNew.studyStatus=='未开始'}}">未开始</view>
+        <view class="state" wx:else>{{itemDataNew.studyStatus=='已学习'?'已学习'+itemDataNew.studyRate:itemDataNew.studyStatus}}</view>
+        <view class="info">
+            <text>{{'共'+itemDataNew.sectionNum+'节'}}</text>
+            <text class="line"></text>
+            <text>{{itemDataNew.learnerNum+'人已学习'}}</text>
+        </view>
+    </view>
+    <rich-text class="introduce max_line4" nodes="{{itemDataNew.introduction}}"></rich-text>
+</view>

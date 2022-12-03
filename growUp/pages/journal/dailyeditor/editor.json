@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "day-choose": "./inc/day/dayChoose",
+        "week-choose": "./inc/week/weekChoose",
+        "month-choose": "./inc/month/monthChoose",
+        "van-toast": "../../../../vant-weapp/dist/toast/index",
+        "van-popup": "../../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "写日志",
+    "navigationStyle": "custom"
+}

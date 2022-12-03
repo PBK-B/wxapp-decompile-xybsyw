@@ -1,0 +1,9 @@
+<block wx:if="{{$taroCompReady}}">
+    <view bindtouchmove="privateStopNoop" class="container" wx:if="{{isShow}}">
+        <view class="page-body">
+            <image catchtap="anonymousFunc0" class="gold" src="https://xcxresources.xybsyw.com/xcx/images/gd_mineIntegral.png" wx:if="{{pageType==0}}"></image>
+            <image catchtap="anonymousFunc1" class="gold1" src="https://xcxresources.xybsyw.com/xcx/images/gd_integral.png" wx:if="{{pageType==1}}"></image>
+            <image catchtap="anonymousFunc2" class="pointMall" src="https://xcxresources.xybsyw.com/xcx/images/gd_integralShop.png" wx:if="{{pageType==2}}"></image>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "at-icon": "../../npm/taro-ui/dist/weapp/components/icon/index",
+        "van-popup": "../../vant-weapp/dist/popup/index"
+    }
+}

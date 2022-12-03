@@ -1,0 +1,18 @@
+{
+    "usingComponents": {
+        "item-job-new": "../../../components/item-job-new/item-job-new",
+        "item-company-new": "../../../components/item-company-new/item-company-new",
+        "item-question": "../../../components/item-question/item-question",
+        "item-answer": "../../../components/item-answer/item-answer",
+        "item-dynamic": "../../../components/item-dynamic/item-dynamic",
+        "item-information": "../../../components/item-information/item-information",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "city-select": "../../components/CitySelectSlide/citySelect",
+        "van-tabs": "../../../vant-weapp/dist/tabs/index",
+        "van-tab": "../../../vant-weapp/dist/tab/index",
+        "van-icon": "../../../vant-weapp/dist/icon/index",
+        "van-button": "../../../vant-weapp/dist/button/index",
+        "van-popup": "../../../vant-weapp/dist/popup/index"
+    },
+    "navigationBarTitleText": "搜索"
+}

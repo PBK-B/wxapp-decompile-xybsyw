@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "msgdot": "../../../../components/msg-dot/msg-dot",
+        "at-activity-indicator": "../../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "van-swipe-cell": "../../../../vant-weapp/dist/swipe-cell/index"
+    },
+    "navigationBarTitleText": "师生消息",
+    "enablePullDownRefresh": false
+}

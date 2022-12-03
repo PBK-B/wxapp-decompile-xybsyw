@@ -1,0 +1,17 @@
+{
+    "usingComponents": {
+        "top-button-group": "../../../components/top-button-group/top-button-group",
+        "at-activity-indicator": "../../../npm/taro-ui/dist/weapp/components/activity-indicator/index",
+        "itemanswer": "../../../components/item-answer/item-answer",
+        "itemdynamic": "../../../components/item-dynamic/item-dynamic",
+        "itemquestion": "../../../components/item-question/item-question",
+        "fastlogin": "../../../components/fastlogin/fastlogin",
+        "complaint-popup": "../../../components/complaint-popup/complaint-popup",
+        "van-popup": "../../../vant-weapp/dist/popup/index",
+        "van-toast": "../../../vant-weapp/dist/toast/index"
+    },
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black"
+}

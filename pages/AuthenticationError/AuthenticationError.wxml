@@ -1,0 +1,7 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="error_box">
+        <image src="https://xcxresources.xybsyw.com/xcx/images/nodata_2.png"></image>
+        <text class="error_text">{{params.desc}}</text>
+    </view>
+    <button bindtap="anonymousFunc0" class="bac_btn">返回首页</button>
+</block>

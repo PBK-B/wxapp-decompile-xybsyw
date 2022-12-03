@@ -1,0 +1,1 @@
+<text bindtap="handleClick" class="{{anonymousState__temp}}" data-e-tap-so="this" style="{{anonymousState__temp2}}" wx:if="{{$taroCompReady}}"></text>
