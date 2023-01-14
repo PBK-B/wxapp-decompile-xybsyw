@@ -5,7 +5,7 @@
 -->
 # 微信小程序逆向之校友邦小程序请求加密算法解析
 
-> 文章地址: https://bin.zmide.com/?p=1078&preview=true
+> 文章地址: https://bin.zmide.com/?p=1078
 
 他喵的，学校要求必须实习每天在 **校友邦 **小程序打卡。（我寻思着在公司上班都没有要求我们打卡，这他喵实习还整这套？我这小暴脾气能忍？于是乎，找了一下发现已经有大佬实现了 <https://github.com/BytePrince/XYB_Auto_Sign>
 
